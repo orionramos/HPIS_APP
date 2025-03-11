@@ -1,0 +1,3 @@
+repository "HPIS_APP/HPIS_APP@4674017756221@cloud"
+  path "/"
+    smartbranch "/main"

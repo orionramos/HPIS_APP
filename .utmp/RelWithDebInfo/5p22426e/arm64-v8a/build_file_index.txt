@@ -1,0 +1,2 @@
+C:\HPIS_APP\HPIS_APP\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\HPIS_APP\HPIS_APP\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

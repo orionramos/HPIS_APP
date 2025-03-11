@@ -1,0 +1,38 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+ios
+ios.app
+
+# Code Editors
+/.idea
+/.vscode
+/*.csproj
+/*.sln
+*.swp
+*.vcxproj.user
+
+# Unity
+**/[Ll]ibrary/*
+**/[Tt]emp/*
+**/[Oo]bj/*
+**/[Bb]uild/*
+**/[Bb]uilds/*
+**/UnityGenerated/*
+**/Assets/AssetStoreTools*
+**/UserSettings/*
+**/Logs/*
+packages-lock.json
+
+# Unity3D Crash Reports
+sysinfo.txt
