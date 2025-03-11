@@ -98,7 +98,7 @@ public class DataManager : MonoBehaviour
 
             if (gripStatus != null)
             {
-                gripStatus.UpdateGripStatus(jsonData.EMGA_counter, jsonData.EMGB_counter);
+                gripStatus.UpdateGripStatus(jsonData.EMGA_counter, jsonData.EMGB_counter,jsonData.GT);
             }
             else
             {
