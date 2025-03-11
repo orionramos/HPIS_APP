@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\HPIS_APP\\HPIS_APP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|c:\\hpis_app\\hpis_app\\assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|c:\\hpis_app\\hpis_app\\assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "GripStatus.cs",
               "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Resources\\Iconos\\GripStatus.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Iconos\\GripStatus.cs",
               "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Resources\\Iconos\\GripStatus.cs",
               "RelativeToolTip": "Assets\\Resources\\Iconos\\GripStatus.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAA8wBoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAwG4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-05T14:36:32.861Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CameraDisplay.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T17:28:59.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T17:28:59.528Z"
             },
             {
               "$type": "Document",
@@ -72,21 +71,19 @@
               "RelativeToolTip": "Assets\\Scripts\\FeedbackManager.cs",
               "ViewState": "AgIAAHgAAAAAAAAAAAAmwFsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T19:49:27.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T19:49:27.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DataManager.cs",
               "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\DataManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DataManager.cs",
               "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\DataManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\DataManager.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAmwGIAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAuwGcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:46:25.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T22:46:25.727Z"
             },
             {
               "$type": "Document",

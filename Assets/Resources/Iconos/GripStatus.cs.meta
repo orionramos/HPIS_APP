@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: eea99250c72f9c648b5996af9f378664
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - openHandIcon: {instanceID: 0}
+  - closedHandIcon: {instanceID: 0}
+  - GTIcon: {instanceID: 0}
+  - GT1Sprite: {fileID: 21300000, guid: ade998cbe6dde554a9b85e50a8248791, type: 3}
+  - GT2Sprite: {instanceID: 0}
+  - GT3Sprite: {instanceID: 0}
+  - GT4Sprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
