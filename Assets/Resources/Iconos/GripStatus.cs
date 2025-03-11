@@ -34,23 +34,33 @@ public class GripStatus : MonoBehaviour
 
             if (EMGA_counter > lastEMGA) // se presiono el boton A
             {
-                isHolding = false;
-                UpdateIcons();
-                lastChangeTime = Time.time;
-                Debug.Log("Mano Abierta (A)");
+                SetOpenHand();
             }
             else if (EMGB_counter > lastEMGB) // se presiono el boton B
             {
-                isHolding = true;
-                UpdateIcons();
-                lastChangeTime = Time.time;
-                Debug.Log("Mano Cerrada (B)");
+                SetClosedHand();
             }
-
-
         }
         lastEMGA = EMGA_counter; //update last value
         lastEMGB = EMGB_counter; //update last value
+    }
+
+    // Method to force open hand
+    public void SetOpenHand()
+    {
+        isHolding = false;
+        UpdateIcons();
+        lastChangeTime = Time.time;
+        Debug.Log("Mano Abierta (A)");
+    }
+
+    //Method to Force closed hand
+    public void SetClosedHand()
+    {
+        isHolding = true;
+        UpdateIcons();
+        lastChangeTime = Time.time;
+        Debug.Log("Mano Cerrada (B)");
     }
 
     // Método privado para actualizar los íconos
@@ -58,5 +68,11 @@ public class GripStatus : MonoBehaviour
     {
         openHandIcon.gameObject.SetActive(!isHolding);
         closedHandIcon.gameObject.SetActive(isHolding);
+    }
+
+    // Start method to set open hand at start
+    private void Start()
+    {
+        SetOpenHand();
     }
 }
