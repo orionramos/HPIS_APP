@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Assets\\Resources\\Iconos\\GripStatus.cs",
               "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Resources\\Iconos\\GripStatus.cs",
               "RelativeToolTip": "Assets\\Resources\\Iconos\\GripStatus.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAAwHgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAwG4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-05T14:36:32.861Z",
               "EditorCaption": ""
@@ -83,8 +83,7 @@
               "RelativeToolTip": "Assets\\Scripts\\DataManager.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAuwGcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:46:25.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T22:46:25.727Z"
             },
             {
               "$type": "Document",
