@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using UnityEngine.UI;
+using Newtonsoft.Json.Linq;  // Asegúrate de tener JSON.NET en el proyecto
 
 [System.Serializable]
 public class FeedbackStep
@@ -38,149 +39,170 @@ public class FeedbackDatabase
 public class FeedbackManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    public TextMeshProUGUI feedbackText;  // Para mostrar mensajes o resultados
-    public Image feedbackImage;           // Para mostrar imágenes
-    public AudioSource audioSource;       // Para reproducir audios
+    public TextMeshProUGUI feedbackText;
+    public Image feedbackImage;
+    public GameObject notificationPanel;            // Panel que simula ventana de notificación
+    public TextMeshProUGUI notificationText;        // Texto dentro de la ventana de notificación
+    public AudioSource audioSource;
 
     private FeedbackDatabase feedbackData;
+    private JObject visualTextsJson;
 
-    // Variables para almacenar la última combinación procesada
     private int lastActivity = -1;
     private int lastStrategy = -1;
     private int lastStep = -1;
 
     void Start()
     {
+        // Ocultar notificación inicialmente
+        if (notificationPanel != null) notificationPanel.SetActive(false);
+
         LoadFeedbackData();
+        LoadVisualTextData();
     }
 
     void LoadFeedbackData()
     {
-        // Asegúrate de colocar el archivo "feedback_database.json" en StreamingAssets
-        string path = Path.Combine(Application.streamingAssetsPath, "feedback_database.json");
-
+        var path = Path.Combine(Application.streamingAssetsPath, "feedback_database.json");
         if (File.Exists(path))
         {
-            string jsonString = File.ReadAllText(path);
-            Debug.Log("✅ JSON Cargado: " + jsonString);
-            feedbackData = JsonUtility.FromJson<FeedbackDatabase>(jsonString);
-            if (feedbackData == null || feedbackData.activities == null)
+            feedbackData = JsonUtility.FromJson<FeedbackDatabase>(File.ReadAllText(path));
+            Debug.Log($"[FeedbackManager] Feedback DB loaded: {feedbackData.activities.Count} activities");
+        }
+        else
+        {
+            Debug.LogError("[FeedbackManager] No se encontró feedback_database.json");
+        }
+    }
+
+    void LoadVisualTextData()
+    {
+        var path = Path.Combine(Application.streamingAssetsPath, "visual_texts.json");
+        if (File.Exists(path))
+        {
+            var jsonString = File.ReadAllText(path);
+            try
             {
-                Debug.LogError("⚠️ Error al cargar el JSON. Puede estar mal formateado o vacío.");
+                visualTextsJson = JObject.Parse(jsonString);
+                Debug.Log($"[FeedbackManager] Visual texts JSON loaded. Activities: {visualTextsJson.Count}");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[FeedbackManager] Error parsing visual_texts.json: {ex.Message}");
             }
         }
         else
         {
-            Debug.LogError("🚨 No se encontró el archivo feedback_database.json en StreamingAssets.");
+            Debug.LogWarning("[FeedbackManager] No se encontró visual_texts.json");
         }
     }
 
-    // Procesa el paso según el tipo de contenido
-    void ProcessStep(FeedbackStep step)
+    public void ShowFeedback(int activityId, int strategyId, int stepId)
     {
-        string type = step.contentType.ToLower();
-        // Reiniciamos la UI: ocultamos la imagen y detenemos el audio si se está reproduciendo.
-        if (feedbackImage) feedbackImage.gameObject.SetActive(false);
-        if (audioSource && audioSource.isPlaying) audioSource.Stop();
+        if (feedbackData?.activities == null) return;
+        if (activityId == lastActivity && strategyId == lastStrategy && stepId == lastStep) return;
+
+        lastActivity = activityId;
+        lastStrategy = strategyId;
+        lastStep = stepId;
+
+        var activity = feedbackData.activities.Find(a => a.id == activityId);
+        var strategy = activity?.strategies.Find(s => s.id == strategyId);
+        var step = strategy?.steps.Find(s => s.id == stepId);
+        if (step == null) return;
+
+        ProcessStep(step, strategyId, activityId, stepId);
+    }
+
+    void ProcessStep(FeedbackStep step, int strategyId, int activityId, int stepId)
+    {
+        // Antes de procesar, ocultar notificación y elementos
+        if (notificationPanel != null) notificationPanel.SetActive(false);
+        if (feedbackText != null) feedbackText.gameObject.SetActive(true);
+        if (feedbackImage != null) feedbackImage.gameObject.SetActive(false);
+        if (audioSource?.isPlaying == true) audioSource.Stop();
+
+        // Si es estrategia visual (4), intentar obtener texto y mostrar en panel
+        if (strategyId == 4)
+        {
+            var txt = FindVisualText(activityId, stepId);
+            if (!string.IsNullOrEmpty(txt))
+            {
+                ShowNotification(txt);
+                return;
+            }
+            else
+            {
+                Debug.LogWarning($"[FeedbackManager] No se encontró texto visual para Activity {activityId}, Step {stepId}");
+            }
+        }
+
+        // Fallback a audio/imagen
+        var type = step.contentType.ToLower();
 
         if (type == "audio")
         {
-            AudioClip clip = Resources.Load<AudioClip>(step.contentValue);
+            var clip = Resources.Load<AudioClip>(step.contentValue);
             if (clip != null)
             {
                 audioSource.clip = clip;
                 audioSource.Play();
-                feedbackText.text = "Reproduciendo audio: " + step.contentValue;
+                feedbackText.text = $"Reproduciendo audio: {step.contentValue}";
             }
             else
             {
-                feedbackText.text = "Audio no encontrado: " + step.contentValue;
+                feedbackText.text = $"Audio no encontrado: {step.contentValue}";
             }
         }
         else if (type == "image")
         {
-            Sprite sprite = Resources.Load<Sprite>(step.contentValue);
+            var sprite = Resources.Load<Sprite>(step.contentValue);
             if (sprite != null)
             {
                 feedbackImage.sprite = sprite;
                 feedbackImage.gameObject.SetActive(true);
-                feedbackText.text = "Mostrando imagen: " + step.contentValue;
+                feedbackText.text = $"Imagen mostrada: {step.contentValue}";
             }
             else
             {
-                feedbackText.text = "Imagen no encontrada: " + step.contentValue;
+                feedbackText.text = strategyId == 4
+                    ? $"Estrategia 4: contenido no encontrado: {step.contentValue}"
+                    : $"Imagen no encontrada: {step.contentValue}";
             }
-        }
-        else if (type.Contains("algorithm") || type == "python")
-        {
-            feedbackText.text = "Ejecutando código: " + step.contentValue;
-            RunPythonCode(step.contentValue);
         }
         else
         {
-            feedbackText.text = step.contentValue;
+            feedbackText.text = $"Tipo desconocido: {step.contentType}";
         }
     }
 
-    // Función simulada para "ejecutar" código Python o algoritmo
-    void RunPythonCode(string code)
+    string FindVisualText(int activityId, int stepId)
     {
-        Debug.Log("Simulación de ejecución de código Python/algoritmo: " + code);
-        // Aquí podrías integrar una solución real si lo deseas.
+        if (visualTextsJson == null) return null;
+
+        var activityKey = activityId.ToString();
+        if (!visualTextsJson.TryGetValue(activityKey, out JToken activityToken)) return null;
+
+        var texts = activityToken["texts"] as JObject;
+        if (texts == null) return null;
+
+        var stepKey = stepId.ToString();
+        if (!texts.TryGetValue(stepKey, out JToken textToken)) return null;
+
+        return textToken.ToString();
     }
 
-    // Muestra la retroalimentación buscada en base a actividad, estrategia y paso
-    public void ShowFeedback(int actividad, int estrategia, int paso)
+    void ShowNotification(string message)
     {
-        // Si se intenta procesar el mismo paso que ya se procesó, no se ejecuta nada.
-        if (actividad == lastActivity && estrategia == lastStrategy && paso == lastStep)
+        // Mostrar ventana de notificación con el texto
+        if (notificationPanel != null)
         {
-            Debug.Log("⚠️ El mismo paso ya fue procesado; no se ejecuta nuevamente.");
-            return;
+            notificationPanel.SetActive(true);
+            if (notificationText != null)
+                notificationText.text = message;
         }
-        else
-        {
-            // Actualizamos la última combinación procesada
-            lastActivity = actividad;
-            lastStrategy = estrategia;
-            lastStep = paso;
-        }
-
-        Debug.Log($"🔍 Buscando: Actividad={actividad}, Estrategia={estrategia}, Paso={paso}");
-        if (feedbackData != null && feedbackData.activities != null)
-        {
-            ActivityData activity = feedbackData.activities.Find(a => a.id == actividad);
-            if (activity != null)
-            {
-                StrategyData strategy = activity.strategies.Find(s => s.id == estrategia);
-                if (strategy != null)
-                {
-                    FeedbackStep step = strategy.steps.Find(p => p.id == paso);
-                    if (step != null)
-                    {
-                        ProcessStep(step);
-                        Debug.Log("✅ Paso procesado: " + step.contentValue);
-                        return;
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"⚠️ Paso {paso} no encontrado en estrategia {estrategia}.");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning($"⚠️ Estrategia {estrategia} no encontrada en actividad {actividad}.");
-                }
-            }
-            else
-            {
-                Debug.LogWarning($"⚠️ Actividad {actividad} no encontrada en el JSON.");
-            }
-        }
-        else
-        {
-            Debug.LogError("🚨 feedbackData no ha sido cargado correctamente.");
-        }
-        feedbackText.text = "No hay datos de retroalimentación disponibles.";
+        // Opcional: ocultar FeedbackText principal
+        if (feedbackText != null)
+            feedbackText.gameObject.SetActive(false);
     }
 }
