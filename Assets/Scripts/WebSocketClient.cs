@@ -63,7 +63,7 @@ public class WebSocketClient : MonoBehaviour
         websocket.OnMessage += (sender, e) =>
         {
             string message = e.Data;
-            Debug.Log($"Mensaje recibido: {message}");
+            //Debug.Log($"Mensaje recibido: {message}");
 
             EnqueueMainThreadAction(() =>
             {

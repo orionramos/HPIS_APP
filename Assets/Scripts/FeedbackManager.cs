@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 using UnityEngine.UI;
+using Newtonsoft.Json.Linq;  // Asegúrate de tener JSON.NET en el proyecto
 
 [System.Serializable]
 public class FeedbackStep
@@ -35,29 +36,17 @@ public class FeedbackDatabase
     public List<ActivityData> activities;
 }
 
-// NUEVA CLASE para textos visuales
-[System.Serializable]
-public class VisualTextEntry
-{
-    public string contentValue;
-    public string text;
-}
-
-[System.Serializable]
-public class VisualTextDatabase
-{
-    public List<VisualTextEntry> texts;
-}
-
 public class FeedbackManager : MonoBehaviour
 {
     [Header("UI Elements")]
     public TextMeshProUGUI feedbackText;
     public Image feedbackImage;
+    public GameObject notificationPanel;            // Panel que simula ventana de notificación
+    public TextMeshProUGUI notificationText;        // Texto dentro de la ventana de notificación
     public AudioSource audioSource;
 
     private FeedbackDatabase feedbackData;
-    private VisualTextDatabase visualTextData;
+    private JObject visualTextsJson;
 
     private int lastActivity = -1;
     private int lastStrategy = -1;
@@ -65,122 +54,155 @@ public class FeedbackManager : MonoBehaviour
 
     void Start()
     {
+        // Ocultar notificación inicialmente
+        if (notificationPanel != null) notificationPanel.SetActive(false);
+
         LoadFeedbackData();
         LoadVisualTextData();
     }
 
     void LoadFeedbackData()
     {
-        string path = Path.Combine(Application.streamingAssetsPath, "feedback_database.json");
-
+        var path = Path.Combine(Application.streamingAssetsPath, "feedback_database.json");
         if (File.Exists(path))
         {
-            string jsonString = File.ReadAllText(path);
-            feedbackData = JsonUtility.FromJson<FeedbackDatabase>(jsonString);
+            feedbackData = JsonUtility.FromJson<FeedbackDatabase>(File.ReadAllText(path));
+            Debug.Log($"[FeedbackManager] Feedback DB loaded: {feedbackData.activities.Count} activities");
         }
         else
         {
-            Debug.LogError("No se encontró feedback_database.json");
+            Debug.LogError("[FeedbackManager] No se encontró feedback_database.json");
         }
     }
 
     void LoadVisualTextData()
     {
-        string path = Path.Combine(Application.streamingAssetsPath, "visual_texts.json");
-
+        var path = Path.Combine(Application.streamingAssetsPath, "visual_texts.json");
         if (File.Exists(path))
         {
-            string jsonString = File.ReadAllText(path);
-            visualTextData = JsonUtility.FromJson<VisualTextDatabase>(jsonString);
+            var jsonString = File.ReadAllText(path);
+            try
+            {
+                visualTextsJson = JObject.Parse(jsonString);
+                Debug.Log($"[FeedbackManager] Visual texts JSON loaded. Activities: {visualTextsJson.Count}");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[FeedbackManager] Error parsing visual_texts.json: {ex.Message}");
+            }
         }
         else
         {
-            Debug.LogWarning("No se encontró visual_texts.json (solo afecta estrategias visuales)");
+            Debug.LogWarning("[FeedbackManager] No se encontró visual_texts.json");
         }
-    }
-
-    void ProcessStep(FeedbackStep step)
-    {
-        string type = step.contentType.ToLower();
-
-        if (feedbackImage) feedbackImage.gameObject.SetActive(false);
-        if (audioSource && audioSource.isPlaying) audioSource.Stop();
-
-        if (type == "audio")
-        {
-            AudioClip clip = Resources.Load<AudioClip>(step.contentValue);
-            if (clip != null)
-            {
-                audioSource.clip = clip;
-                audioSource.Play();
-                feedbackText.text = "Reproduciendo audio: " + step.contentValue;
-            }
-            else
-            {
-                feedbackText.text = "Audio no encontrado: " + step.contentValue;
-            }
-        }
-        else if (type == "image")
-        {
-            // Buscar texto si es visual estrategia 1
-            string displayText = FindVisualText(step.contentValue);
-
-            if (!string.IsNullOrEmpty(displayText))
-            {
-                feedbackText.text = displayText;
-            }
-            else
-            {
-                Sprite sprite = Resources.Load<Sprite>(step.contentValue);
-                if (sprite != null)
-                {
-                    feedbackImage.sprite = sprite;
-                    feedbackImage.gameObject.SetActive(true);
-                    feedbackText.text = "Imagen mostrada: " + step.contentValue;
-                }
-                else
-                {
-                    feedbackText.text = "Imagen no encontrada: " + step.contentValue;
-                }
-            }
-        }
-    }
-
-    string FindVisualText(string contentValue)
-    {
-        if (visualTextData == null || visualTextData.texts == null) return null;
-
-        foreach (var entry in visualTextData.texts)
-        {
-            if (entry.contentValue == contentValue)
-            {
-                return entry.text;
-            }
-        }
-
-        return null;
     }
 
     public void ShowFeedback(int activityId, int strategyId, int stepId)
     {
-        if (feedbackData == null || feedbackData.activities == null) return;
+        if (feedbackData?.activities == null) return;
+        if (activityId == lastActivity && strategyId == lastStrategy && stepId == lastStep) return;
 
-        ActivityData activity = feedbackData.activities.Find(a => a.id == activityId);
-        if (activity == null) return;
+        lastActivity = activityId;
+        lastStrategy = strategyId;
+        lastStep = stepId;
 
-        StrategyData strategy = activity.strategies.Find(s => s.id == strategyId);
-        if (strategy == null) return;
-
-        FeedbackStep step = strategy.steps.Find(s => s.id == stepId);
+        var activity = feedbackData.activities.Find(a => a.id == activityId);
+        var strategy = activity?.strategies.Find(s => s.id == strategyId);
+        var step = strategy?.steps.Find(s => s.id == stepId);
         if (step == null) return;
 
-        if (activityId != lastActivity || strategyId != lastStrategy || stepId != lastStep)
-        {
-            lastActivity = activityId;
-            lastStrategy = strategyId;
-            lastStep = stepId;
+        ProcessStep(step, strategyId, activityId, stepId);
+    }
 
-            ProcessStep(step);
+    void ProcessStep(FeedbackStep step, int strategyId, int activityId, int stepId)
+    {
+        // Antes de procesar, ocultar notificación y elementos
+        if (notificationPanel != null) notificationPanel.SetActive(false);
+        if (feedbackText != null) feedbackText.gameObject.SetActive(true);
+        if (feedbackImage != null) feedbackImage.gameObject.SetActive(false);
+        if (audioSource?.isPlaying == true) audioSource.Stop();
+
+        // Si es estrategia visual (4), intentar obtener texto y mostrar en panel
+        if (strategyId == 4)
+        {
+            var txt = FindVisualText(activityId, stepId);
+            if (!string.IsNullOrEmpty(txt))
+            {
+                ShowNotification(txt);
+                return;
+            }
+            else
+            {
+                Debug.LogWarning($"[FeedbackManager] No se encontró texto visual para Activity {activityId}, Step {stepId}");
+            }
         }
+
+        // Fallback a audio/imagen
+        var type = step.contentType.ToLower();
+
+        if (type == "audio")
+        {
+            var clip = Resources.Load<AudioClip>(step.contentValue);
+            if (clip != null)
+            {
+                audioSource.clip = clip;
+                audioSource.Play();
+                feedbackText.text = $"Reproduciendo audio: {step.contentValue}";
+            }
+            else
+            {
+                feedbackText.text = $"Audio no encontrado: {step.contentValue}";
+            }
+        }
+        else if (type == "image")
+        {
+            var sprite = Resources.Load<Sprite>(step.contentValue);
+            if (sprite != null)
+            {
+                feedbackImage.sprite = sprite;
+                feedbackImage.gameObject.SetActive(true);
+                feedbackText.text = $"Imagen mostrada: {step.contentValue}";
+            }
+            else
+            {
+                feedbackText.text = strategyId == 4
+                    ? $"Estrategia 4: contenido no encontrado: {step.contentValue}"
+                    : $"Imagen no encontrada: {step.contentValue}";
+            }
+        }
+        else
+        {
+            feedbackText.text = $"Tipo desconocido: {step.contentType}";
+        }
+    }
+
+    string FindVisualText(int activityId, int stepId)
+    {
+        if (visualTextsJson == null) return null;
+
+        var activityKey = activityId.ToString();
+        if (!visualTextsJson.TryGetValue(activityKey, out JToken activityToken)) return null;
+
+        var texts = activityToken["texts"] as JObject;
+        if (texts == null) return null;
+
+        var stepKey = stepId.ToString();
+        if (!texts.TryGetValue(stepKey, out JToken textToken)) return null;
+
+        return textToken.ToString();
+    }
+
+    void ShowNotification(string message)
+    {
+        // Mostrar ventana de notificación con el texto
+        if (notificationPanel != null)
+        {
+            notificationPanel.SetActive(true);
+            if (notificationText != null)
+                notificationText.text = message;
+        }
+        // Opcional: ocultar FeedbackText principal
+        if (feedbackText != null)
+            feedbackText.gameObject.SetActive(false);
     }
 }

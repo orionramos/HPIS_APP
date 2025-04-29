@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GitHub\\HPIS_App\\",
+  "WorkspaceRootPath": "C:\\HPIS_APP\\HPIS_APP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|D:\\GitHub\\HPIS_App\\assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|c:\\hpis_app\\hpis_app\\assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\feedbackmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|D:\\GitHub\\HPIS_App\\assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\cameradisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameradisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|D:\\GitHub\\HPIS_App\\assets\\scripts\\websocketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\websocketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|D:\\GitHub\\HPIS_App\\assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|D:\\GitHub\\HPIS_App\\assets\\scripts\\cameradisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameradisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|d:\\github\\hpis_app\\assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95036C3C-2660-29EA-0FD7-444FC1D56A15}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\iconos\\gripstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|C:\\HPIS_APP\\HPIS_APP\\assets\\scripts\\websocketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B524CA6E-EEB1-92DE-821F-26345D8BC670}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\websocketclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,81 +38,76 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "GripStatus.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Resources\\Iconos\\GripStatus.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Resources\\Iconos\\GripStatus.cs",
               "RelativeDocumentMoniker": "Assets\\Resources\\Iconos\\GripStatus.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Resources\\Iconos\\GripStatus.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Resources\\Iconos\\GripStatus.cs",
               "RelativeToolTip": "Assets\\Resources\\Iconos\\GripStatus.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAAwG4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAmwG4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T14:36:32.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T14:36:32.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "CameraDisplay.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\CameraDisplay.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\CameraDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraDisplay.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\CameraDisplay.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\CameraDisplay.cs",
               "RelativeToolTip": "Assets\\Scripts\\CameraDisplay.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T17:28:59.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T17:28:59.528Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "FeedbackManager.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\FeedbackManager.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\FeedbackManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FeedbackManager.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\FeedbackManager.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\FeedbackManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\FeedbackManager.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAiwHgAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAAwNAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T19:49:27.376Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DataManager.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\DataManager.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\DataManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\DataManager.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\DataManager.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\DataManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\DataManager.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAqwHEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:46:25.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T22:46:25.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UIManager.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\UIManager.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UIManager.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\UIManager.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\UIManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\UIManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:45:54.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T22:45:54.061Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "WebSocketClient.cs",
-              "DocumentMoniker": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\WebSocketClient.cs",
+              "DocumentMoniker": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\WebSocketClient.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\WebSocketClient.cs",
-              "ToolTip": "D:\\GitHub\\HPIS_App\\Assets\\Scripts\\WebSocketClient.cs",
+              "ToolTip": "C:\\HPIS_APP\\HPIS_APP\\Assets\\Scripts\\WebSocketClient.cs",
               "RelativeToolTip": "Assets\\Scripts\\WebSocketClient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T22:44:47.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T22:44:47.992Z"
             }
           ]
         }
