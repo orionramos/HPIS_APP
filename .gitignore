@@ -1,0 +1,56 @@
+# ===============
+# UNITY STANDARD
+# ===============
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+.utmp/
+
+# ===============
+# VISUAL STUDIO & C#
+# ===============
+ExportedObj/
+.vs/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ===============
+# ARTE Y MULTIMEDIA CRUDO
+# ===============
+*.blend
+*.blend1
+*.blend2
+*.crash.txt
+*.psd
+
+# ===============
+# COMPILACIONES / BUILDS
+# ===============
+*.apk
+*.aab
+*.exe
+*.app
+
+# ===============
+# SISTEMA OPERATIVO
+# ===============
+.DS_Store
+Thumbs.db

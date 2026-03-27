@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: eea99250c72f9c648b5996af9f378664
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - handIcon: {instanceID: 0}
+  - openHandSprite: {instanceID: 0}
+  - closedHandSprite: {instanceID: 0}
+  - GTIcon: {instanceID: 0}
+  - GT1Sprite: {fileID: 21300000, guid: ade998cbe6dde554a9b85e50a8248791, type: 3}
+  - GT2Sprite: {instanceID: 0}
+  - GT3Sprite: {instanceID: 0}
+  - GT4Sprite: {instanceID: 0}
+  - palmIcon: {instanceID: 0}
+  - Palm1Sprite: {fileID: 21300000, guid: 0e257c8b5e8ac1340b7c3f1080a94d17, type: 3}
+  - Palm2Sprite: {fileID: 21300000, guid: be6ff4a268a7d1342800d9e4c17362cd, type: 3}
+  - Palm3Sprite: {fileID: 21300000, guid: 751325c14253cdf4d98f19b0467f905f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

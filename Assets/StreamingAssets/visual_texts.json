@@ -1,0 +1,71 @@
+{
+    "1": {
+        "name": "Beber líquido",
+        "texts": {
+            "1": "Iniciando agarre de poder para objeto cilíndrico. Oriente la palma de la prótesis hacia la izquierda y manténgala abierta.",
+            "2": "Con la mano no prostética, sujete la taza por el asa. Ubique el fondo de la taza justo encima de los dedos inferiores.",
+            "3": "Cierre la prótesis para sujetar la taza. Ahora puede soltar el asa con su mano no prostética.",
+            "4": "Acerque su boca a la taza. Incline el brazo lentamente para el primer sorbo. Al finalizar, baje el brazo.",
+            "5": "Repita la secuencia: acerque su boca e incline el brazo para dos sorbos más.",
+            "6": "Sujete el asa con la mano no prostética. Abra la prótesis y deposite la taza sobre la mesa."
+        }
+    },
+    "2": {
+        "name": "Lavarse la cara",
+        "texts": {
+            "1": "Asegúrese de tener la prótesis con la palma mirando hacia abajo.",
+            "2": "Gire la manija del grifo con su mano protésica para abrir el agua. Deslice la prótesis para sacarla del grifo.",
+            "3": "Coloque su mano no prostética bajo el chorro de agua.",
+            "4": "Coloque la mano no prostética debajo del dispensador de jabón. Use su mano protésica cerrada para presionar el dispensador de jabón hasta obtener la cantidad deseada.",
+            "5": "Distribuya el jabón en su mano no prostética sacando el dedo índice de la prótesis y aplíquelo suavemente en su cara.",
+            "6": "Enjuague su mano no prostética bajo el agua para quitar el jabón.",
+            "7": "Use su mano no prostética para enjuagar el jabón de su cara con agua.",
+            "8": "Utilice su mano protésica para cerrar el grifo girando la manija.",
+            "9": "Agarre la toalla con ambas manos.",
+            "10": "Use la toalla para secar su cara de manera uniforme.",
+            "11": "Ponga la toalla de vuelta en el mostrador utilizando ambas manos."
+        }
+    },
+    "3": {
+        "name": "Preparar una tostada",
+        "texts": {
+            "1": "Apoye la bolsa sobre la mesa con su mano no prostética para obtener estabilidad inicial.",
+            "2": "El sistema activará el agarre de pinza, ideal para manipular el plástico de la bolsa.",
+            "3": "Sujete la bolsa bajo el cierre con la prótesis para que sirva de soporte, mientras retira el sello con su mano no prostética.",
+            "4": "Al abrir la bolsa, deje el pulgar de la prótesis por dentro para actuar como marco y evitar que se cierre.",
+            "5": "Retire dos rebanadas con la mano no prostética. Abra la prótesis solo cuando el pan esté fuera para evitar desgarros.",
+            "6": "Sujete una rebanada con la prótesis. Use su mano no prostética para la primera ranura de la tostadora, ya que requiere más precisión.",
+            "7": "Pase la rebanada de la prótesis a su mano no prostética. Colóquela en la tostadora y enciéndala.",
+            "8": "Espere a que el pan esté tostado. Deje enfriar un minuto para evitar quemaduras.",
+            "9": "Eleve el botón de la tostadora con la mano no prostética. Use la prótesis para llevar el pan al plato.",
+            "10": "Use la mano no prostética para colocar el queso en la tostada. Si es necesario, estabilice el plato con la prótesis.",
+            "11": "Con la mano no prostética, coloque la segunda rebanada para cerrar el sándwich.",
+            "12": "Use el trapo para limpiar la mesa con la mano que le resulte más cómoda. Puede usar la prótesis para practicar presión constante sobre superficies planas."
+        }
+    },
+    "4": {
+        "name": "Comer una tostada",
+        "texts": {
+            "1": "Activando agarre de poder. Oriente la palma hacia la izquierda y mantenga la mano abierta para recibir el cubierto.",
+            "2": "Coloque el tenedor en la prótesis. Cierre el agarre y active el bloqueo de seguridad para evitar que la herramienta se suelte al aplicar fuerza.",
+            "3": "Trinche la comida con la prótesis. Use la mano no prostética para cortar, aprovechando que la prótesis mantiene el alimento fijo.",
+            "4": "Libere el tenedor de la comida. Deje el cuchillo y desbloquee la prótesis para transferir el tenedor a su mano no prostética.",
+            "5": "Use su mano no prostética para comer. Esto le permite rotar el alimento hacia su boca, movimiento que la prótesis no puede realizar.",
+            "6": "Repita la secuencia hasta terminar. Alterne entre el soporte de fuerza con la prótesis y la precisión con su mano no prostética."
+        }
+    },
+    "5": {
+        "name": "Vestirse",
+        "texts": {
+            "1": "Tome la camisa con su mano no prostética del montón de ropa y extiéndala para identificar el frente.",
+            "2": "Sujete un extremo con la prótesis para que sirva de anclaje fijo. Con su mano no prostética, proceda a desabotonar la prenda.",
+            "3": "Sujete la camisa con la mano no prostética. Abra la prótesis e introduzca su brazo derecho en la manga correspondiente.",
+            "4": "Termine de acomodar la manga derecha e introduzca su mano no prostética en la manga izquierda.",
+            "5": "Activando agarre de pinza. Use la mano no prostética para alinear la camisa y corregir cualquier doblez.",
+            "6": "Junte los dos bordes con la mano no prostética. Sujételos con la prótesis cerca del ojal para generar tensión, mientras inserta el botón.",
+            "7": "Mantenga la sujeción de precisión y repita el proceso con el segundo botón.",
+            "8": "Siga con los demás botones. Para los superiores, use solo su mano no prostética, ya que los botones inferiores ya brindan la tensión necesaria.",
+            "9": "Para finalizar, organice el cuello de la camisa con su mano no prostética para asegurar un acabado correcto."
+        }
+    }
+}
