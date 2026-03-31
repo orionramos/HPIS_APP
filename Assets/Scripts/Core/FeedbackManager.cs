@@ -139,6 +139,18 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 
+    // NUEVO MÉTODO: Limpia todo el feedback cuando el cliente se desconecta o termina
+    public void ClearAllFeedback()
+    {
+        Debug.Log("[FeedbackManager] Clearing all feedback.");
+        StopMedia(false); // Detiene y destruye todo
+        uiHolder?.feedbackText.gameObject.SetActive(false);
+        uiHolder?.videoDisplay?.gameObject.SetActive(false);
+        uiHolder?.feedbackImage.gameObject.SetActive(false);
+        uiHolder?.notificationPanel?.SetActive(false);
+        _lastContentKey = string.Empty;
+    }
+
     IEnumerator LoadFeedbackData()
     {
         string path = Path.Combine(Application.streamingAssetsPath, feedbackFile);

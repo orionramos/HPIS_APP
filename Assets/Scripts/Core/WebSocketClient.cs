@@ -151,6 +151,11 @@ public class WebSocketClient : MonoBehaviour
         EnqueueMainThreadAction(() => {
             isConnected = false;
             if (uiHolder?.statusText) uiHolder.statusText.text = $"Desconectado... ({retryInterval}s)";
+            // NUEVO: Limpiar feedback cuando el cliente se desconecta
+            if (dataManager != null && dataManager.feedbackManager != null)
+            {
+                dataManager.feedbackManager.ClearAllFeedback();
+            }
             if (gameObject.activeInHierarchy) {
                 StopAllCoroutines(); 
                 StartCoroutine(ConnectionLoop());
