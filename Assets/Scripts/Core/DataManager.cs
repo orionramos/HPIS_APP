@@ -59,7 +59,7 @@ public class DataManager : MonoBehaviour
     {
         { 1, 6 },
         { 2, 12 },
-        { 3, 12 },
+        { 3, 13 },
         { 4, 6 },
         { 5, 9 }
     };

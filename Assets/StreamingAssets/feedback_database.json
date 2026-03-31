@@ -380,18 +380,19 @@
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_1" },
-            { "id": 2, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_2" },
-            { "id": 3, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_3" },
-            { "id": 4, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_4" },
-            { "id": 5, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_5" },
-            { "id": 6, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_6" },
-            { "id": 7, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_7" },
-            { "id": 8, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_8" },
-            { "id": 9, "contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_9" },
-            { "id": 10,"contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_10" },
-            { "id": 11,"contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_11" },
-            { "id": 12,"contentType": "animation_prefab", "contentValue": "example_algorithm_3_6_12" }
+            { "id": 1, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_1","pip_camera": "" },
+            { "id": 2, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_2","pip_camera": "" },
+            { "id": 3, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_3","pip_camera": "" },
+            { "id": 4, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_4","pip_camera": "" },
+            { "id": 5, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_5","pip_camera": "" },
+            { "id": 6, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_6","pip_camera": "" },
+            { "id": 7, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_7","pip_camera": "" },
+            { "id": 8, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_8","pip_camera": "" },
+            { "id": 9, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_9","pip_camera": "" },
+            { "id": 10,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_10","pip_camera": "" },
+            { "id": 11,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_11","pip_camera": "" },
+            { "id": 12,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_12","pip_camera": "" },
+            { "id": 13,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_13","pip_camera": "" }
           ]
         },
         {
