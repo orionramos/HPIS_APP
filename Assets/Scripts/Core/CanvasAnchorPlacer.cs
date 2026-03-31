@@ -44,6 +44,13 @@ namespace HPIS.Anchors
         [Header("Animation Anchor Visual")]
         [Tooltip("Prefab visual para mostrar la posición del anchor de animaciones mientras se posiciona.")]
         [SerializeField] private GameObject animationAnchorVisualPrefab;
+        
+        [Header("Mesa como Visualizador")]
+        [Tooltip("Si está habilitado, usa solo la mesa (MCH_Mesa) de Act1.fbx como visualizador de animaciones.")]
+        [SerializeField] private bool useMesaAsVisualizer = true;
+        [Tooltip("Modelo FBX que contiene la mesa. Por defecto: Act1.fbx")]
+        [SerializeField] private GameObject mesaModel;
+        
         [Header("Animation Anchor Controls")]
         [Tooltip("Velocidad de rotación del anchor de animaciones con el joystick secundario")]
         [SerializeField] private float rotationSpeed = 100f;
@@ -482,6 +489,12 @@ namespace HPIS.Anchors
                 _animationAnchorVisualInstance = Instantiate(animationAnchorVisualPrefab, _animationAnchorObject.transform);
             }
 
+            // Si useMesaAsVisualizer está habilitado, carga y muestra solo la mesa
+            if (useMesaAsVisualizer)
+            {
+                InstanciarMesaComoVisualidor();
+            }
+
 #if !UNITY_EDITOR
             ApplyOffsetToAnimationAnchor();
 #endif
@@ -503,6 +516,137 @@ namespace HPIS.Anchors
             if (feedbackManager != null) { feedbackManager.uiHolder = uiHolder; }
             
             Debug.Log("Todos los managers han sido conectados al nuevo canvas.");
+        }
+
+        /// <summary>
+        /// Carga y instancia la mesa (MCH_Mesa) del modelo FBX como visualizador del anchor de animaciones.
+        /// Este método reemplaza el prefab visual estándar con solo la mesa para facilitar el ajuste.
+        /// </summary>
+        private void InstanciarMesaComoVisualidor()
+        {
+            if (_animationAnchorObject == null) return;
+
+            // Si ya hay una instancia visual, la destruye
+            if (_animationAnchorVisualInstance != null)
+            {
+                Destroy(_animationAnchorVisualInstance);
+                _animationAnchorVisualInstance = null;
+            }
+
+            // Intenta cargar el modelo desde la ruta asignada o desde Assets/Models
+            GameObject modeloAct1 = mesaModel;
+            if (modeloAct1 == null)
+            {
+#if UNITY_EDITOR
+                // En el editor, carga desde la ruta directa de Assets
+                modeloAct1 = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Models/Act1.fbx");
+#else
+                // En runtime, intenta desde Resources
+                modeloAct1 = Resources.Load<GameObject>("Models/Act1");
+#endif
+            }
+
+            if (modeloAct1 == null)
+            {
+                Debug.LogWarning("[CanvasAnchorPlacer] No se pudo cargar el modelo Act1.fbx. Asigna el modelo en el inspector o verifica la ruta Assets/Models/Act1.fbx");
+                return;
+            }
+
+            // Instancia el modelo completo
+            GameObject instanciaModelo = Instantiate(modeloAct1, _animationAnchorObject.transform);
+            instanciaModelo.name = "Act1_Model";
+
+            // Desactiva TODO primero
+            DesactivarRecursivo(instanciaModelo.transform);
+
+            // Busca la mesa y el plato
+            Transform mesaTransform = BuscarPorNombre(instanciaModelo.transform, "MCH_Mesa");
+            Transform platoTransform = BuscarPorNombre(instanciaModelo.transform, "MCH_plato");
+
+            if (mesaTransform != null)
+            {
+                // Activa la mesa y todos sus ancestros y descendientes
+                ActivarConAncestros(mesaTransform);
+                _animationAnchorVisualInstance = instanciaModelo;
+                Debug.Log("[CanvasAnchorPlacer] Mesa (MCH_Mesa) cargada como visualizador.");
+            }
+
+            if (platoTransform != null)
+            {
+                // Activa el plato y todos sus ancestros y descendientes
+                ActivarConAncestros(platoTransform);
+                Debug.Log("[CanvasAnchorPlacer] Plato (MC_Plato) agregado como referencia de orientación.");
+            }
+
+            if (mesaTransform == null && platoTransform == null)
+            {
+                Debug.LogWarning("[CanvasAnchorPlacer] No se encontraron MCH_Mesa ni MC_Plato. Mostrando modelo completo.");
+                ActivarRecursivo(instanciaModelo.transform);
+            }
+
+            if (_animationAnchorVisualInstance == null)
+            {
+                _animationAnchorVisualInstance = instanciaModelo;
+            }
+        }
+
+        /// <summary>
+        /// Desactiva recursivamente todos los GameObjects de un árbol.
+        /// </summary>
+        private void DesactivarRecursivo(Transform root)
+        {
+            root.gameObject.SetActive(false);
+            foreach (Transform child in root)
+            {
+                DesactivarRecursivo(child);
+            }
+        }
+
+        /// <summary>
+        /// Busca recursivamente un GameObject con el nombre específico.
+        /// </summary>
+        private Transform BuscarPorNombre(Transform root, string nombre)
+        {
+            if (root.name == nombre)
+                return root;
+
+            foreach (Transform child in root)
+            {
+                Transform resultado = BuscarPorNombre(child, nombre);
+                if (resultado != null)
+                    return resultado;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Activa un transform, todos sus ancestros hasta la raíz, todos sus hijos.
+        /// Esto asegura que sea visible en la jerarquía.
+        /// </summary>
+        private void ActivarConAncestros(Transform target)
+        {
+            // Activa el target y todos sus hijos
+            ActivarRecursivo(target);
+
+            // Activa todos los ancestros hasta la raíz
+            Transform actual = target.parent;
+            while (actual != null)
+            {
+                actual.gameObject.SetActive(true);
+                actual = actual.parent;
+            }
+        }
+
+        /// <summary>
+        /// Activa recursivamente un GameObject y todos sus hijos.
+        /// </summary>
+        private void ActivarRecursivo(Transform root)
+        {
+            root.gameObject.SetActive(true);
+            foreach (Transform child in root)
+            {
+                ActivarRecursivo(child);
+            }
         }
     }
 }
