@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.Video;
-using static OVRPlugin;
 
 [System.Serializable]
 public class FeedbackStep
@@ -16,7 +15,6 @@ public class FeedbackStep
     public int id;
     public string contentType;
     public string contentValue;
-    public string pip_camera;
 }
 
 [System.Serializable]
@@ -69,9 +67,6 @@ public class FeedbackManager : MonoBehaviour
     private Coroutine _mediaCoroutine;
     private GameObject currentAnimationPrefab;
 
-    // NUEVO: Rastrea qué Master Prefab está cargado actualmente
-    private string _loadedMasterPrefabName = string.Empty;
-
     private Dictionary<string, (Vector3 position, Quaternion rotation)> savedObjectStates = new Dictionary<string, (Vector3, Quaternion)>();
 
     void Start()
@@ -94,8 +89,7 @@ public class FeedbackManager : MonoBehaviour
         StartCoroutine(LoadVisualTextData());
     }
 
-    // MODIFICADO: Ahora acepta un parámetro para decidir si destruye o recicla el prefab
-    void StopMedia(bool keepAnimationPrefab = false)
+    void StopMedia()
     {
         if (uiHolder == null) return;
 
@@ -118,15 +112,13 @@ public class FeedbackManager : MonoBehaviour
         uiHolder.feedbackImage.gameObject.SetActive(false);
         uiHolder.videoDisplay?.gameObject.SetActive(false);
 
-        // Solo destruye si NO debemos conservarlo
-        if (!keepAnimationPrefab && currentAnimationPrefab != null)
-        {
+        if (currentAnimationPrefab != null)
+        { 
             // Force animators to their end state before saving
             var animators = currentAnimationPrefab.GetComponentsInChildren<Animator>(true);
             foreach (var anim in animators)
             {
-                if (anim.enabled && anim.runtimeAnimatorController != null)
-                {
+                if(anim.enabled && anim.runtimeAnimatorController != null) {
                     anim.Play(anim.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 0.99f);
                     anim.Update(Time.deltaTime); // Force visual update to the end pose
                 }
@@ -135,7 +127,6 @@ public class FeedbackManager : MonoBehaviour
             SaveStatefulObjects(currentAnimationPrefab);
             Destroy(currentAnimationPrefab);
             currentAnimationPrefab = null;
-            _loadedMasterPrefabName = string.Empty; // Reseteamos la memoria del prefab cargado
         }
     }
 
@@ -234,27 +225,16 @@ public class FeedbackManager : MonoBehaviour
             return;
         }
 
-        // NUEVO: LÓGICA DE ARQUITECTURA MAESTRA: ¿Destruimos el prefab o lo reciclamos?
-        bool keepMasterPrefab = false;
-        if (step.contentType.ToLower() == "animation_state")
-        {
-            string[] parts = step.contentValue.Split('|');
-            if (parts.Length == 2 && parts[0] == _loadedMasterPrefabName)
-            {
-                keepMasterPrefab = true; // Es el mismo maestro, conservarlo en memoria
-            }
-        }
+        StopMedia();
 
-        StopMedia(keepMasterPrefab);
-
-        if (step.contentType.ToLower() != "animation_prefab" && step.contentType.ToLower() != "animation_state")
+        if (step.contentType.ToLower() != "animation_prefab")
         {
             savedObjectStates.Clear();
         }
 
         if (strategyId == 4)
         {
-            var txt = FindVisualText(activityId, stepId);
+            var txt = GetVisualText(activityId, stepId);
             if (!string.IsNullOrEmpty(txt))
             {
                 ShowNotification(txt);
@@ -281,7 +261,9 @@ public class FeedbackManager : MonoBehaviour
         switch (step.contentType.ToLower())
         {
             case "audio":
-                _mediaCoroutine = StartCoroutine(LoadAndPlayAudio(step.contentValue));
+                 _mediaCoroutine = StartCoroutine(LoadAndPlayAudio(step.contentValue));
+                break;
+            case "audio_llm":
                 break;
             case "image":
                 _mediaCoroutine = StartCoroutine(LoadAndShowImage(step.contentValue));
@@ -292,21 +274,18 @@ public class FeedbackManager : MonoBehaviour
             case "animation_prefab":
                 _mediaCoroutine = StartCoroutine(ProcessAnimationPrefab(step.contentValue));
                 break;
-            case "animation_state": // NUEVO CASO PARA MASTER PREFAB
-                _mediaCoroutine = StartCoroutine(ProcessAnimationState(step));
-                break;
             case "multimodal1":
                 // Combine auditory strategy 1 with visual strategy 4 (text notification)
                 string[] parts = step.contentValue.Split('-');
                 if (parts.Length == 2)
                 {
                     StartCoroutine(LoadAndPlayAudio(parts[0]));
-
+                    
                     // Get the step number from the audio file name (assuming format example_audio_1_1_X)
                     string stepNumberStr = parts[0].Split('_').Last();
                     if (int.TryParse(stepNumberStr, out int stepNumber))
                     {
-                        var visualText = FindVisualText(activityId, stepNumber);
+                        var visualText = GetVisualText(activityId, stepNumber);
                         if (!string.IsNullOrEmpty(visualText))
                         {
                             ShowNotification(visualText);
@@ -329,7 +308,6 @@ public class FeedbackManager : MonoBehaviour
                 if (parts.Length == 2)
                 {
                     StartCoroutine(LoadAndPlayAudio(parts[0]));
-                    // Aquí podrías actualizar a ProcessAnimationState en el futuro si multimodal3 lo requiere
                     _mediaCoroutine = StartCoroutine(ProcessAnimationPrefab(parts[1]));
                 }
                 break;
@@ -350,208 +328,102 @@ public class FeedbackManager : MonoBehaviour
         Debug.Log("[FeedbackManager] Animation anchor set successfully.");
     }
 
-    // Corrutina Original (1 Prefab por Paso)
     IEnumerator ProcessAnimationPrefab(string prefabName)
+{
+    // Guardamos la key actual para saber si debemos detener el loop si el usuario cambia de paso
+    string startKey = _lastContentKey;
+
+    if (animationContainer == null)
     {
-        // Guardamos la key actual para saber si debemos detener el loop si el usuario cambia de paso
-        string startKey = _lastContentKey;
-
-        if (animationContainer == null)
+        if (animationAnchor != null)
         {
-            if (animationAnchor != null)
-            {
-                GameObject container = new GameObject("AnimationContainer");
-                animationContainer = container.transform;
-                animationContainer.SetParent(animationAnchor, false);
-            }
-            else
-            {
-                Debug.LogError("[FeedbackManager] No animation container or anchor available.");
-                yield break;
-            }
-        }
-
-        string resourcePath = $"AnimacionesPrefab/{prefabName}";
-        var prefabToLoad = Resources.Load<GameObject>(resourcePath);
-
-        if (prefabToLoad != null)
-        {
-            currentAnimationPrefab = Instantiate(prefabToLoad, animationContainer);
-            if (showDebugMessages)
-            {
-                uiHolder.feedbackText.text = $"Animation loaded: {prefabName}";
-            }
-
-            RestoreStatefulObjects(currentAnimationPrefab);
-            yield return null;
-
-            var animators = currentAnimationPrefab.GetComponentsInChildren<Animator>(true);
-            float maxClipLength = 0f;
-
-            // 1. Calcular la duración máxima de la animación
-            foreach (var anim in animators)
-            {
-                anim.enabled = true;
-                var controller = anim.runtimeAnimatorController;
-                if (controller != null)
-                {
-                    foreach (var clip in controller.animationClips)
-                    {
-                        if (clip != null && clip.length > maxClipLength)
-                        {
-                            maxClipLength = clip.length;
-                        }
-                    }
-                }
-            }
-
-            // Si no se encontró duración, poner un mínimo por seguridad
-            if (maxClipLength <= 0f) maxClipLength = 1f;
-
-            // 2. BUCLE DE REPETICIÓN CONTROLADA POR SCRIPT
-            while (_lastContentKey == startKey)
-            {
-                // A) REINICIAR / REPRODUCIR
-                foreach (var anim in animators)
-                {
-                    anim.speed = 1f; // Asegurar que se mueve
-                    if (anim.runtimeAnimatorController != null)
-                    {
-                        anim.Play(anim.GetCurrentAnimatorStateInfo(0).fullPathHash, -1, 0f);
-                    }
-                }
-
-                // B) ESPERAR A QUE TERMINE LA ANIMACIÓN
-                yield return new WaitForSeconds(maxClipLength);
-
-                // Si el usuario cambió de feedback durante la espera, salimos
-                if (_lastContentKey != startKey) yield break;
-
-                // C) PAUSAR (CONGELAR) AL FINAL
-                foreach (var anim in animators)
-                {
-                    anim.speed = 0f;
-                }
-
-                // D) ESPERAR LOS 5 SEGUNDOS
-                yield return new WaitForSeconds(3f);
-            }
+            GameObject container = new GameObject("AnimationContainer");
+            animationContainer = container.transform;
+            animationContainer.SetParent(animationAnchor, false);
         }
         else
         {
-            Debug.LogError($"[FeedbackManager] Failed to load prefab from 'Resources/{resourcePath}'.");
-            uiHolder.feedbackText.text = $"Animation not found: {prefabName}";
+            Debug.LogError("[FeedbackManager] No animation container or anchor available.");
+            yield break;
         }
     }
 
-    // NUEVA CORRUTINA: Arquitectura Master Prefab (Máquina de Estados)
-    IEnumerator ProcessAnimationState(FeedbackStep step)
+    string resourcePath = $"AnimacionesPrefab/{prefabName}";
+    var prefabToLoad = Resources.Load<GameObject>(resourcePath);
+
+    if (prefabToLoad != null)
     {
-        string startKey = _lastContentKey;
-        string contentValue = step.contentValue;
-        string pipCameraName = step.pip_camera;
-
-        string[] parts = contentValue.Split('|');
-        if (parts.Length != 2)
-        {
-            Debug.LogError($"[FeedbackManager] Formato inválido para animation_state. Se esperaba 'Prefab|Clip', se recibió: {contentValue}");
-            yield break;
-        }
-
-        string prefabName = parts[0];
-        string clipName = parts[1];
-
-        if (animationContainer == null)
-        {
-            if (animationAnchor != null)
-            {
-                GameObject container = new GameObject("AnimationContainer");
-                animationContainer = container.transform;
-                animationContainer.SetParent(animationAnchor, false);
-            }
-            else
-            {
-                Debug.LogError("[FeedbackManager] No hay animation container o anchor.");
-                yield break;
-            }
-        }
-
-        // 1. Instanciar SOLO si es un prefab diferente o no hay ninguno cargado
-        if (_loadedMasterPrefabName != prefabName || currentAnimationPrefab == null)
-        {
-            string resourcePath = $"AnimacionesPrefab/{prefabName}";
-            var prefabToLoad = Resources.Load<GameObject>(resourcePath);
-
-            if (prefabToLoad != null)
-            {
-                currentAnimationPrefab = Instantiate(prefabToLoad, animationContainer);
-                _loadedMasterPrefabName = prefabName;
-                RestoreStatefulObjects(currentAnimationPrefab);
-            }
-            else
-            {
-                Debug.LogError($"[FeedbackManager] Error al cargar Master Prefab: {resourcePath}");
-                yield break;
-            }
-        }
-
+        currentAnimationPrefab = Instantiate(prefabToLoad, animationContainer);
         if (showDebugMessages)
         {
-            uiHolder.feedbackText.text = $"Playing State: {clipName} on {prefabName}";
+            uiHolder.feedbackText.text = $"Animation loaded: {prefabName}";
         }
 
-        yield return null; // Esperar un frame a que Unity despierte componentes
+        RestoreStatefulObjects(currentAnimationPrefab);
+        yield return null;
 
-        // 2. Obtener el Animator (buscando en hijos por si está en 'Act1')
-        Animator rootAnimator = currentAnimationPrefab.GetComponentInChildren<Animator>();
-        if (rootAnimator == null)
-        {
-            Debug.LogError($"[FeedbackManager] El Master Prefab {prefabName} no tiene componente Animator.");
-            yield break;
-        }
+        var animators = currentAnimationPrefab.GetComponentsInChildren<Animator>(true);
+        float maxClipLength = 0f;
 
-        // 3. Sistema PiP Dinámico Multicámara
-        // Buscamos el componente en el prefab instanciado
-        var pipController = currentAnimationPrefab.GetComponentInChildren<HPIS.Core.Visuals.PiPDisplayController>();
-        if (pipController != null)
+        // 1. Calcular la duración máxima de la animación
+        foreach (var anim in animators)
         {
-            // Activamos la cámara específica indicada en el JSON para este paso
-            pipController.ActivatePiP(pipCameraName);
-        }
-
-        // 4. Calcular duración exacta del clip actual
-        float clipLength = 1f;
-        if (rootAnimator.runtimeAnimatorController != null)
-        {
-            foreach (var clip in rootAnimator.runtimeAnimatorController.animationClips)
+            anim.enabled = true;
+            var controller = anim.runtimeAnimatorController;
+            if (controller != null)
             {
-                if (clip.name == clipName)
+                foreach (var clip in controller.animationClips)
                 {
-                    clipLength = clip.length;
-                    break;
+                    if (clip != null && clip.length > maxClipLength)
+                    {
+                        maxClipLength = clip.length;
+                    }
                 }
             }
         }
 
-        // 5. BUCLE DE REPRODUCCIÓN (Máquina de Estados)
+        // Si no se encontró duración, poner un mínimo por seguridad
+        if (maxClipLength <= 0f) maxClipLength = 1f;
+
+        // 2. BUCLE DE REPETICIÓN CONTROLADA POR SCRIPT
+        // Esto se ejecutará infinitamente mientras _lastContentKey no cambie
         while (_lastContentKey == startKey)
         {
-            rootAnimator.speed = 1f;
+            // A) REINICIAR / REPRODUCIR
+            foreach (var anim in animators)
+            {
+                anim.speed = 1f; // Asegurar que se mueve
+                // Forzar reinicio al frame 0 del estado actual
+                if (anim.runtimeAnimatorController != null)
+                {
+                    anim.Play(anim.GetCurrentAnimatorStateInfo(0).fullPathHash, -1, 0f);
+                }
+            }
 
-            // Transición suave entre estados
-            rootAnimator.CrossFadeInFixedTime(clipName, 0.1f, 0, 0f);
+            // B) ESPERAR A QUE TERMINE LA ANIMACIÓN
+            // Esperamos exactamente lo que dura el clip
+            yield return new WaitForSeconds(maxClipLength);
 
-            yield return new WaitForSeconds(clipLength);
-
+            // Si el usuario cambió de feedback durante la espera, salimos
             if (_lastContentKey != startKey) yield break;
 
-            // Pausar en el último frame (Congelar acción)
-            rootAnimator.speed = 0f;
+            // C) PAUSAR (CONGELAR) AL FINAL
+            // Ponemos velocidad 0 para que no loope inmediatamente, se quede quieto en el último frame
+            foreach (var anim in animators)
+            {
+                anim.speed = 0f; 
+            }
 
-            // Espera de cortesía antes de repetir el bucle
+            // D) ESPERAR LOS 5 SEGUNDOS
             yield return new WaitForSeconds(3f);
         }
     }
+    else
+    {
+        Debug.LogError($"[FeedbackManager] Failed to load prefab from 'Resources/{resourcePath}'.");
+        uiHolder.feedbackText.text = $"Animation not found: {prefabName}";
+    }
+}
 
     private void SaveStatefulObjects(GameObject prefabInstance)
     {
@@ -592,7 +464,7 @@ public class FeedbackManager : MonoBehaviour
 
         string startKey = _lastContentKey;
         string uri = Path.Combine(Application.streamingAssetsPath, "Audios", name + ".mp3");
-
+        
         using (var uwr = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.MPEG))
         {
             yield return uwr.SendWebRequest();
@@ -606,13 +478,13 @@ public class FeedbackManager : MonoBehaviour
                 do
                 {
                     if (_lastContentKey != startKey) yield break;
-
+                    
                     uiHolder.audioSource.Play();
                     if (showDebugMessages)
                     {
                         uiHolder.feedbackText.text = $"Playing audio: {name}.mp3";
                     }
-
+                    
                     yield return new WaitForSeconds(clip.length + audioRepeatDelay);
 
                 } while (_lastContentKey == startKey);
@@ -690,7 +562,7 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 
-    string FindVisualText(int activityId, int stepId)
+    public string GetVisualText(int activityId, int stepId)
     {
         if (visualTextsJson == null) return null;
         if (!visualTextsJson.TryGetValue(activityId.ToString(), out var token)) return null;
