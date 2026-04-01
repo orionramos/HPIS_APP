@@ -130,17 +130,17 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 
-    // NUEVO MÉTODO: Limpia todo el feedback cuando el cliente se desconecta o termina
-    public void ClearAllFeedback()
-    {
-        Debug.Log("[FeedbackManager] Clearing all feedback.");
-        StopMedia(false); // Detiene y destruye todo
-        uiHolder?.feedbackText.gameObject.SetActive(false);
-        uiHolder?.videoDisplay?.gameObject.SetActive(false);
-        uiHolder?.feedbackImage.gameObject.SetActive(false);
-        uiHolder?.notificationPanel?.SetActive(false);
-        _lastContentKey = string.Empty;
-    }
+    // // NUEVO MÉTODO: Limpia todo el feedback cuando el cliente se desconecta o termina
+    // public void ClearAllFeedback()
+    // {
+    //     Debug.Log("[FeedbackManager] Clearing all feedback.");
+    //     StopMedia(); // Detiene y destruye todo
+    //     uiHolder?.feedbackText.gameObject.SetActive(false);
+    //     uiHolder?.videoDisplay?.gameObject.SetActive(false);
+    //     uiHolder?.feedbackImage.gameObject.SetActive(false);
+    //     uiHolder?.notificationPanel?.SetActive(false);
+    //     _lastContentKey = string.Empty;
+    // }
 
     IEnumerator LoadFeedbackData()
     {
@@ -237,7 +237,7 @@ public class FeedbackManager : MonoBehaviour
             return;
         }
 
-        StopMedia();
+        // StopMedia();
 
         if (step.contentType.ToLower() != "animation_prefab")
         {

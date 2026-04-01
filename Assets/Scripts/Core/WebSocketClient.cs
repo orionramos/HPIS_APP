@@ -23,7 +23,7 @@ public class WebSocketClient : MonoBehaviour
     public DataManager dataManager;
 
     [Header("Connection Settings")]
-    public string serverIp = "192.168.4.2";
+    public string serverIp = "172.20.24.120";
     public int serverPort = 7890;
     public float retryInterval = 5f;
 
@@ -105,7 +105,7 @@ public class WebSocketClient : MonoBehaviour
             websocket.OnOpen -= OnOpenHandler;
             websocket.OnMessage -= OnMessageHandler;
             websocket.OnError -= OnErrorHandler;
-            websocket.OnClose -= OnCloseHandler;
+            // websocket.OnClose -= OnCloseHandler;
             if(websocket.IsAlive) websocket.Close();
             websocket = null;
         }
@@ -118,7 +118,7 @@ public class WebSocketClient : MonoBehaviour
             websocket.OnOpen += OnOpenHandler;
             websocket.OnMessage += OnMessageHandler;
             websocket.OnError += OnErrorHandler;
-            websocket.OnClose += OnCloseHandler;
+            // websocket.OnClose += OnCloseHandler;
             websocket.ConnectAsync();
         } catch (Exception ex) { Debug.LogError("Error WS: " + ex.Message); }
     }
@@ -146,22 +146,22 @@ public class WebSocketClient : MonoBehaviour
         });
     }
 
-    private void OnCloseHandler(object sender, CloseEventArgs e)
-    {
-        EnqueueMainThreadAction(() => {
-            isConnected = false;
-            if (uiHolder?.statusText) uiHolder.statusText.text = $"Desconectado... ({retryInterval}s)";
-            // NUEVO: Limpiar feedback cuando el cliente se desconecta
-            if (dataManager != null && dataManager.feedbackManager != null)
-            {
-                dataManager.feedbackManager.ClearAllFeedback();
-            }
-            if (gameObject.activeInHierarchy) {
-                StopAllCoroutines(); 
-                StartCoroutine(ConnectionLoop());
-            }
-        });
-    }
+    // private void OnCloseHandler(object sender, CloseEventArgs e)
+    // {
+    //     EnqueueMainThreadAction(() => {
+    //         isConnected = false;
+    //         if (uiHolder?.statusText) uiHolder.statusText.text = $"Desconectado... ({retryInterval}s)";
+    //         // NUEVO: Limpiar feedback cuando el cliente se desconecta
+    //         if (dataManager != null && dataManager.feedbackManager != null)
+    //         {
+    //             dataManager.feedbackManager.ClearAllFeedback();
+    //         }
+    //         if (gameObject.activeInHierarchy) {
+    //             StopAllCoroutines(); 
+    //             StartCoroutine(ConnectionLoop());
+    //         }
+    //     });
+    // }
 
     private void SendInitialMessage()
     {
