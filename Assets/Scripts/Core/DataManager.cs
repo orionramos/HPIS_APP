@@ -70,9 +70,9 @@ public class DataManager : MonoBehaviour
 
     private Dictionary<int, int> totalPasosDict = new Dictionary<int, int>()
     {
-        { 1, 5 },
-        { 2, 11 },
-        { 3, 14 },
+        { 1, 6 },
+        { 2, 12 },
+        { 3, 13 },
         { 4, 6 },
         { 5, 14 }
     };

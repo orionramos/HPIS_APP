@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb63589af4fa4544f8b380b5a4d0f636
+guid: 3726612fd87916b49a4013bdc864f615
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: ActionArmature
-      takeName: ActionArmature
-      internalID: 7295227921289301591
-      firstFrame: 0
-      lastFrame: 1359
+      name: Scene
+      takeName: Scene
+      internalID: -623603649343465320
+      firstFrame: 1
+      lastFrame: 1360
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -61,9 +61,9 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Act1_1
-      takeName: ActionArmature
-      internalID: 2680752801430207026
-      firstFrame: 0
+      takeName: Scene
+      internalID: -8800838248204228948
+      firstFrame: 1
       lastFrame: 140
       wrapMode: 0
       orientationOffsetY: 0
@@ -87,13 +87,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Act1_2
-      takeName: ActionArmature
-      internalID: -2117131355210798552
+      takeName: Scene
+      internalID: -491678979986718739
       firstFrame: 160
-      lastFrame: 325
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -116,13 +116,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Act1_3
-      takeName: ActionArmature
-      internalID: -331287562884408630
+      takeName: Scene
+      internalID: -7861037764357068360
       firstFrame: 330
-      lastFrame: 450
+      lastFrame: 451
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -145,11 +145,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Act1_4
-      takeName: ActionArmature
-      internalID: 169131306718041885
+      takeName: Scene
+      internalID: -3692877260685233286
       firstFrame: 475
       lastFrame: 780
       wrapMode: 0
@@ -174,11 +174,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Act1_5
-      takeName: ActionArmature
-      internalID: -9158442539506654742
+      takeName: Scene
+      internalID: -2941871404112819928
       firstFrame: 800
       lastFrame: 1020
       wrapMode: 0
@@ -203,13 +203,13 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Act1_6
-      takeName: ActionArmature
-      internalID: 7419015640722554983
+      takeName: Scene
+      internalID: -4426681539236229938
       firstFrame: 1040
-      lastFrame: 1359
+      lastFrame: 1360
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -232,7 +232,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 0
   meshes:
     lODScreenPercentages: []
