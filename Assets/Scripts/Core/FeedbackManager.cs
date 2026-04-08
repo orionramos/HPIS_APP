@@ -295,6 +295,8 @@ public class FeedbackManager : MonoBehaviour
             case "audio":
                 _mediaCoroutine = StartCoroutine(LoadAndPlayAudio(step.contentValue));
                 break;
+            case "audio_llm":
+                break;
             case "image":
                 _mediaCoroutine = StartCoroutine(LoadAndShowImage(step.contentValue));
                 break;

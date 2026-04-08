@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using Meta.XR.BuildingBlocks.AIBlocks;
 
 [System.Serializable]
 public class HPISData
@@ -17,6 +18,7 @@ public class HPISData
     public int GT;
     public int GM;
     public int tiempo;
+    public string nombre_participante;
 }
 
 public class DataManager : MonoBehaviour
@@ -27,11 +29,22 @@ public class DataManager : MonoBehaviour
     [Header("Managers")]
     public FeedbackManager feedbackManager; // Assign this in the Inspector
 
+    [Header("LLM")]
+    public LlmAgent llmAgent;
+    public LlmAgentHelper llmAgentHelper;
+
+    [Header("LLM User Input Template")]
+    [SerializeField] private string userInput = "";
+
     [Header("Progress Bar Colors")]
     [Tooltip("Color de la parte rellena de la barra cuando hay progreso válido")]
     public Color progressColor = Color.green;
     [Tooltip("Color de la parte rellena de la barra cuando no existe actividad")]
     public Color missingColor = Color.gray;
+
+    private string lastParticipantName = "";
+
+    private string last_frase = "";
 
     private Dictionary<int, string> actividadDict = new Dictionary<int, string>()
     {
@@ -89,6 +102,39 @@ public class DataManager : MonoBehaviour
 
             string actividadNombre = actividadDict.ContainsKey(jsonData.actividad) ? actividadDict[jsonData.actividad] : "Desconocida";
             string hriNombre = hriStrategyDict.ContainsKey(jsonData.HRI_strategy) ? hriStrategyDict[jsonData.HRI_strategy] : "Desconocida";
+            string nombreUsuario = string.IsNullOrWhiteSpace(jsonData.nombre_participante)
+                ? "el usuario"
+                : jsonData.nombre_participante;
+            bool shouldUseLlm = jsonData.HRI_strategy == 3;
+
+            if (shouldUseLlm && llmAgent != null)
+            {
+                // Debug.Log("llmAgent atual: " + llmAgent);
+
+                llmAgent.SystemPrompt = 
+                $@"Eres un asistente que responde siempre en español, de forma breve, clara, objetiva y directa. Ayuda al usuario a realizar la actividad de la mejor manera posible, ofreciendo únicamente instrucciones, indicaciones prácticas y sugerencias útiles.
+
+                El nombre del usuario es {nombreUsuario}. Dirígete a él por su nombre cuando sea natural.
+
+                No hagas preguntas. No pidas confirmación. No ofrezcas opciones abiertas. No respondas con frases conversacionales. Responde siempre con indicaciones claras sobre qué hacer, de forma personalizada y orientada a la acción.
+
+                A partir de ahora recibirás algunos prompts del usuario. Tu tarea es mejorarlos y personalizarlos para él, manteniendo claridad, utilidad, brevedad y un tono instructivo.
+
+                No respondas a este mensaje de configuración. Si este mismo mensaje se envía nuevamente por error, debes seguir ignorándolo y no responder a su contenido.";
+
+                Debug.Log("SystemPrompt actual!!!!!!!!!!!! :\n" + llmAgent.SystemPrompt);
+
+                string frase = BuildLlmUserInput(jsonData, nombreUsuario, actividadNombre);
+                Debug.Log("[FRASE PASO] | " + frase);
+                llmAgentHelper.userInput = frase;
+                lastParticipantName = nombreUsuario;
+
+                if ((frase != last_frase) && (jsonData.paso_actividad != 0))
+                {
+                    last_frase = frase;
+                    llmAgentHelper.SendPrompt();
+                }
+            }
 
             uiHolder.activityText.text = $"Act: {actividadNombre}";
             uiHolder.activityTitle.text = $"Act: {actividadNombre}";
@@ -149,10 +195,12 @@ public class DataManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"No se encontró el total de pasos para la actividad {actividad}");
+            uiHolder.progressBar.maxValue = 1;
             uiHolder.progressBar.value = 0;
             uiHolder.progressFill.color = missingColor;
         }
     }
+
     public void ResetUI()
     {
         if (uiHolder == null) return;
@@ -182,6 +230,30 @@ public class DataManager : MonoBehaviour
         uiHolder.progressFill.color   = missingColor;
 
         if (uiHolder.gripStatus != null)
+        {
             uiHolder.gripStatus.UpdateGripStatus(0, 0, 0, 1);
+        }
     }
+
+    private string BuildLlmUserInput(HPISData jsonData, string nombreUsuario, string actividadNombre)
+    {
+        string visualText = feedbackManager != null
+             ? feedbackManager.FindVisualText(jsonData.actividad, jsonData.paso_actividad)
+             : null;
+
+        string fraseBase = !string.IsNullOrWhiteSpace(visualText)
+            ? visualText
+            : userInput;
+
+        if (string.IsNullOrWhiteSpace(fraseBase))
+        {
+            fraseBase = $"Actividad: {actividadNombre}. Paso: {jsonData.paso_actividad}.";
+        }
+        // string fraseBase = $"Actividad: {actividadNombre}. Paso: {jsonData.paso_actividad}.";
+        return fraseBase
+            .Replace("{nombre_usuario}", nombreUsuario)
+            .Replace("{actividad}", actividadNombre)
+            .Replace("{paso}", jsonData.paso_actividad.ToString());
+    }
+
 }
