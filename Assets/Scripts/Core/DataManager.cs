@@ -122,10 +122,10 @@ public class DataManager : MonoBehaviour
 
                 No respondas a este mensaje de configuración. Si este mismo mensaje se envía nuevamente por error, debes seguir ignorándolo y no responder a su contenido.";
 
-                Debug.Log("SystemPrompt actual!!!!!!!!!!!! :\n" + llmAgent.SystemPrompt);
+                // Debug.Log("SystemPrompt actual: \n" + llmAgent.SystemPrompt);
 
                 string frase = BuildLlmUserInput(jsonData, nombreUsuario, actividadNombre);
-                Debug.Log("[FRASE PASO] | " + frase);
+                // Debug.Log("[FRASE PASO] | " + frase);
                 llmAgentHelper.userInput = frase;
                 lastParticipantName = nombreUsuario;
 

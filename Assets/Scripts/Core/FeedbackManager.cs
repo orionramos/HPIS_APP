@@ -704,7 +704,7 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 
-    string FindVisualText(int activityId, int stepId)
+    public string FindVisualText(int activityId, int stepId)
     {
         if (visualTextsJson == null) return null;
         if (!visualTextsJson.TryGetValue(activityId.ToString(), out var token)) return null;

@@ -926,7 +926,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 10.145.82.63
+  serverIp: 172.20.24.134
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630
@@ -1098,6 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   providerAsset: {fileID: 11400000, guid: 7f521a9c98bc6c84287762dc8973735c, type: 2}
   systemPrompt: 
+  textToSpeechAgent: {fileID: 1721705001}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -2459,6 +2460,7 @@ MonoBehaviour:
   feedbackManager: {fileID: 1929587603}
   llmAgent: {fileID: 1010031971}
   llmAgentHelper: {fileID: 1010031974}
+  userInput: 
   progressColor: {r: 0.30588236, g: 0.41568628, b: 0.2901961, a: 1}
   missingColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1975002270
