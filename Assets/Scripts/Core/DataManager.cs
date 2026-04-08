@@ -59,7 +59,7 @@ public class DataManager : MonoBehaviour
     {
         { 1, 6 },
         { 2, 12 },
-        { 3, 12 },
+        { 3, 13 },
         { 4, 6 },
         { 5, 9 }
     };
@@ -75,6 +75,17 @@ public class DataManager : MonoBehaviour
         try
         {
             HPISData jsonData = JsonUtility.FromJson<HPISData>(data);
+
+            // NUEVO: Si actividad o paso_actividad son 0, es señal de fin del cliente
+            if (jsonData.actividad == 0 || jsonData.paso_actividad == 0)
+            {
+                Debug.Log("[DataManager] Señal de fin del cliente recibida. Limpiando feedback...");
+                if (feedbackManager != null)
+                {
+                    feedbackManager.ClearAllFeedback();
+                }
+                return;
+            }
 
             string actividadNombre = actividadDict.ContainsKey(jsonData.actividad) ? actividadDict[jsonData.actividad] : "Desconocida";
             string hriNombre = hriStrategyDict.ContainsKey(jsonData.HRI_strategy) ? hriStrategyDict[jsonData.HRI_strategy] : "Desconocida";
