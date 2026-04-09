@@ -926,7 +926,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 172.20.24.134
+  serverIp: 172.20.24.116
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630
@@ -1098,6 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   providerAsset: {fileID: 11400000, guid: 7f521a9c98bc6c84287762dc8973735c, type: 2}
   systemPrompt: 
+  textToSpeechAgent: {fileID: 1721705001}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -1141,12 +1142,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010031970}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.21038, y: 0.05284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1245594814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010031974
 MonoBehaviour:
@@ -1589,6 +1590,8 @@ Transform:
   m_Children:
   - {fileID: 760401947}
   - {fileID: 1705825267}
+  - {fileID: 1010031973}
+  - {fileID: 1721705003}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310098700
@@ -2258,12 +2261,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721704999}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.21038, y: 0.05284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1245594814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1721705004
 MonoBehaviour:
@@ -2297,6 +2300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks.AIBlocks::Meta.XR.BuildingBlocks.AIBlocks.LlmAgent
   providerAsset: {fileID: 0}
   systemPrompt: 
+  textToSpeechAgent: {fileID: 0}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -2862,5 +2866,3 @@ SceneRoots:
   - {fileID: 1245594814}
   - {fileID: 899471099}
   - {fileID: 1220107625}
-  - {fileID: 1010031973}
-  - {fileID: 1721705003}

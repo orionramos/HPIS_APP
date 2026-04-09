@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TTS_ElevenLabs
   m_EditorClassIdentifier: 
   supportedInferenceTypes: 1
-  apiKey: 
+  apiKey: sk_21467246227d0df66cf2eff0c93489762831198b8a65139c
   overrideApiKey: 0
   endpoint: https://api.elevenlabs.io
   model: eleven_flash_v2_5
