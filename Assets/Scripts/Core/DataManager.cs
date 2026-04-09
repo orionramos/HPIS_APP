@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using Meta.XR.BuildingBlocks.AIBlocks;
+using HPIS.LLM;
 
 [System.Serializable]
 public class HPISData
@@ -30,8 +30,8 @@ public class DataManager : MonoBehaviour
     public FeedbackManager feedbackManager; // Assign this in the Inspector
 
     [Header("LLM")]
-    public LlmAgent llmAgent;
-    public LlmAgentHelper llmAgentHelper;
+    public HpisLlmAgent llmAgent;
+    public HpisLlmAgentHelper llmAgentHelper;
 
     [Header("LLM User Input Template")]
     [SerializeField] private string userInput = "";

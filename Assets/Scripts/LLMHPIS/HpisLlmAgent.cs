@@ -1,21 +1,10 @@
 /*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Based on Meta Platforms LlmAgent.
+ * Customized for HPIS project to add StopSpeaking() and allow Git tracking.
+ * 
+ * Original: Packages/com.meta.xr.sdk.core/Scripts/BuildingBlocks/AIBlocks/Agents/LlmAgent.cs
+ * This version lives in Assets/ so Unity compiles it AND Git tracks it.
+ * Uses a different namespace + class name to avoid collision with the SDK original.
  */
 
 using System.Collections.Generic;
@@ -25,21 +14,19 @@ using UnityEngine;
 using System;
 using Meta.XR.BuildingBlocks.AIBlocks;
 
-namespace Meta.XR.BuildingBlocks.AIBlocks
+namespace HPIS.LLM
 {
-    [Serializable] public class StringEvent : UnityEvent<string> { }
-    [Serializable] public class Texture2DEvent : UnityEvent<Texture2D> { }
-
     /// <summary>
-    /// Thin chat agent that delegates to an IChatTask provider.
+    /// Custom HPIS chat agent that delegates to an IChatTask provider.
+    /// Replaces the SDK's LlmAgent with additional functionality (StopSpeaking).
     /// </summary>
-    public sealed class LlmAgent : MonoBehaviour
+    public sealed class HpisLlmAgent : MonoBehaviour
     {
         [Header("Configuration")]
-        [Tooltip("Provider asset that implements IChatTask (e.g., LlamaApiProvider). This defines how prompts are sent and responses are retrieved.")]
+        [Tooltip("Provider asset that implements IChatTask (e.g., LlamaApiProvider).")]
         [SerializeField] internal AIProviderBase providerAsset;
 
-        [Tooltip("Optional system prompt to set context/instructions for the LLM. This is prepended to all user messages.")]
+        [Tooltip("Optional system prompt to set context/instructions for the LLM.")]
         [TextArea(3, 10)]
         [SerializeField] private string systemPrompt;
 
@@ -50,7 +37,6 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
 
         /// <summary>
         /// Gets or sets the system prompt that provides context/instructions to the LLM.
-        /// This is prepended to all user messages.
         /// </summary>
         public string SystemPrompt
         {
@@ -59,7 +45,10 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
         }
 
         private IChatTask _chatTask;
+
+#if UNITY_INFERENCE_INSTALLED
         private UnityInferenceEngineProvider _unityProvider;
+#endif
 
         [Header("Events")]
         [Tooltip("Invoked when a prompt is sent to the provider.")]
@@ -72,7 +61,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
         public Texture2DEvent onImageCaptured = new();
 
 #if MRUK_INSTALLED
-        [Tooltip("Passthrough camera access component (injected automatically when MRUK is installed).")]
+        [Tooltip("Passthrough camera access component.")]
         private PassthroughCameraAccess _cam;
 
         [Tooltip("True if passthrough capture is possible and the camera is actively playing.")]
@@ -89,7 +78,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
                 _chatTask = providerAsset as IChatTask;
                 if (_chatTask == null)
                 {
-                    Debug.LogError("LlmAgent: Provider must implement IChatTask.");
+                    Debug.LogError("HpisLlmAgent: Provider must implement IChatTask.");
                 }
 
 #if UNITY_INFERENCE_INSTALLED
@@ -106,7 +95,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[LlmAgent] Initialization failed: {ex.Message}\n{ex.StackTrace}");
+                Debug.LogError($"[HpisLlmAgent] Initialization failed: {ex.Message}\n{ex.StackTrace}");
             }
         }
 
@@ -126,7 +115,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
             }
         }
 
-        /// <summary>Send with a provided Texture2D (e.g., Inspector texture / fake camera). Pass null to send text only.</summary>
+        /// <summary>Send with a provided Texture2D. Pass null to send text only.</summary>
         public Task SendPromptAsync(string userText, Texture2D image)
         {
             List<ImageInput> imgs = null;
@@ -167,34 +156,38 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
             }
             catch (Exception ex)
             {
-                Debug.LogError($"LlmAgent request failed: {ex}");
+                Debug.LogError($"HpisLlmAgent request failed: {ex}");
                 HandleError("(error)");
             }
         }
 
         private void HandleSuccess(string assistantText)
         {
-            Debug.Log($"[LlmAgent Response] {assistantText}");
+            Debug.Log($"[HpisLlmAgent Response] {assistantText}");
             textToSpeechAgent.SpeakText(assistantText);
             onResponseReceived?.Invoke(assistantText);
         }
 
         private void HandleError(string errorMessage)
         {
-            Debug.LogError($"LlmAgent: {errorMessage}");
+            Debug.LogError($"HpisLlmAgent: {errorMessage}");
             onResponseReceived?.Invoke(string.Empty);
         }
 
+        // =====================================================================
+        // CUSTOM HPIS: Método para detener el audio TTS cuando el cliente para
+        // =====================================================================
+
         /// <summary>
         /// Stops any TTS audio that is currently playing or being synthesized.
-        /// Call this when the client disconnects or sends a stop signal.
+        /// Call this when the client disconnects or sends a stop signal (paso == 0).
         /// </summary>
         public void StopSpeaking()
         {
             if (textToSpeechAgent != null)
             {
                 textToSpeechAgent.StopSpeaking();
-                Debug.Log("[LlmAgent] TTS audio stopped.");
+                Debug.Log("[HpisLlmAgent] TTS audio stopped.");
             }
         }
 

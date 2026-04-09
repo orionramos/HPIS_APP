@@ -1,47 +1,22 @@
 /*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
+ * Based on Meta Platforms LlmAgentHelper.
+ * Customized for HPIS project to pair with HpisLlmAgent.
  *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Original: Packages/com.meta.xr.sdk.core/Scripts/BuildingBlocks/AIBlocks/Agents/LlmAgentHelper.cs
+ * This version lives in Assets/ so Unity compiles it AND Git tracks it.
  */
 
 using System.Collections.Generic;
 using UnityEngine;
+using Meta.XR.BuildingBlocks.AIBlocks;
 
-namespace Meta.XR.BuildingBlocks.AIBlocks
+namespace HPIS.LLM
 {
-    public enum DefaultPromptOption
-    {
-        DescribeImage,
-        CapitalOfSwitzerland,
-        Greeting
-    }
-
-    public enum PromptImageSource
-    {
-        Camera,
-        InspectorTexture,
-        ImageUrl
-    }
-
-    [RequireComponent(typeof(LlmAgent))]
-    public sealed class LlmAgentHelper : MonoBehaviour
+    [RequireComponent(typeof(HpisLlmAgent))]
+    public sealed class HpisLlmAgentHelper : MonoBehaviour
     {
         [Header("Prompt Selection")]
-        [Tooltip("Custom text to send as the prompt. If left empty, the default prompt from 'Selected Prompt' will be used.")]
+        [Tooltip("Custom text to send as the prompt.")]
         [SerializeField] public string userInput;
 
         [Tooltip("Choose a predefined default prompt if no custom user input is provided.")]
@@ -51,7 +26,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
         [Tooltip("Enable or disable sending an image along with the text prompt.")]
         [SerializeField] private bool includeImage = true;
 
-        [Tooltip("Select which image source to use when Include Image is enabled: Camera (fake image when in editor), Inspector Texture, or Image URL.")]
+        [Tooltip("Select which image source to use when Include Image is enabled.")]
         [SerializeField] private PromptImageSource imageSource = PromptImageSource.Camera;
 
         [Tooltip("Image asset assigned in the Inspector. Only used when Image Source = InspectorTexture.")]
@@ -61,13 +36,13 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
         [SerializeField] private string promptImageUrl;
 
 
-        private LlmAgent _agent;
+        private HpisLlmAgent _agent;
         private DefaultPromptOption _lastPrompt;
         private string _lastText;
 
         private void Awake()
         {
-            _agent = GetComponent<LlmAgent>();
+            _agent = GetComponent<HpisLlmAgent>();
             _lastPrompt = selectedPrompt;
             _lastText = GetDefaultPromptText(_lastPrompt);
             if (string.IsNullOrWhiteSpace(userInput))
@@ -93,7 +68,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
         }
 
         /// <summary>
-        /// Hook this to e.g. the LlmAgent's OnPromptSent and OnResponseReceived events to print the prompt/response.
+        /// Hook this to e.g. the HpisLlmAgent's OnPromptSent and OnResponseReceived events to print the prompt/response.
         /// </summary>
         public static void Logger(string text)
         {
@@ -106,7 +81,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
 
             if (string.IsNullOrWhiteSpace(text))
             {
-                Debug.LogWarning("[LlmAgentHelper] No prompt to send.");
+                Debug.LogWarning("[HpisLlmAgentHelper] No prompt to send.");
                 return;
             }
 
@@ -159,7 +134,7 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
 
         private void SendTextOnlyWithWarning(string text, string warningMessage)
         {
-            Debug.LogWarning($"[LlmAgentHelper] {warningMessage}");
+            Debug.LogWarning($"[HpisLlmAgentHelper] {warningMessage}");
             _ = _agent.SendPromptAsync(text, image: null);
         }
 

@@ -151,6 +151,81 @@ Transform:
   - {fileID: 1975002271}
   m_Father: {fileID: 292464089}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &174165079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174165080}
+  - component: {fileID: 174165082}
+  - component: {fileID: 174165081}
+  m_Layer: 0
+  m_Name: HPISLLM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &174165080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174165079}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.54673, y: -0.46043003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1245594814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174165081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174165079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9273fe4cc9f4608469c6b1f15352ec14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HPIS.LLM.HpisLlmAgentHelper
+  userInput: 
+  selectedPrompt: 0
+  includeImage: 0
+  imageSource: 0
+  promptImage: {fileID: 0}
+  promptImageUrl: 
+--- !u!114 &174165082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174165079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7ab740e238a86428100069d0fb29b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HPIS.LLM.HpisLlmAgent
+  providerAsset: {fileID: 11400000, guid: 7f521a9c98bc6c84287762dc8973735c, type: 2}
+  systemPrompt: 
+  textToSpeechAgent: {fileID: 1721705001}
+  onPromptSent:
+    m_PersistentCalls:
+      m_Calls: []
+  onResponseReceived:
+    m_PersistentCalls:
+      m_Calls: []
+  onImageCaptured:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &292464088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,108 +1140,6 @@ MonoBehaviour:
   minAnimationScale: 0.01
   initialAnimationScale: 0.1
   moveSpeed: 0.3
---- !u!1 &1010031970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1010031973}
-  - component: {fileID: 1010031972}
-  - component: {fileID: 1010031971}
-  - component: {fileID: 1010031974}
-  m_Layer: 0
-  m_Name: '[BuildingBlock] Large Language Models'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1010031971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010031970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b538056738080f84594e832a6af9a157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  providerAsset: {fileID: 11400000, guid: 7f521a9c98bc6c84287762dc8973735c, type: 2}
-  systemPrompt: 
-  textToSpeechAgent: {fileID: 1721705001}
-  onPromptSent:
-    m_PersistentCalls:
-      m_Calls: []
-  onResponseReceived:
-    m_PersistentCalls:
-      m_Calls: []
-  onImageCaptured:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1010031972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010031970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
-  blockId: ef19cfd3-3bb7-4107-9044-33fecdb8a359
-  instanceId: ee25768e-5c65-4c50-aa6e-83b697204bfc
-  version: 1
-  installationRoutineCheckpoint:
-    _installationRoutineId: fb956d38-811e-4622-b453-c21ac1f76ff0
-    _installationVariants:
-    - _memberName: providerAssetSelection
-      _value: LLM_Groq
-    - _memberName: inferenceType
-      _value: '{"value__":4}'
-    - _memberName: modelProvider
-      _value: UnityInferenceEngine - SmolLM-135M
-    - _memberName: includeDebuggingTools
-      _value: '{}'
---- !u!4 &1010031973
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010031970}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.21038, y: 0.05284, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1245594814}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1010031974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010031970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fe762148452284580b7977321a431c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Meta.XR.BuildingBlocks.AIBlocks::Meta.XR.BuildingBlocks.AIBlocks.LlmAgentHelper
-  userInput: 
-  selectedPrompt: 0
-  includeImage: 0
-  imageSource: 0
-  promptImage: {fileID: 0}
-  promptImageUrl: 
 --- !u!1 &1076249470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,8 +1563,8 @@ Transform:
   m_Children:
   - {fileID: 760401947}
   - {fileID: 1705825267}
-  - {fileID: 1010031973}
   - {fileID: 1721705003}
+  - {fileID: 174165080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310098700
@@ -2504,8 +2477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   feedbackManager: {fileID: 1929587603}
-  llmAgent: {fileID: 1010031971}
-  llmAgentHelper: {fileID: 1010031974}
+  llmAgent: {fileID: 174165082}
+  llmAgentHelper: {fileID: 174165081}
   userInput: 
   progressColor: {r: 0.30588236, g: 0.41568628, b: 0.2901961, a: 1}
   missingColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
