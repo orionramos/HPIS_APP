@@ -97,6 +97,15 @@ public class DataManager : MonoBehaviour
                 {
                     feedbackManager.ClearAllFeedback();
                 }
+
+                // Detener el audio TTS del LLM si está sonando
+                if (llmAgent != null)
+                {
+                    llmAgent.StopSpeaking();
+                }
+                last_frase = ""; // Resetear para que el próximo prompt se envíe correctamente
+
+                ResetUI();
                 return;
             }
 

@@ -185,6 +185,19 @@ namespace Meta.XR.BuildingBlocks.AIBlocks
             onResponseReceived?.Invoke(string.Empty);
         }
 
+        /// <summary>
+        /// Stops any TTS audio that is currently playing or being synthesized.
+        /// Call this when the client disconnects or sends a stop signal.
+        /// </summary>
+        public void StopSpeaking()
+        {
+            if (textToSpeechAgent != null)
+            {
+                textToSpeechAgent.StopSpeaking();
+                Debug.Log("[LlmAgent] TTS audio stopped.");
+            }
+        }
+
 #if MRUK_INSTALLED
         private bool TryCapturePassthroughImage(out Texture2D texture)
         {
