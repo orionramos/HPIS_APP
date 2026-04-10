@@ -1317,12 +1317,6 @@
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_13",
               "pip_camera": ""
-            },
-            {
-              "id": 14,
-              "contentType": "animation_state",
-              "contentValue": "Prefab_Master_Actividad3|Act3_14",
-              "pip_camera": ""
             }
           ]
         },
@@ -1529,25 +1523,25 @@
             {
               "id": 10,
               "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_9",
+              "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_10",
               "pip_camera": ""
             },
             {
               "id": 11,
               "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_10",
+              "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_11",
               "pip_camera": ""
             },
             {
               "id": 12,
               "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_11",
+              "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_12",
               "pip_camera": ""
             },
             {
               "id": 13,
               "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_12",
+              "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_13",
               "pip_camera": ""
             }
           ]
