@@ -1,6 +1,7 @@
 using UnityEngine;
 using WebSocketSharp;
 using TMPro;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -86,11 +87,22 @@ public class WebSocketClient : MonoBehaviour
 
     private void Update()
     {
-        while (mainThreadActions.Count > 0) mainThreadActions.Dequeue().Invoke();
+        lock (mainThreadActions)
+        {
+            while (mainThreadActions.Count > 0)
+            {
+                mainThreadActions.Dequeue()?.Invoke();
+            }
+        }
     }
 
-    private IEnumerator ConnectionLoop()
+    private IEnumerator ConnectionLoop(bool immediate = true)
     {
+        if (!immediate)
+            yield return new WaitForSeconds(retryInterval);
+        else
+            yield return new WaitForSeconds(0.5f);
+
         while (!isConnected)
         {
             TryConnect();
@@ -112,6 +124,7 @@ public class WebSocketClient : MonoBehaviour
 
         string url = $"ws://{serverIp}:{serverPort}";
         if (uiHolder?.statusText) uiHolder.statusText.text = $"Conectando a {url}...";
+        SetLedColor(Color.yellow);
 
         try {
             websocket = new WebSocket(url);
@@ -120,7 +133,10 @@ public class WebSocketClient : MonoBehaviour
             websocket.OnError += OnErrorHandler;
             websocket.OnClose += OnCloseHandler;
             websocket.ConnectAsync();
-        } catch (Exception ex) { Debug.LogError("Error WS: " + ex.Message); }
+        } catch (Exception ex) { 
+            Debug.LogError("Error WS: " + ex.Message); 
+            SetLedColor(Color.red);
+        }
     }
 
     private void OnOpenHandler(object sender, EventArgs e)
@@ -128,6 +144,7 @@ public class WebSocketClient : MonoBehaviour
         EnqueueMainThreadAction(() => {
             isConnected = true;
             if (uiHolder?.statusText) uiHolder.statusText.text = "Conectado";
+            SetLedColor(Color.green);
             uiManager.ShowInfoPanel();
             SendInitialMessage();
         });
@@ -143,6 +160,7 @@ public class WebSocketClient : MonoBehaviour
     {
         EnqueueMainThreadAction(() => {
             if (uiHolder?.statusText) uiHolder.statusText.text = $"Error: {e.Message}";
+            SetLedColor(Color.red);
         });
     }
 
@@ -151,6 +169,7 @@ public class WebSocketClient : MonoBehaviour
         EnqueueMainThreadAction(() => {
             isConnected = false;
             if (uiHolder?.statusText) uiHolder.statusText.text = $"Desconectado... ({retryInterval}s)";
+            SetLedColor(Color.red);
             // NUEVO: Limpiar feedback cuando el cliente se desconecta
             if (dataManager != null && dataManager.feedbackManager != null)
             {
@@ -158,7 +177,7 @@ public class WebSocketClient : MonoBehaviour
             }
             if (gameObject.activeInHierarchy) {
                 StopAllCoroutines(); 
-                StartCoroutine(ConnectionLoop());
+                StartCoroutine(ConnectionLoop(false));
             }
         });
     }
@@ -178,6 +197,15 @@ public class WebSocketClient : MonoBehaviour
     private void EnqueueMainThreadAction(Action action)
     {
         lock (mainThreadActions) mainThreadActions.Enqueue(action);
+    }
+
+    /// <summary>
+    /// Cambia el color del LED indicador de conexión.
+    /// </summary>
+    private void SetLedColor(Color color)
+    {
+        if (uiHolder != null && uiHolder.connectionLed != null)
+            uiHolder.connectionLed.color = color;
     }
 
     private void OnDestroy()

@@ -12,6 +12,8 @@ public class UIReferenceHolder : MonoBehaviour
 {
     [Header("WebSocket Status")]
     public TextMeshProUGUI statusText;
+    [Tooltip("Imagen circular que actúa como LED indicador de conexión (verde=conectado, rojo=desconectado, amarillo=conectando)")]
+    public Image connectionLed;
 
     [Header("Data Display")]
     public TextMeshProUGUI activityText;
