@@ -100,11 +100,12 @@
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_1-example_algorithm_1_6_1" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_2-example_algorithm_1_6_2" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_3-example_algorithm_1_6_3" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_4-example_algorithm_1_6_4" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_5-example_algorithm_1_6_5" }
+            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_1-Prefab_Master_Actividad1|Act1_1", "pip_camera": "Camara_Protesis" },
+            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_2-Prefab_Master_Actividad1|Act1_2", "pip_camera": "Camara_ManoSana" },
+            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_3-Prefab_Master_Actividad1|Act1_3", "pip_camera": "Camara_ManoSana" },
+            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_4-Prefab_Master_Actividad1|Act1_4", "pip_camera": "" },
+            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_5-Prefab_Master_Actividad1|Act1_5", "pip_camera": "" },
+            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_6-Prefab_Master_Actividad1|Act1_6", "pip_camera": "Camara_ManoSana" }
           ]
         }
       ]
@@ -421,18 +422,18 @@
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_1-example_algorithm_3_6_1" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_2-example_algorithm_3_6_2" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_3-example_algorithm_3_6_3" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_4-example_algorithm_3_6_4" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_5-example_algorithm_3_6_5" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_6-example_algorithm_3_6_6" },
-            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_7-example_algorithm_3_6_7" },
-            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_8-example_algorithm_3_6_8" },
-            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_9-example_algorithm_3_6_9" },
-            { "id": 10, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_10-example_algorithm_3_6_10" },
-            { "id": 11, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_11-example_algorithm_3_6_11" },
-            { "id": 12, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_12-example_algorithm_3_6_12" }
+            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_1-Prefab_Master_Actividad3|Act3_1", "pip_camera": "" },
+            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_2-Prefab_Master_Actividad3|Act3_2", "pip_camera": "" },
+            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_3-Prefab_Master_Actividad3|Act3_3", "pip_camera": "" },
+            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_4-Prefab_Master_Actividad3|Act3_4", "pip_camera": "" },
+            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_5-Prefab_Master_Actividad3|Act3_5", "pip_camera": "" },
+            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_6-Prefab_Master_Actividad3|Act3_6", "pip_camera": "" },
+            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_7-Prefab_Master_Actividad3|Act3_7", "pip_camera": "" },
+            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_8-Prefab_Master_Actividad3|Act3_8", "pip_camera": "" },
+            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_9", "pip_camera": "" },
+            { "id": 10, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_10", "pip_camera": "" },
+            { "id": 11, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_11", "pip_camera": "" },
+            { "id": 12, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_12", "pip_camera": "" }
           ]
         }
       ]
@@ -541,12 +542,12 @@
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_1-example_algorithm_4_6_1" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_2-example_algorithm_4_6_2" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_3-example_algorithm_4_6_3" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_4-example_algorithm_4_6_4" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_5-example_algorithm_4_6_5" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_6-example_algorithm_4_6_6" }
+            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_1-Prefab_Master_Actividad4|Act4_1", "pip_camera": "" },
+            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_2-Prefab_Master_Actividad4|Act4_2", "pip_camera": "" },
+            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_3-Prefab_Master_Actividad4|Act4_3", "pip_camera": "" },
+            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_4-Prefab_Master_Actividad4|Act4_4", "pip_camera": "" },
+            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_5-Prefab_Master_Actividad4|Act4_5", "pip_camera": "" },
+            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_6-Prefab_Master_Actividad4|Act4_6", "pip_camera": "" }
           ]
         }
       ]
@@ -679,15 +680,15 @@
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_1-example_algorithm_5_6_1" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_2-example_algorithm_5_6_2" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_3-example_algorithm_5_6_3" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_4-example_algorithm_5_6_4" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_5-example_algorithm_5_6_5" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_6-example_algorithm_5_6_6" },
-            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_7-example_algorithm_5_6_7" },
-            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_8-example_algorithm_5_6_8" },
-            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_9-example_algorithm_5_6_9" }
+            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_1-Prefab_Master_Actividad5|Act5_1", "pip_camera": "" },
+            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_2-Prefab_Master_Actividad5|Act5_2", "pip_camera": "" },
+            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_3-Prefab_Master_Actividad5|Act5_3", "pip_camera": "" },
+            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_4-Prefab_Master_Actividad5|Act5_4", "pip_camera": "" },
+            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_5-Prefab_Master_Actividad5|Act5_5", "pip_camera": "" },
+            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_6-Prefab_Master_Actividad5|Act5_6", "pip_camera": "" },
+            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_7-Prefab_Master_Actividad5|Act5_7", "pip_camera": "" },
+            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_8-Prefab_Master_Actividad5|Act5_8", "pip_camera": "" },
+            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_9-Prefab_Master_Actividad5|Act5_9", "pip_camera": "" }
           ]
         }
       ]

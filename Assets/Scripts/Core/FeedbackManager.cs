@@ -246,20 +246,35 @@ public class FeedbackManager : MonoBehaviour
             return;
         }
 
-        // NUEVO: LÓGICA DE ARQUITECTURA MAESTRA: ¿Destruimos el prefab o lo reciclamos?
+        // LÓGICA DE ARQUITECTURA MAESTRA: ¿Destruimos el prefab o lo reciclamos?
         bool keepMasterPrefab = false;
-        if (step.contentType.ToLower() == "animation_state")
+        string contentLower = step.contentType.ToLower();
+        if (contentLower == "animation_state")
         {
             string[] parts = step.contentValue.Split('|');
             if (parts.Length == 2 && parts[0] == _loadedMasterPrefabName)
             {
-                keepMasterPrefab = true; // Es el mismo maestro, conservarlo en memoria
+                keepMasterPrefab = true;
+            }
+        }
+        else if (contentLower == "multimodal3")
+        {
+            // En Multimodal3, la parte de animación viene después del '-'
+            string[] mainParts = step.contentValue.Split('-');
+            if (mainParts.Length == 2)
+            {
+                string animPart = mainParts[1]; // "Prefab_Master_Actividad1|Act1_1"
+                string[] animSplit = animPart.Split('|');
+                if (animSplit.Length == 2 && animSplit[0] == _loadedMasterPrefabName)
+                {
+                    keepMasterPrefab = true;
+                }
             }
         }
 
         StopMedia(keepMasterPrefab);
 
-        if (step.contentType.ToLower() != "animation_prefab" && step.contentType.ToLower() != "animation_state")
+        if (contentLower != "animation_prefab" && contentLower != "animation_state" && contentLower != "multimodal3")
         {
             savedObjectStates.Clear();
         }
@@ -338,13 +353,21 @@ public class FeedbackManager : MonoBehaviour
                 }
                 break;
             case "multimodal3":
-                // Combine auditory strategy 1 with visual strategy 6 (animation prefab)
+                // Combine auditory strategy 3 (audio_llm) with visual strategy 6 (animation_state)
                 parts = step.contentValue.Split('-');
                 if (parts.Length == 2)
                 {
                     StartCoroutine(LoadAndPlayAudio(parts[0]));
-                    // Aquí podrías actualizar a ProcessAnimationState en el futuro si multimodal3 lo requiere
-                    _mediaCoroutine = StartCoroutine(ProcessAnimationPrefab(parts[1]));
+
+                    // Crear un FeedbackStep sintético para ProcessAnimationState
+                    FeedbackStep animStep = new FeedbackStep
+                    {
+                        id = step.id,
+                        contentType = "animation_state",
+                        contentValue = parts[1],     // "Prefab_Master_Actividad1|Act1_1"
+                        pip_camera = step.pip_camera  // heredar pip_camera del paso Multimodal3
+                    };
+                    _mediaCoroutine = StartCoroutine(ProcessAnimationState(animStep));
                 }
                 break;
             default:
