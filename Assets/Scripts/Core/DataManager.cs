@@ -105,7 +105,7 @@ public class DataManager : MonoBehaviour
                 }
                 last_frase = ""; // Resetear para que el próximo prompt se envíe correctamente
 
-                ResetUI();
+                ResetUI(jsonData.Heart_Rate);
                 return;
             }
 
@@ -210,24 +210,26 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void ResetUI()
+    public void ResetUI(int heartRate = 0)
     {
         if (uiHolder == null) return;
 
         // Texto de actividad
-        uiHolder.activityText.text = "Act: 0";
-        uiHolder.activityTitle.text = "Act: 0";
-        uiHolder.stepText.text     = "Paso: 0";
-        uiHolder.hriText.text      = "HRI: 0";
+        uiHolder.activityText.text = "Act: --";
+        uiHolder.activityTitle.text = "Act: --";
+        uiHolder.stepText.text     = "Paso: --";
+        uiHolder.hriText.text      = "HRI: --";
         uiHolder.gtText.text       = "GT: 0";
         uiHolder.gMText.text       = "GM: 0";
 
-        // Contadores EMG y HR
+        // Contadores EMG
         uiHolder.emgCounterAText.text = "Open: 0";
         uiHolder.emgCounterBText.text = "Close: 0";
         uiHolder.emgCounterTText.text = "EMG Total: 0";
-        uiHolder.heartRateText.text   = "HR: 0";
-        uiHolder.UserHR.text          = "0";
+
+        // HR: Mostrar el valor real del sensor para indicar que sigue conectado
+        uiHolder.heartRateText.text   = $"HR: {heartRate}";
+        uiHolder.UserHR.text          = $"{heartRate}";
 
         // Tiempo
         uiHolder.UserTime.text  = "00:00 s";
