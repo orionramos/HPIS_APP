@@ -8,104 +8,316 @@
           "id": 1,
           "name": "Estrategia Auditiva 1",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_1_1_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_1_1_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_1_1_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_1_1_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_1_1_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_1_1_6" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_1_6"
+            }
           ]
         },
         {
           "id": 2,
           "name": "Estrategia Auditiva 2",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_1_2_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_1_2_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_1_2_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_1_2_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_1_2_5" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_2_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_2_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_2_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_2_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_1_2_5"
+            }
           ]
         },
         {
           "id": 3,
           "name": "Estrategia Auditiva 3",
           "steps": [
-            { "id": 1, "contentType": "audio_llm", "contentValue": "example_audio_1_3_1" },
-            { "id": 2, "contentType": "audio_llm", "contentValue": "example_audio_1_3_2" },
-            { "id": 3, "contentType": "audio_llm", "contentValue": "example_audio_1_3_3" },
-            { "id": 4, "contentType": "audio_llm", "contentValue": "example_audio_1_3_4" },
-            { "id": 5, "contentType": "audio_llm", "contentValue": "example_audio_1_3_5" }
+            {
+              "id": 1,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_1_3_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_1_3_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_1_3_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_1_3_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_1_3_5"
+            }
           ]
         },
         {
           "id": 4,
           "name": "Estrategia Visual 1",
           "steps": [
-            { "id": 1, "contentType": "image", "contentValue": "example_image_1_4_1" },
-            { "id": 2, "contentType": "image", "contentValue": "example_image_1_4_2" },
-            { "id": 3, "contentType": "image", "contentValue": "example_image_1_4_3" },
-            { "id": 4, "contentType": "image", "contentValue": "example_image_1_4_4" },
-            { "id": 5, "contentType": "image", "contentValue": "example_image_1_4_5" },
-            { "id": 6, "contentType": "image", "contentValue": "example_image_1_4_6" }
+            {
+              "id": 1,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image",
+              "contentValue": "example_image_1_4_6"
+            }
           ]
         },
         {
           "id": 5,
           "name": "Estrategia Visual 2",
           "steps": [
-            { "id": 1, "contentType": "video", "contentValue": "example_image_1_5_1" },
-            { "id": 2, "contentType": "video", "contentValue": "example_image_1_5_2" },
-            { "id": 3, "contentType": "video", "contentValue": "example_image_1_5_3" },
-            { "id": 4, "contentType": "video", "contentValue": "example_image_1_5_4" },
-            { "id": 5, "contentType": "video", "contentValue": "example_image_1_5_5" },
-            { "id": 6, "contentType": "video", "contentValue": "example_image_1_5_6" }
+            {
+              "id": 1,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "video",
+              "contentValue": "example_image_1_5_6"
+            }
           ]
         },
         {
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_1","pip_camera": "Camara_Protesis"},
-            { "id": 2, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_2","pip_camera": "Camara_ManoSana"},
-            { "id": 3, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_3","pip_camera": "Camara_ManoSana"},
-            { "id": 4, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_4","pip_camera": ""},
-            { "id": 5, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_5","pip_camera": ""},
-            { "id": 6, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad1|Act1_6","pip_camera": "Camara_ManoSana"}
+            {
+              "id": 1,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_1",
+              "pip_camera": "Camara_Protesis"
+            },
+            {
+              "id": 2,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_2",
+              "pip_camera": "Camara_ManoSana"
+            },
+            {
+              "id": 3,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_3",
+              "pip_camera": "Camara_ManoSana"
+            },
+            {
+              "id": 4,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad1|Act1_6",
+              "pip_camera": "Camara_ManoSana"
+            }
           ]
         },
         {
           "id": 7,
           "name": "Estrategia Multimodal 1",
           "steps": [
-            { "id": 1, "contentType": "Multimodal1", "contentValue": "example_audio_1_1_1-text" },
-            { "id": 2, "contentType": "Multimodal1", "contentValue": "example_audio_1_1_2-text" },
-            { "id": 3, "contentType": "Multimodal1", "contentValue": "example_audio_1_1_3-text" },
-            { "id": 4, "contentType": "Multimodal1", "contentValue": "example_audio_1_1_4-text" },
-            { "id": 5, "contentType": "Multimodal1", "contentValue": "example_audio_1_1_5-text" }
+            {
+              "id": 1,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_1_1_1-text"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_1_1_2-text"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_1_1_3-text"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_1_1_4-text"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_1_1_5-text"
+            }
           ]
         },
         {
           "id": 8,
           "name": "Estrategia Multimodal 2",
           "steps": [
-            { "id": 1, "contentType": "Multimodal2", "contentValue": "example_audio_1_2_1-example_image_1_5_1" },
-            { "id": 2, "contentType": "Multimodal2", "contentValue": "example_audio_1_2_2-example_image_1_5_2" },
-            { "id": 3, "contentType": "Multimodal2", "contentValue": "example_audio_1_2_3-example_image_1_5_3" },
-            { "id": 4, "contentType": "Multimodal2", "contentValue": "example_audio_1_2_4-example_image_1_5_4" },
-            { "id": 5, "contentType": "Multimodal2", "contentValue": "example_audio_1_2_5-example_image_1_5_5" }
+            {
+              "id": 1,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_1_2_1-example_image_1_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_1_2_2-example_image_1_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_1_2_3-example_image_1_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_1_2_4-example_image_1_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_1_2_5-example_image_1_5_5"
+            }
           ]
         },
         {
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_1-Prefab_Master_Actividad1|Act1_1", "pip_camera": "Camara_Protesis" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_2-Prefab_Master_Actividad1|Act1_2", "pip_camera": "Camara_ManoSana" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_3-Prefab_Master_Actividad1|Act1_3", "pip_camera": "Camara_ManoSana" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_4-Prefab_Master_Actividad1|Act1_4", "pip_camera": "" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_5-Prefab_Master_Actividad1|Act1_5", "pip_camera": "" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_1_3_6-Prefab_Master_Actividad1|Act1_6", "pip_camera": "Camara_ManoSana" }
+            {
+              "id": 1,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_1-Prefab_Master_Actividad1|Act1_1",
+              "pip_camera": "Camara_Protesis"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_2-Prefab_Master_Actividad1|Act1_2",
+              "pip_camera": "Camara_ManoSana"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_3-Prefab_Master_Actividad1|Act1_3",
+              "pip_camera": "Camara_ManoSana"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_4-Prefab_Master_Actividad1|Act1_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_5-Prefab_Master_Actividad1|Act1_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_1_3_6-Prefab_Master_Actividad1|Act1_6",
+              "pip_camera": "Camara_ManoSana"
+            }
           ]
         }
       ]
@@ -118,153 +330,549 @@
           "id": 1,
           "name": "Estrategia Auditiva 1",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_2_1_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_2_1_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_2_1_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_2_1_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_2_1_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_2_1_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_2_1_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_2_1_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_2_1_9" },
-            { "id": 10, "contentType": "audio", "contentValue": "example_audio_2_1_10" },
-            { "id": 11, "contentType": "audio", "contentValue": "example_audio_2_1_11" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_9"
+            },
+            {
+              "id": 10,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_10"
+            },
+            {
+              "id": 11,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_1_11"
+            }
           ]
         },
         {
           "id": 2,
           "name": "Estrategia Auditiva 2",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_2_2_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_2_2_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_2_2_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_2_2_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_2_2_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_2_2_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_2_2_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_2_2_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_2_2_9" },
-            { "id": 10, "contentType": "audio", "contentValue": "example_audio_2_2_10" },
-            { "id": 11, "contentType": "audio", "contentValue": "example_audio_2_2_11" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_9"
+            },
+            {
+              "id": 10,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_10"
+            },
+            {
+              "id": 11,
+              "contentType": "audio",
+              "contentValue": "example_audio_2_2_11"
+            }
           ]
         },
         {
           "id": 3,
           "name": "Estrategia Auditiva 3",
           "steps": [
-            { "id": 1, "contentType": "audio_llm", "contentValue": "example_audio_2_3_1" },
-            { "id": 2, "contentType": "audio_llm", "contentValue": "example_audio_2_3_2" },
-            { "id": 3, "contentType": "audio_llm", "contentValue": "example_audio_2_3_3" },
-            { "id": 4, "contentType": "audio_llm", "contentValue": "example_audio_2_3_4" },
-            { "id": 5, "contentType": "audio_llm", "contentValue": "example_audio_2_3_5" },
-            { "id": 6, "contentType": "audio_llm", "contentValue": "example_audio_2_3_6" },
-            { "id": 7, "contentType": "audio_llm", "contentValue": "example_audio_2_3_7" },
-            { "id": 8, "contentType": "audio_llm", "contentValue": "example_audio_2_3_8" },
-            { "id": 9, "contentType": "audio_llm", "contentValue": "example_audio_2_3_9" },
-            { "id": 10, "contentType": "audio_llm", "contentValue": "example_audio_2_3_10" },
-            { "id": 11, "contentType": "audio_llm", "contentValue": "example_audio_2_3_11" }
+            {
+              "id": 1,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_9"
+            },
+            {
+              "id": 10,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_10"
+            },
+            {
+              "id": 11,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_2_3_11"
+            }
           ]
         },
         {
           "id": 4,
           "name": "Estrategia Visual 1",
           "steps": [
-            { "id": 1, "contentType": "image", "contentValue": "example_image_2_4_1" },
-            { "id": 2, "contentType": "image", "contentValue": "example_image_2_4_2" },
-            { "id": 3, "contentType": "image", "contentValue": "example_image_2_4_3" },
-            { "id": 4, "contentType": "image", "contentValue": "example_image_2_4_4" },
-            { "id": 5, "contentType": "image", "contentValue": "example_image_2_4_5" },
-            { "id": 6, "contentType": "image", "contentValue": "example_image_2_4_6" },
-            { "id": 7, "contentType": "image", "contentValue": "example_image_2_4_7" },
-            { "id": 8, "contentType": "image", "contentValue": "example_image_2_4_8" },
-            { "id": 9, "contentType": "image", "contentValue": "example_image_2_4_9" },
-            { "id": 10, "contentType": "image", "contentValue": "example_image_2_4_10" },
-            { "id": 11, "contentType": "image", "contentValue": "example_image_2_4_11" }
+            {
+              "id": 1,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_6"
+            },
+            {
+              "id": 7,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_7"
+            },
+            {
+              "id": 8,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_8"
+            },
+            {
+              "id": 9,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_9"
+            },
+            {
+              "id": 10,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_10"
+            },
+            {
+              "id": 11,
+              "contentType": "image",
+              "contentValue": "example_image_2_4_11"
+            }
           ]
         },
         {
           "id": 5,
           "name": "Estrategia Visual 2",
           "steps": [
-            { "id": 1, "contentType": "video", "contentValue": "example_image_2_5_1" },
-            { "id": 2, "contentType": "video", "contentValue": "example_image_2_5_2" },
-            { "id": 3, "contentType": "video", "contentValue": "example_image_2_5_3" },
-            { "id": 4, "contentType": "video", "contentValue": "example_image_2_5_4" },
-            { "id": 5, "contentType": "video", "contentValue": "example_image_2_5_5" },
-            { "id": 6, "contentType": "video", "contentValue": "example_image_2_5_6" },
-            { "id": 7, "contentType": "video", "contentValue": "example_image_2_5_7" },
-            { "id": 8, "contentType": "video", "contentValue": "example_image_2_5_8" },
-            { "id": 9, "contentType": "video", "contentValue": "example_image_2_5_9" },
-            { "id": 10,"contentType": "video", "contentValue": "example_image_2_5_10" },
-            { "id": 11,"contentType": "video", "contentValue": "example_image_2_5_11" }
+            {
+              "id": 1,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_6"
+            },
+            {
+              "id": 7,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_7"
+            },
+            {
+              "id": 8,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_8"
+            },
+            {
+              "id": 9,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_9"
+            },
+            {
+              "id": 10,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_10"
+            },
+            {
+              "id": 11,
+              "contentType": "video",
+              "contentValue": "example_image_2_5_11"
+            }
           ]
         },
         {
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_1" },
-            { "id": 2, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_2" },
-            { "id": 3, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_3" },
-            { "id": 4, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_4" },
-            { "id": 5, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_5" },
-            { "id": 6, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_6" },
-            { "id": 7, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_7" },
-            { "id": 8, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_8" },
-            { "id": 9, "contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_9" },
-            { "id": 10,"contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_10" },
-            { "id": 11,"contentType": "animation_prefab", "contentValue": "example_algorithm_2_6_11" }
+            {
+              "id": 1,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_1"
+            },
+            {
+              "id": 2,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_2"
+            },
+            {
+              "id": 3,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_3"
+            },
+            {
+              "id": 4,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_4"
+            },
+            {
+              "id": 5,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_5"
+            },
+            {
+              "id": 6,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_6"
+            },
+            {
+              "id": 7,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_7"
+            },
+            {
+              "id": 8,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_8"
+            },
+            {
+              "id": 9,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_9"
+            },
+            {
+              "id": 10,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_10"
+            },
+            {
+              "id": 11,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_2_6_11"
+            }
           ]
         },
         {
           "id": 7,
           "name": "Estrategia Multimodal 1",
           "steps": [
-            { "id": 1, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_1" },
-            { "id": 2, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_2" },
-            { "id": 3, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_3" },
-            { "id": 4, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_4" },
-            { "id": 5, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_5" },
-            { "id": 6, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_6" },
-            { "id": 7, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_7" },
-            { "id": 8, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_8" },
-            { "id": 9, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_9" },
-            { "id": 10, "contentType": "image-audio", "contentValue": "example_image-audio_2_7_10" },
-            { "id": 11, "contentType": "image-audio", "contentValue": "example_algorithm_2_7_11" }
+            {
+              "id": 1,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_6"
+            },
+            {
+              "id": 7,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_7"
+            },
+            {
+              "id": 8,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_8"
+            },
+            {
+              "id": 9,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_9"
+            },
+            {
+              "id": 10,
+              "contentType": "image-audio",
+              "contentValue": "example_image-audio_2_7_10"
+            },
+            {
+              "id": 11,
+              "contentType": "image-audio",
+              "contentValue": "example_algorithm_2_7_11"
+            }
           ]
         },
         {
           "id": 8,
           "name": "Estrategia Multimodal 2",
           "steps": [
-            { "id": 1, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_1" },
-            { "id": 2, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_2" },
-            { "id": 3, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_3" },
-            { "id": 4, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_4" },
-            { "id": 5, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_5" },
-            { "id": 6, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_6" },
-            { "id": 7, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_7" },
-            { "id": 8, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_8" },
-            { "id": 9, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_9" },
-            { "id": 10, "contentType": "audio-algorithm", "contentValue": "example_audio-algorithm_2_8_10" },
-            { "id": 11, "contentType": "algorithm", "contentValue": "example_algorithm_2_8_11" }
+            {
+              "id": 1,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_9"
+            },
+            {
+              "id": 10,
+              "contentType": "audio-algorithm",
+              "contentValue": "example_audio-algorithm_2_8_10"
+            },
+            {
+              "id": 11,
+              "contentType": "algorithm",
+              "contentValue": "example_algorithm_2_8_11"
+            }
           ]
         },
         {
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_1" },
-            { "id": 2, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_2" },
-            { "id": 3, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_3" },
-            { "id": 4, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_4" },
-            { "id": 5, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_5" },
-            { "id": 6, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_6" },
-            { "id": 7, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_7" },
-            { "id": 8, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_8" },
-            { "id": 9, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_9" },
-            { "id": 10, "contentType": "image-algorithm", "contentValue": "example_image-algorithm_2_9_10" },
-            { "id": 11, "contentType": "algorithm", "contentValue": "example_algorithm_2_9_11" }
+            {
+              "id": 1,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_6"
+            },
+            {
+              "id": 7,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_7"
+            },
+            {
+              "id": 8,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_8"
+            },
+            {
+              "id": 9,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_9"
+            },
+            {
+              "id": 10,
+              "contentType": "image-algorithm",
+              "contentValue": "example_image-algorithm_2_9_10"
+            },
+            {
+              "id": 11,
+              "contentType": "algorithm",
+              "contentValue": "example_algorithm_2_9_11"
+            }
           ]
         }
       ]
@@ -277,163 +885,671 @@
           "id": 1,
           "name": "Estrategia Auditiva 1",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_3_1_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_3_1_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_3_1_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_3_1_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_3_1_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_3_1_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_3_1_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_3_1_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_3_1_9" },
-            { "id": 10, "contentType": "audio", "contentValue": "example_audio_3_1_10" },
-            { "id": 11, "contentType": "audio", "contentValue": "example_audio_3_1_11" },
-            { "id": 12, "contentType": "audio", "contentValue": "example_audio_3_1_12" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_9"
+            },
+            {
+              "id": 11,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_10"
+            },
+            {
+              "id": 12,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_11"
+            },
+            {
+              "id": 13,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_1_12"
+            }
           ]
         },
         {
           "id": 2,
           "name": "Estrategia Auditiva 2",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_3_2_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_3_2_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_3_2_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_3_2_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_3_2_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_3_2_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_3_2_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_3_2_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_3_2_9" },
-            { "id": 10, "contentType": "audio", "contentValue": "example_audio_3_2_10" },
-            { "id": 11, "contentType": "audio", "contentValue": "example_audio_3_2_11" },
-            { "id": 12, "contentType": "audio", "contentValue": "example_audio_3_2_12" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_9"
+            },
+            {
+              "id": 11,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_10"
+            },
+            {
+              "id": 12,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_11"
+            },
+            {
+              "id": 13,
+              "contentType": "audio",
+              "contentValue": "example_audio_3_2_12"
+            }
           ]
         },
         {
           "id": 3,
           "name": "Estrategia Auditiva 3",
           "steps": [
-            { "id": 1, "contentType": "audio_llm", "contentValue": "example_audio_3_3_1" },
-            { "id": 2, "contentType": "audio_llm", "contentValue": "example_audio_3_3_2" },
-            { "id": 3, "contentType": "audio_llm", "contentValue": "example_audio_3_3_3" },
-            { "id": 4, "contentType": "audio_llm", "contentValue": "example_audio_3_3_4" },
-            { "id": 5, "contentType": "audio_llm", "contentValue": "example_audio_3_3_5" },
-            { "id": 6, "contentType": "audio_llm", "contentValue": "example_audio_3_3_6" },
-            { "id": 7, "contentType": "audio_llm", "contentValue": "example_audio_3_3_7" },
-            { "id": 8, "contentType": "audio_llm", "contentValue": "example_audio_3_3_8" },
-            { "id": 9, "contentType": "audio_llm", "contentValue": "example_audio_3_3_9" },
-            { "id": 10, "contentType": "audio_llm", "contentValue": "example_audio_3_3_10" },
-            { "id": 11, "contentType": "audio_llm", "contentValue": "example_audio_3_3_11" },
-            { "id": 12, "contentType": "audio_llm", "contentValue": "example_audio_3_3_12" }
+            {
+              "id": 1,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_9"
+            },
+            {
+              "id": 11,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_10"
+            },
+            {
+              "id": 12,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_11"
+            },
+            {
+              "id": 13,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_3_3_12"
+            }
           ]
         },
         {
           "id": 4,
           "name": "Estrategia Visual 1",
           "steps": [
-            { "id": 1, "contentType": "image", "contentValue": "example_image_3_4_1" },
-            { "id": 2, "contentType": "image", "contentValue": "example_image_3_4_2" },
-            { "id": 3, "contentType": "image", "contentValue": "example_image_3_4_3" },
-            { "id": 4, "contentType": "image", "contentValue": "example_image_3_4_4" },
-            { "id": 5, "contentType": "image", "contentValue": "example_image_3_4_5" },
-            { "id": 6, "contentType": "image", "contentValue": "example_image_3_4_6" },
-            { "id": 7, "contentType": "image", "contentValue": "example_image_3_4_7" },
-            { "id": 8, "contentType": "image", "contentValue": "example_image_3_4_8" },
-            { "id": 9, "contentType": "image", "contentValue": "example_image_3_4_9" },
-            { "id": 10, "contentType": "image", "contentValue": "example_image_3_4_10" },
-            { "id": 11, "contentType": "image", "contentValue": "example_image_3_4_11" },
-            { "id": 12, "contentType": "image", "contentValue": "example_image_3_4_12" }
+            {
+              "id": 1,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_6"
+            },
+            {
+              "id": 7,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_7"
+            },
+            {
+              "id": 8,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_9"
+            },
+            {
+              "id": 11,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_10"
+            },
+            {
+              "id": 12,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_11"
+            },
+            {
+              "id": 13,
+              "contentType": "image",
+              "contentValue": "example_image_3_4_12"
+            }
           ]
         },
         {
           "id": 5,
           "name": "Estrategia Visual 2",
           "steps": [
-            { "id": 1, "contentType": "video", "contentValue": "example_image_3_5_1" },
-            { "id": 2, "contentType": "video", "contentValue": "example_image_3_5_2" },
-            { "id": 3, "contentType": "video", "contentValue": "example_image_3_5_3" },
-            { "id": 4, "contentType": "video", "contentValue": "example_image_3_5_4" },
-            { "id": 5, "contentType": "video", "contentValue": "example_image_3_5_5" },
-            { "id": 6, "contentType": "video", "contentValue": "example_image_3_5_6" },
-            { "id": 7, "contentType": "video", "contentValue": "example_image_3_5_7" },
-            { "id": 8, "contentType": "video", "contentValue": "example_image_3_5_8" },
-            { "id": 9, "contentType": "video", "contentValue": "example_image_3_5_9" },
-            { "id": 10,"contentType": "video", "contentValue": "example_image_3_5_10" },
-            { "id": 11,"contentType": "video", "contentValue": "example_image_3_5_11" },
-            { "id": 12,"contentType": "video", "contentValue": "example_image_3_5_12" }
+            {
+              "id": 1,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_6"
+            },
+            {
+              "id": 7,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_7"
+            },
+            {
+              "id": 8,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_9"
+            },
+            {
+              "id": 11,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_10"
+            },
+            {
+              "id": 12,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_11"
+            },
+            {
+              "id": 13,
+              "contentType": "video",
+              "contentValue": "example_image_3_5_12"
+            }
           ]
         },
         {
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_1","pip_camera": "" },
-            { "id": 2, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_2","pip_camera": "" },
-            { "id": 3, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_3","pip_camera": "" },
-            { "id": 4, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_4","pip_camera": "" },
-            { "id": 5, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_5","pip_camera": "" },
-            { "id": 6, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_6","pip_camera": "" },
-            { "id": 7, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_7","pip_camera": "" },
-            { "id": 8, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_8","pip_camera": "" },
-            { "id": 9, "contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_9","pip_camera": "" },
-            { "id": 10,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_10","pip_camera": "" },
-            { "id": 11,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_11","pip_camera": "" },
-            { "id": 12,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_12","pip_camera": "" },
-            { "id": 13,"contentType": "animation_state", "contentValue": "Prefab_Master_Actividad3|Act3_13","pip_camera": "" }
+            {
+              "id": 1,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_1",
+              "pip_camera": ""
+            },
+            {
+              "id": 2,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_2",
+              "pip_camera": ""
+            },
+            {
+              "id": 3,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_3",
+              "pip_camera": ""
+            },
+            {
+              "id": 4,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_6",
+              "pip_camera": ""
+            },
+            {
+              "id": 7,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_7",
+              "pip_camera": ""
+            },
+            {
+              "id": 8,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_8",
+              "pip_camera": ""
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada.",
+              "pip_camera": ""
+            },
+            {
+              "id": 10,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_10",
+              "pip_camera": ""
+            },
+            {
+              "id": 11,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_11",
+              "pip_camera": ""
+            },
+            {
+              "id": 12,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_12",
+              "pip_camera": ""
+            },
+            {
+              "id": 13,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_13",
+              "pip_camera": ""
+            },
+            {
+              "id": 14,
+              "contentType": "animation_state",
+              "contentValue": "Prefab_Master_Actividad3|Act3_14",
+              "pip_camera": ""
+            }
           ]
         },
         {
           "id": 7,
           "name": "Estrategia Multimodal 1",
           "steps": [
-            { "id": 1, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_1-text" },
-            { "id": 2, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_2-text" },
-            { "id": 3, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_3-text" },
-            { "id": 4, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_4-text" },
-            { "id": 5, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_5-text" },
-            { "id": 6, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_6-text" },
-            { "id": 7, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_7-text" },
-            { "id": 8, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_8-text" },
-            { "id": 9, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_9-text" },
-            { "id": 10, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_10-text" },
-            { "id": 11, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_11-text" },
-            { "id": 12, "contentType": "Multimodal1", "contentValue": "example_audio_3_1_12-text" }
+            {
+              "id": 1,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_1-text"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_2-text"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_3-text"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_4-text"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_5-text"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_6-text"
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_7-text"
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_8-text"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_9-text"
+            },
+            {
+              "id": 11,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_10-text"
+            },
+            {
+              "id": 12,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_11-text"
+            },
+            {
+              "id": 13,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_3_1_12-text"
+            }
           ]
         },
         {
           "id": 8,
           "name": "Estrategia Multimodal 2",
           "steps": [
-            { "id": 1, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_1-example_image_3_5_1" },
-            { "id": 2, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_2-example_image_3_5_2" },
-            { "id": 3, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_3-example_image_3_5_3" },
-            { "id": 4, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_4-example_image_3_5_4" },
-            { "id": 5, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_5-example_image_3_5_5" },
-            { "id": 6, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_6-example_image_3_5_6" },
-            { "id": 7, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_7-example_image_3_5_7" },
-            { "id": 8, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_8-example_image_3_5_8" },
-            { "id": 9, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_9-example_image_3_5_9" },
-            { "id": 10, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_10-example_image_3_5_10" },
-            { "id": 11, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_11-example_image_3_5_11" },
-            { "id": 12, "contentType": "Multimodal2", "contentValue": "example_audio_3_2_12-example_image_3_5_12" }
+            {
+              "id": 1,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_1-example_image_3_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_2-example_image_3_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_3-example_image_3_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_4-example_image_3_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_5-example_image_3_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_6-example_image_3_5_6"
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_7-example_image_3_5_7"
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_8-example_image_3_5_8"
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada."
+            },
+            {
+              "id": 10,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_9-example_image_3_5_9"
+            },
+            {
+              "id": 11,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_10-example_image_3_5_10"
+            },
+            {
+              "id": 12,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_11-example_image_3_5_11"
+            },
+            {
+              "id": 13,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_3_2_12-example_image_3_5_12"
+            }
           ]
         },
         {
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_1-Prefab_Master_Actividad3|Act3_1", "pip_camera": "" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_2-Prefab_Master_Actividad3|Act3_2", "pip_camera": "" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_3-Prefab_Master_Actividad3|Act3_3", "pip_camera": "" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_4-Prefab_Master_Actividad3|Act3_4", "pip_camera": "" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_5-Prefab_Master_Actividad3|Act3_5", "pip_camera": "" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_6-Prefab_Master_Actividad3|Act3_6", "pip_camera": "" },
-            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_7-Prefab_Master_Actividad3|Act3_7", "pip_camera": "" },
-            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_8-Prefab_Master_Actividad3|Act3_8", "pip_camera": "" },
-            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_9", "pip_camera": "" },
-            { "id": 10, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_10", "pip_camera": "" },
-            { "id": 11, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_11", "pip_camera": "" },
-            { "id": 12, "contentType": "Multimodal3", "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_12", "pip_camera": "" }
+            {
+              "id": 1,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_1-Prefab_Master_Actividad3|Act3_1",
+              "pip_camera": ""
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_2-Prefab_Master_Actividad3|Act3_2",
+              "pip_camera": ""
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_3-Prefab_Master_Actividad3|Act3_3",
+              "pip_camera": ""
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_4-Prefab_Master_Actividad3|Act3_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_5-Prefab_Master_Actividad3|Act3_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_6-Prefab_Master_Actividad3|Act3_6",
+              "pip_camera": ""
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_7-Prefab_Master_Actividad3|Act3_7",
+              "pip_camera": ""
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_8-Prefab_Master_Actividad3|Act3_8",
+              "pip_camera": ""
+            },
+            {
+              "id": 9,
+              "contentType": "generic_text",
+              "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada.",
+              "pip_camera": ""
+            },
+            {
+              "id": 10,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_9",
+              "pip_camera": ""
+            },
+            {
+              "id": 11,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_10",
+              "pip_camera": ""
+            },
+            {
+              "id": 12,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_11",
+              "pip_camera": ""
+            },
+            {
+              "id": 13,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_12",
+              "pip_camera": ""
+            }
           ]
         }
       ]
@@ -446,108 +1562,330 @@
           "id": 1,
           "name": "Estrategia Auditiva 1",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_4_1_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_4_1_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_4_1_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_4_1_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_4_1_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_4_1_6" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_1_6"
+            }
           ]
         },
         {
           "id": 2,
           "name": "Estrategia Auditiva 2",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_4_2_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_4_2_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_4_2_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_4_2_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_4_2_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_4_2_6" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_4_2_6"
+            }
           ]
         },
         {
           "id": 3,
           "name": "Estrategia Auditiva 3",
           "steps": [
-            { "id": 1, "contentType": "audio_llm", "contentValue": "example_audio_4_3_1" },
-            { "id": 2, "contentType": "audio_llm", "contentValue": "example_audio_4_3_2" },
-            { "id": 3, "contentType": "audio_llm", "contentValue": "example_audio_4_3_3" },
-            { "id": 4, "contentType": "audio_llm", "contentValue": "example_audio_4_3_4" },
-            { "id": 5, "contentType": "audio_llm", "contentValue": "example_audio_4_3_5" },
-            { "id": 6, "contentType": "audio_llm", "contentValue": "example_audio_4_3_6" }
+            {
+              "id": 1,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_4_3_6"
+            }
           ]
         },
         {
           "id": 4,
           "name": "Estrategia Visual 1",
           "steps": [
-            { "id": 1, "contentType": "image", "contentValue": "example_image_4_4_1" },
-            { "id": 2, "contentType": "image", "contentValue": "example_image_4_4_2" },
-            { "id": 3, "contentType": "image", "contentValue": "example_image_4_4_3" },
-            { "id": 4, "contentType": "image", "contentValue": "example_image_4_4_4" },
-            { "id": 5, "contentType": "image", "contentValue": "example_image_4_4_5" },
-            { "id": 6, "contentType": "image", "contentValue": "example_image_4_4_6" }
+            {
+              "id": 1,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image",
+              "contentValue": "example_image_4_4_6"
+            }
           ]
         },
         {
           "id": 5,
           "name": "Estrategia Visual 2",
           "steps": [
-            { "id": 1, "contentType": "video", "contentValue": "example_image_4_5_1" },
-            { "id": 2, "contentType": "video", "contentValue": "example_image_4_5_2" },
-            { "id": 3, "contentType": "video", "contentValue": "example_image_4_5_3" },
-            { "id": 4, "contentType": "video", "contentValue": "example_image_4_5_4" },
-            { "id": 5, "contentType": "video", "contentValue": "example_image_4_5_5" },
-            { "id": 6, "contentType": "video", "contentValue": "example_image_4_5_6" }
+            {
+              "id": 1,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "video",
+              "contentValue": "example_image_4_5_6"
+            }
           ]
         },
         {
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_1" },
-            { "id": 2, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_2" },
-            { "id": 3, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_3" },
-            { "id": 4, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_4" },
-            { "id": 5, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_5" },
-            { "id": 6, "contentType": "animation_prefab", "contentValue": "example_algorithm_4_6_6" }
+            {
+              "id": 1,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_1"
+            },
+            {
+              "id": 2,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_2"
+            },
+            {
+              "id": 3,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_3"
+            },
+            {
+              "id": 4,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_4"
+            },
+            {
+              "id": 5,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_5"
+            },
+            {
+              "id": 6,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_4_6_6"
+            }
           ]
         },
         {
           "id": 7,
           "name": "Estrategia Multimodal 1",
           "steps": [
-            { "id": 1, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_1-example_image_4_4_6" },
-            { "id": 2, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_2-example_image_4_4_6" },
-            { "id": 3, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_3-example_image_4_4_6" },
-            { "id": 4, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_4-example_image_4_4_6" },
-            { "id": 5, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_5-example_image_4_4_6" },
-            { "id": 6, "contentType": "Multimodal1", "contentValue": "example_audio_4_1_6-example_image_4_4_6" }
+            {
+              "id": 1,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_1-example_image_4_4_6"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_2-example_image_4_4_6"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_3-example_image_4_4_6"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_4-example_image_4_4_6"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_5-example_image_4_4_6"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_4_1_6-example_image_4_4_6"
+            }
           ]
         },
         {
           "id": 8,
           "name": "Estrategia Multimodal 2",
           "steps": [
-            { "id": 1, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_1-example_image_4_5_1" },
-            { "id": 2, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_2-example_image_4_5_2" },
-            { "id": 3, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_3-example_image_4_5_3" },
-            { "id": 4, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_4-example_image_4_5_4" },
-            { "id": 5, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_5-example_image_4_5_5" },
-            { "id": 6, "contentType": "Multimodal2", "contentValue": "example_audio_4_2_6-example_image_4_5_6" }
+            {
+              "id": 1,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_1-example_image_4_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_2-example_image_4_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_3-example_image_4_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_4-example_image_4_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_5-example_image_4_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_4_2_6-example_image_4_5_6"
+            }
           ]
         },
         {
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_1-Prefab_Master_Actividad4|Act4_1", "pip_camera": "" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_2-Prefab_Master_Actividad4|Act4_2", "pip_camera": "" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_3-Prefab_Master_Actividad4|Act4_3", "pip_camera": "" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_4-Prefab_Master_Actividad4|Act4_4", "pip_camera": "" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_5-Prefab_Master_Actividad4|Act4_5", "pip_camera": "" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_4_3_6-Prefab_Master_Actividad4|Act4_6", "pip_camera": "" }
+            {
+              "id": 1,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_1-Prefab_Master_Actividad4|Act4_1",
+              "pip_camera": ""
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_2-Prefab_Master_Actividad4|Act4_2",
+              "pip_camera": ""
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_3-Prefab_Master_Actividad4|Act4_3",
+              "pip_camera": ""
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_4-Prefab_Master_Actividad4|Act4_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_5-Prefab_Master_Actividad4|Act4_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_4_3_6-Prefab_Master_Actividad4|Act4_6",
+              "pip_camera": ""
+            }
           ]
         }
       ]
@@ -560,135 +1898,468 @@
           "id": 1,
           "name": "Estrategia Auditiva 1",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_5_1_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_5_1_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_5_1_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_5_1_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_5_1_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_5_1_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_5_1_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_5_1_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_5_1_9" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_1_9"
+            }
           ]
         },
         {
           "id": 2,
           "name": "Estrategia Auditiva 2",
           "steps": [
-            { "id": 1, "contentType": "audio", "contentValue": "example_audio_5_2_1" },
-            { "id": 2, "contentType": "audio", "contentValue": "example_audio_5_2_2" },
-            { "id": 3, "contentType": "audio", "contentValue": "example_audio_5_2_3" },
-            { "id": 4, "contentType": "audio", "contentValue": "example_audio_5_2_4" },
-            { "id": 5, "contentType": "audio", "contentValue": "example_audio_5_2_5" },
-            { "id": 6, "contentType": "audio", "contentValue": "example_audio_5_2_6" },
-            { "id": 7, "contentType": "audio", "contentValue": "example_audio_5_2_7" },
-            { "id": 8, "contentType": "audio", "contentValue": "example_audio_5_2_8" },
-            { "id": 9, "contentType": "audio", "contentValue": "example_audio_5_2_9" }
+            {
+              "id": 1,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio",
+              "contentValue": "example_audio_5_2_9"
+            }
           ]
         },
         {
           "id": 3,
           "name": "Estrategia Auditiva 3",
           "steps": [
-            { "id": 1, "contentType": "audio_llm", "contentValue": "example_audio_5_3_1" },
-            { "id": 2, "contentType": "audio_llm", "contentValue": "example_audio_5_3_2" },
-            { "id": 3, "contentType": "audio_llm", "contentValue": "example_audio_5_3_3" },
-            { "id": 4, "contentType": "audio_llm", "contentValue": "example_audio_5_3_4" },
-            { "id": 5, "contentType": "audio_llm", "contentValue": "example_audio_5_3_5" },
-            { "id": 6, "contentType": "audio_llm", "contentValue": "example_audio_5_3_6" },
-            { "id": 7, "contentType": "audio_llm", "contentValue": "example_audio_5_3_7" },
-            { "id": 8, "contentType": "audio_llm", "contentValue": "example_audio_5_3_8" },
-            { "id": 9, "contentType": "audio_llm", "contentValue": "example_audio_5_3_9" }
+            {
+              "id": 1,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_1"
+            },
+            {
+              "id": 2,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_2"
+            },
+            {
+              "id": 3,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_3"
+            },
+            {
+              "id": 4,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_4"
+            },
+            {
+              "id": 5,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_5"
+            },
+            {
+              "id": 6,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_6"
+            },
+            {
+              "id": 7,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_7"
+            },
+            {
+              "id": 8,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_8"
+            },
+            {
+              "id": 9,
+              "contentType": "audio_llm",
+              "contentValue": "example_audio_5_3_9"
+            }
           ]
         },
         {
           "id": 4,
           "name": "Estrategia Visual 1",
           "steps": [
-            { "id": 1, "contentType": "image", "contentValue": "example_image_5_4_1" },
-            { "id": 2, "contentType": "image", "contentValue": "example_image_5_4_2" },
-            { "id": 3, "contentType": "image", "contentValue": "example_image_5_4_3" },
-            { "id": 4, "contentType": "image", "contentValue": "example_image_5_4_4" },
-            { "id": 5, "contentType": "image", "contentValue": "example_image_5_4_5" },
-            { "id": 6, "contentType": "image", "contentValue": "example_image_5_4_6" },
-            { "id": 7, "contentType": "image", "contentValue": "example_image_5_4_7" },
-            { "id": 8, "contentType": "image", "contentValue": "example_image_5_4_8" },
-            { "id": 9, "contentType": "image", "contentValue": "example_image_5_4_9" }
+            {
+              "id": 1,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_1"
+            },
+            {
+              "id": 2,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_2"
+            },
+            {
+              "id": 3,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_3"
+            },
+            {
+              "id": 4,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_4"
+            },
+            {
+              "id": 5,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_5"
+            },
+            {
+              "id": 6,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_6"
+            },
+            {
+              "id": 7,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_7"
+            },
+            {
+              "id": 8,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_8"
+            },
+            {
+              "id": 9,
+              "contentType": "image",
+              "contentValue": "example_image_5_4_9"
+            }
           ]
         },
         {
           "id": 5,
           "name": "Estrategia Visual 2",
           "steps": [
-            { "id": 1, "contentType": "video", "contentValue": "example_image_5_5_1" },
-            { "id": 2, "contentType": "video", "contentValue": "example_image_5_5_2" },
-            { "id": 3, "contentType": "video", "contentValue": "example_image_5_5_3" },
-            { "id": 4, "contentType": "video", "contentValue": "example_image_5_5_4" },
-            { "id": 5, "contentType": "video", "contentValue": "example_image_5_5_5" },
-            { "id": 6, "contentType": "video", "contentValue": "example_image_5_5_6" },
-            { "id": 7, "contentType": "video", "contentValue": "example_image_5_5_7" },
-            { "id": 8, "contentType": "video", "contentValue": "example_image_5_5_8" },
-            { "id": 9, "contentType": "video", "contentValue": "example_image_5_5_9" }
+            {
+              "id": 1,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_6"
+            },
+            {
+              "id": 7,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_7"
+            },
+            {
+              "id": 8,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_8"
+            },
+            {
+              "id": 9,
+              "contentType": "video",
+              "contentValue": "example_image_5_5_9"
+            }
           ]
         },
         {
           "id": 6,
           "name": "Estrategia Visual 3",
           "steps": [
-            { "id": 1, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_1" },
-            { "id": 2, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_2" },
-            { "id": 3, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_3" },
-            { "id": 4, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_4" },
-            { "id": 5, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_5" },
-            { "id": 6, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_6" },
-            { "id": 7, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_7" },
-            { "id": 8, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_8" },
-            { "id": 9, "contentType": "animation_prefab", "contentValue": "example_algorithm_5_6_9" }
+            {
+              "id": 1,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_1"
+            },
+            {
+              "id": 2,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_2"
+            },
+            {
+              "id": 3,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_3"
+            },
+            {
+              "id": 4,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_4"
+            },
+            {
+              "id": 5,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_5"
+            },
+            {
+              "id": 6,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_6"
+            },
+            {
+              "id": 7,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_7"
+            },
+            {
+              "id": 8,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_8"
+            },
+            {
+              "id": 9,
+              "contentType": "animation_prefab",
+              "contentValue": "example_algorithm_5_6_9"
+            }
           ]
         },
         {
           "id": 7,
           "name": "Estrategia Multimodal 1",
           "steps": [
-            { "id": 1, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_1-example_image_5_7_1" },
-            { "id": 2, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_2-example_image_5_7_2" },
-            { "id": 3, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_3-example_image_5_7_3" },
-            { "id": 4, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_4-example_image_5_7_4" },
-            { "id": 5, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_5-example_image_5_7_5" },
-            { "id": 6, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_6-example_image_5_7_6" },
-            { "id": 7, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_7-example_image_5_7_7" },
-            { "id": 8, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_8-example_image_5_7_8" },
-            { "id": 9, "contentType": "Multimodal1", "contentValue": "example_audio_5_1_9-example_image_5_7_9" }
+            {
+              "id": 1,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_1-example_image_5_7_1"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_2-example_image_5_7_2"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_3-example_image_5_7_3"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_4-example_image_5_7_4"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_5-example_image_5_7_5"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_6-example_image_5_7_6"
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_7-example_image_5_7_7"
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_8-example_image_5_7_8"
+            },
+            {
+              "id": 9,
+              "contentType": "Multimodal1",
+              "contentValue": "example_audio_5_1_9-example_image_5_7_9"
+            }
           ]
         },
         {
           "id": 8,
           "name": "Estrategia Multimodal 2",
           "steps": [
-            { "id": 1, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_1-example_image_5_5_1" },
-            { "id": 2, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_2-example_image_5_5_2" },
-            { "id": 3, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_3-example_image_5_5_3" },
-            { "id": 4, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_4-example_image_5_5_4" },
-            { "id": 5, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_5-example_image_5_5_5" },
-            { "id": 6, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_6-example_image_5_5_6" },
-            { "id": 7, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_7-example_image_5_5_7" },
-            { "id": 8, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_8-example_image_5_5_8" },
-            { "id": 9, "contentType": "Multimodal2", "contentValue": "example_audio_5_2_9-example_image_5_5_9" }
+            {
+              "id": 1,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_1-example_image_5_5_1"
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_2-example_image_5_5_2"
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_3-example_image_5_5_3"
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_4-example_image_5_5_4"
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_5-example_image_5_5_5"
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_6-example_image_5_5_6"
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_7-example_image_5_5_7"
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_8-example_image_5_5_8"
+            },
+            {
+              "id": 9,
+              "contentType": "Multimodal2",
+              "contentValue": "example_audio_5_2_9-example_image_5_5_9"
+            }
           ]
         },
         {
           "id": 9,
           "name": "Estrategia Multimodal 3",
           "steps": [
-            { "id": 1, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_1-Prefab_Master_Actividad5|Act5_1", "pip_camera": "" },
-            { "id": 2, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_2-Prefab_Master_Actividad5|Act5_2", "pip_camera": "" },
-            { "id": 3, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_3-Prefab_Master_Actividad5|Act5_3", "pip_camera": "" },
-            { "id": 4, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_4-Prefab_Master_Actividad5|Act5_4", "pip_camera": "" },
-            { "id": 5, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_5-Prefab_Master_Actividad5|Act5_5", "pip_camera": "" },
-            { "id": 6, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_6-Prefab_Master_Actividad5|Act5_6", "pip_camera": "" },
-            { "id": 7, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_7-Prefab_Master_Actividad5|Act5_7", "pip_camera": "" },
-            { "id": 8, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_8-Prefab_Master_Actividad5|Act5_8", "pip_camera": "" },
-            { "id": 9, "contentType": "Multimodal3", "contentValue": "example_audio_5_3_9-Prefab_Master_Actividad5|Act5_9", "pip_camera": "" }
+            {
+              "id": 1,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_1-Prefab_Master_Actividad5|Act5_1",
+              "pip_camera": ""
+            },
+            {
+              "id": 2,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_2-Prefab_Master_Actividad5|Act5_2",
+              "pip_camera": ""
+            },
+            {
+              "id": 3,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_3-Prefab_Master_Actividad5|Act5_3",
+              "pip_camera": ""
+            },
+            {
+              "id": 4,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_4-Prefab_Master_Actividad5|Act5_4",
+              "pip_camera": ""
+            },
+            {
+              "id": 5,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_5-Prefab_Master_Actividad5|Act5_5",
+              "pip_camera": ""
+            },
+            {
+              "id": 6,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_6-Prefab_Master_Actividad5|Act5_6",
+              "pip_camera": ""
+            },
+            {
+              "id": 7,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_7-Prefab_Master_Actividad5|Act5_7",
+              "pip_camera": ""
+            },
+            {
+              "id": 8,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_8-Prefab_Master_Actividad5|Act5_8",
+              "pip_camera": ""
+            },
+            {
+              "id": 9,
+              "contentType": "Multimodal3",
+              "contentValue": "example_audio_5_3_9-Prefab_Master_Actividad5|Act5_9",
+              "pip_camera": ""
+            }
           ]
         }
       ]

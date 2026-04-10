@@ -279,7 +279,7 @@ public class FeedbackManager : MonoBehaviour
             savedObjectStates.Clear();
         }
 
-        if (strategyId == 4)
+        if (strategyId == 4 && contentLower != "generic_text")
         {
             var txt = FindVisualText(activityId, stepId);
             if (!string.IsNullOrEmpty(txt))
@@ -369,6 +369,9 @@ public class FeedbackManager : MonoBehaviour
                     };
                     _mediaCoroutine = StartCoroutine(ProcessAnimationState(animStep));
                 }
+                break;
+            case "generic_text":
+                _mediaCoroutine = StartCoroutine(ProcessCountdown(step.contentValue, 60));
                 break;
             default:
                 uiHolder.feedbackText.text = $"Content type '{step.contentType}' unknown.";
@@ -739,8 +742,40 @@ public class FeedbackManager : MonoBehaviour
     {
         if (uiHolder == null) return;
 
-        uiHolder.notificationPanel.SetActive(true);
-        uiHolder.notificationText.text = message;
-        uiHolder.feedbackText.gameObject.SetActive(false);
+        if (uiHolder.notificationPanel != null && uiHolder.notificationText != null)
+        {
+            uiHolder.notificationPanel.SetActive(true);
+            uiHolder.notificationText.text = message;
+            if (uiHolder.feedbackText != null) uiHolder.feedbackText.gameObject.SetActive(false);
+        }
+        else if (uiHolder.feedbackText != null)
+        {
+            uiHolder.feedbackText.gameObject.SetActive(true);
+            uiHolder.feedbackText.text = message;
+        }
+    }
+
+    IEnumerator ProcessCountdown(string message, int durationSeconds)
+    {
+        if (uiHolder == null) yield break;
+
+        string startKey = _lastContentKey;
+        int remaining = durationSeconds;
+
+        while (remaining > 0)
+        {
+            if (_lastContentKey != startKey) yield break;
+
+            string displayMessage = $"{message}\n\n<size=150%>Tiempo restante: <color=yellow>{remaining} s</color></size>";
+            ShowNotification(displayMessage);
+
+            yield return new WaitForSeconds(1f);
+            remaining--;
+        }
+
+        if (_lastContentKey == startKey)
+        {
+            ShowNotification($"{message}\n\n<size=150%><color=green>¡Tiempo cumplido!</color></size>");
+        }
     }
 }
