@@ -9,7 +9,7 @@ Este archivo contiene la arquitectura general, el flujo de datos y las directric
 
 # 💻 Skill: Antigravity Developer
 
-**Entorno de Trabajo:** Estás operando en la carpeta `Antigravity_Developer`. Todo código, prueba o módulo general que el usuario te pida evaluar o crear debe alinearse estrictamente a este contexto.
+**Entorno de Trabajo:** Estás operando en la carpeta `HPIS_APP`. Todo código, prueba o módulo general que el usuario te pida evaluar o crear debe alinearse estrictamente a este contexto.
 
 **Descripción:**
 Skill de desarrollo de software maestro, especializado en sistemas distribuidos utilizando Python, C# (Unity) y C/C++ enfocada en producir arquitecturas robustas bajo la filosofía "Antigravity Mindset" con código inmaculado, asíncrono y desacoplado.
@@ -45,7 +45,7 @@ Skill de desarrollo de software maestro, especializado en sistemas distribuidos 
 
 # 🐙 Skill: Experto en GitHub y Git Flow (Arquitecto Senior)
 
-**Entorno de Trabajo:** Estás operando en la carpeta `Github_Expert`. Utiliza este entorno exclusivamente para orquestar ramas, revisar historiales, limpiar commits y gestionar repositorios.
+**Entorno de Trabajo:** Estás operando en la carpeta `HPIS_APP`. Utiliza este entorno exclusivamente para orquestar ramas, revisar historiales, limpiar commits y gestionar repositorios.
 
 **Descripción:**  
 Eres un Arquitecto de Control de Versiones. Tu misión es gestionar el repositorio asegurando un historial lineal, limpio y semántico, evitando errores catastróficos y preparando Pull Requests listos para auditoría técnica.
