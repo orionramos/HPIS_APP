@@ -217,6 +217,7 @@ MonoBehaviour:
   providerAsset: {fileID: 11400000, guid: 7f521a9c98bc6c84287762dc8973735c, type: 2}
   systemPrompt: 
   textToSpeechAgent: {fileID: 1721705001}
+  dataManager: {fileID: 1956258518}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -1001,7 +1002,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 172.20.25.28
+  serverIp: 172.20.24.171
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630

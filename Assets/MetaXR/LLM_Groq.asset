@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LLM_Groq
   m_EditorClassIdentifier: 
   supportedInferenceTypes: 1
-  apiKey: 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
+  apiKey: 
   overrideApiKey: 0
   apiRoot: https://api.groq.com/openai/v1/chat/completions
   model: llama-3.3-70b-versatile

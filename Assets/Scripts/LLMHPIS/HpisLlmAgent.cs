@@ -32,6 +32,8 @@ namespace HPIS.LLM
 
         [SerializeField] private TextToSpeechAgent textToSpeechAgent;
 
+        [SerializeField] private DataManager dataManager;
+
         [Tooltip("True if the assigned provider supports multimodal input (text + images).")]
         public bool ProviderSupportsVision => _chatTask is { SupportsVision: true };
 
@@ -92,6 +94,11 @@ namespace HPIS.LLM
 #if MRUK_INSTALLED
                 _cam = FindAnyObjectByType<PassthroughCameraAccess>();
 #endif
+
+                if (dataManager == null)
+                {
+                    dataManager = FindAnyObjectByType<DataManager>();
+                }
             }
             catch (Exception ex)
             {
@@ -164,7 +171,16 @@ namespace HPIS.LLM
         private void HandleSuccess(string assistantText)
         {
             Debug.Log($"[HpisLlmAgent Response] {assistantText}");
-            textToSpeechAgent.SpeakText(assistantText);
+            if (textToSpeechAgent != null)
+            {
+                textToSpeechAgent.SpeakText(assistantText);
+            }
+
+            if (dataManager != null)
+            {
+                dataManager.SetLastFraseLlm(assistantText);
+            }
+
             onResponseReceived?.Invoke(assistantText);
         }
 
