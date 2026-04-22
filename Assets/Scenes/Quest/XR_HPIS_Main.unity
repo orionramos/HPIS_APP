@@ -384,7 +384,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.41900277, y: -0.11829706, z: 0.055162847, w: 0.8985542}
-  m_LocalPosition: {x: -0.21038, y: 3.05284, z: 0}
+  m_LocalPosition: {x: -0.20118047, y: 3.0952, z: -0.034333054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 10.145.82.63
+  serverIp: 172.20.25.156
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630
@@ -1131,8 +1131,8 @@ MonoBehaviour:
   controllerTransform: {fileID: 1569088692}
   canvasPositionOffset: {x: 0, y: 0.1, z: 0.5}
   canvasRotationOffset: {x: 15, y: 0, z: 0}
-  scaleSpeed: 0.5
-  depthSpeed: 0.5
+  scaleSpeed: 0.05
+  depthSpeed: 0.05
   animationAnchorContainer: {fileID: 0}
   animationAnchorVisualPrefab: {fileID: 8693752549712103973, guid: 39fe4bdc50ad9d0449b563f2ce62f130, type: 3}
   useMesaAsVisualizer: 1
@@ -1526,13 +1526,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220107624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245594813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks.AIBlocks::Meta.XR.BuildingBlocks.AIBlocks.LlmAgent
   providerAsset: {fileID: 11400000, guid: 3141d9255bc3a5d4f86d84396940ff1f, type: 2}
   systemPrompt: 
+  textToSpeechAgent: {fileID: 0}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -2294,7 +2295,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b370adaa9b034082a58e75a8f85f02dd, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HPIS.LLM.HpisTtsAudioSaver
   textToSpeechAgent: {fileID: 1721705001}
   saveAutomatically: 1
@@ -2445,7 +2446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   audioRepeatDelay: 10
-  llmSavedAudioRelativePath: Assets/Audios/llm_paso_actual.wav
   animationContainer: {fileID: 1220107625}
   showDebugMessages: 0
 --- !u!1 &1956258516

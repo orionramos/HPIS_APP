@@ -562,6 +562,7 @@ namespace HPIS.Anchors
             // Busca la mesa y el plato
             Transform mesaTransform = BuscarPorNombre(instanciaModelo.transform, "MCH_Mesa");
             Transform platoTransform = BuscarPorNombre(instanciaModelo.transform, "MCH_plato");
+            Transform cuerpoTransform = BuscarPorNombre(instanciaModelo.transform, "MCH_cuerpo");
 
             if (mesaTransform != null)
             {
@@ -578,9 +579,16 @@ namespace HPIS.Anchors
                 Debug.Log("[CanvasAnchorPlacer] Plato (MC_Plato) agregado como referencia de orientación.");
             }
 
-            if (mesaTransform == null && platoTransform == null)
+            if (cuerpoTransform != null)
             {
-                Debug.LogWarning("[CanvasAnchorPlacer] No se encontraron MCH_Mesa ni MC_Plato. Mostrando modelo completo.");
+                // Activa el cuerpo y todos sus ancestros y descendientes
+                ActivarConAncestros(cuerpoTransform);
+                Debug.Log("[CanvasAnchorPlacer] Cuerpo (MCH_cuerpo) agregado como referencia de orientación.");
+            }
+
+            if (mesaTransform == null && platoTransform == null && cuerpoTransform == null)
+            {
+                Debug.LogWarning("[CanvasAnchorPlacer] No se encontraron MCH_Mesa, MC_Plato ni MCH_cuerpo. Mostrando modelo completo.");
                 ActivarRecursivo(instanciaModelo.transform);
             }
 
