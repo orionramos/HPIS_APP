@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -49,6 +50,9 @@ public class FeedbackManager : MonoBehaviour
     [Header("Audio Settings")]
     [Tooltip("Delay in seconds between audio replays.")]
     public float audioRepeatDelay = 10f;
+    
+    private const string DefaultLlmSavedAudioRelativePath = "Assets/Audios/llm_paso_actual.wav";
+    private string llmSavedAudioRelativePath = "Assets/Audios/llm_paso_actual.wav";
 
     [Header("Animation Prefabs")]
     [SerializeField]
@@ -311,6 +315,7 @@ public class FeedbackManager : MonoBehaviour
                 _mediaCoroutine = StartCoroutine(LoadAndPlayAudio(step.contentValue));
                 break;
             case "audio_llm":
+                _mediaCoroutine = StartCoroutine(LoadAndPlayAudioLLM(step.contentValue));
                 break;
             case "image":
                 _mediaCoroutine = StartCoroutine(LoadAndShowImage(step.contentValue));
@@ -728,6 +733,84 @@ public class FeedbackManager : MonoBehaviour
         {
             uiHolder.feedbackText.text = $"Playing video: {name}.mp4";
         }
+    }
+
+    IEnumerator LoadAndPlayAudioLLM(string name)
+    {
+        if (uiHolder == null) yield break;
+
+        string startKey = _lastContentKey;
+        var startedAt = DateTime.UtcNow;
+        string path = GetProjectRelativeAudioPath(llmSavedAudioRelativePath);
+        string uri = "file:///" + path.Replace("\\", "/");
+
+        while (!IsGeneratedAudioReady(path, startedAt))
+        {
+            if (_lastContentKey != startKey) yield break;
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        using (var uwr = UnityWebRequestMultimedia.GetAudioClip(uri, AudioType.WAV))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result == UnityWebRequest.Result.Success)
+            {
+                var clip = DownloadHandlerAudioClip.GetContent(uwr);
+                uiHolder.audioSource.clip = clip;
+                uiHolder.audioSource.loop = false;
+
+                do
+                {
+                    if (_lastContentKey != startKey) yield break;
+
+                    uiHolder.audioSource.Play();
+                    Debug.Log($"[FeedbackManager] Playing LLM audio replay from: {path}");
+                    if (showDebugMessages)
+                    {
+                        uiHolder.feedbackText.text = $"Playing LLM audio: {Path.GetFileName(path)}";
+                    }
+
+                    yield return new WaitForSeconds(clip.length + audioRepeatDelay);
+
+                } while (_lastContentKey == startKey);
+            }
+            else
+            {
+                Debug.LogError($"[FeedbackManager] Failed to load LLM audio at {uri}. Error: {uwr.error}");
+                uiHolder.feedbackText.text = $"LLM audio not loaded: {Path.GetFileName(path)}";
+            }
+        }
+    }
+
+    private static string GetProjectRelativeAudioPath(string relativePath)
+    {
+        var safeRelativePath = string.IsNullOrWhiteSpace(relativePath)
+            ? DefaultLlmSavedAudioRelativePath
+            : relativePath.Trim().Replace('\\', '/');
+
+        if (!safeRelativePath.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase))
+        {
+            safeRelativePath = $"Assets/{safeRelativePath}";
+        }
+
+        var projectRoot = Directory.GetParent(Application.dataPath)?.FullName;
+        if (string.IsNullOrEmpty(projectRoot))
+        {
+            throw new InvalidOperationException("Could not resolve the Unity project root.");
+        }
+
+        return Path.GetFullPath(Path.Combine(projectRoot, safeRelativePath));
+    }
+
+    private static bool IsGeneratedAudioReady(string path, DateTime requestedAtUtc)
+    {
+        if (!File.Exists(path))
+        {
+            return false;
+        }
+
+        return File.GetLastWriteTimeUtc(path) >= requestedAtUtc.AddSeconds(-1);
     }
 
     public string FindVisualText(int activityId, int stepId)

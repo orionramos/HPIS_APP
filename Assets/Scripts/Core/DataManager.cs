@@ -46,6 +46,18 @@ public class DataManager : MonoBehaviour
 
     private string last_frase = "";
 
+    private string last_frase_llm = "";
+
+    public void SetLastFraseLlm(string frase)
+    {
+        last_frase_llm = frase ?? string.Empty;
+    }
+
+    public string GetLastFraseLlm()
+    {
+        return last_frase_llm;
+    }
+
     private Dictionary<int, string> actividadDict = new Dictionary<int, string>()
     {
         { 1, "Beber liquido" },
@@ -120,16 +132,23 @@ public class DataManager : MonoBehaviour
             {
                 // Debug.Log("llmAgent atual: " + llmAgent);
 
-                llmAgent.SystemPrompt = 
-                $@"Eres un asistente que responde siempre en español, de forma breve, clara, objetiva y directa. Ayuda al usuario a realizar la actividad de la mejor manera posible, ofreciendo únicamente instrucciones, indicaciones prácticas y sugerencias útiles.
+                // Dentro de UpdateJSONText, onde você define o SystemPrompt:
 
-                El nombre del usuario es {nombreUsuario}. Dirígete a él por su nombre cuando sea natural.
+                llmAgent.SystemPrompt = $@"Eres un asistente de rehabilitación que guía a {nombreUsuario}. 
+                Tu objetivo es dar instrucciones breves, claras y directas en español.
 
-                No hagas preguntas. No pidas confirmación. No ofrezcas opciones abiertas. No respondas con frases conversacionales. Responde siempre con indicaciones claras sobre qué hacer, de forma personalizada y orientada a la acción.
+                REGLA DE ORO SOBRE EL NOMBRE:
+                1. Revisa la sección 'ÚLTIMA FRASE' abajo.
+                2. SI la última frase ya contiene el nombre '{nombreUsuario}', está PROHIBIDO usarlo en tu respuesta actual. En su lugar, usa verbos directos (ej: 'Toma el vaso') o el pronombre 'tú'.
+                3. SI la última frase NO contiene el nombre, ENTONCES puedes usarlo para mantener la cercanía, pero solo una vez.
 
-                A partir de ahora recibirás algunos prompts del usuario. Tu tarea es mejorarlos y personalizarlos para él, manteniendo claridad, utilidad, brevedad y un tono instructivo.
+                ÚLTIMA FRASE ENVIADA:
+                '{last_frase_llm}'
 
-                No respondas a este mensaje de configuración. Si este mismo mensaje se envía nuevamente por error, debes seguir ignorándolo y no responder a su contenido.";
+                INSTRUCCIÓN TÉCNICA:
+                - No saludes.
+                - No confirmes.
+                - Convierte el prompt que recibirás en una instrucción motivadora y profesional.";
 
                 // Debug.Log("SystemPrompt actual: \n" + llmAgent.SystemPrompt);
 
