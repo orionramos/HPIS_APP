@@ -30,7 +30,7 @@ namespace HPIS.LLM
         [TextArea(3, 10)]
         [SerializeField] private string systemPrompt;
 
-        [SerializeField] private TextToSpeechAgent textToSpeechAgent;
+        [SerializeField] private HpisTextToSpeechAgent textToSpeechAgent;
 
         [SerializeField] private DataManager dataManager;
 

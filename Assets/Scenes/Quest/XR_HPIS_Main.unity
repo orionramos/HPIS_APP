@@ -1002,7 +1002,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 172.20.24.171
+  serverIp: 10.145.82.63
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630
@@ -2074,6 +2074,7 @@ GameObject:
   - component: {fileID: 1721705000}
   - component: {fileID: 1721705005}
   - component: {fileID: 1721705004}
+  - component: {fileID: 1721705006}
   m_Layer: 0
   m_Name: '[BuildingBlock] Text To Speech'
   m_TagString: Untagged
@@ -2187,9 +2188,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721704999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 439814c7becd54b4b9004c9d8c7aefea, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e45a5e1ca862d42b256e092882e4e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::HPIS.LLM.HpisTextToSpeechAgent
   providerAsset: {fileID: 11400000, guid: 3141d9255bc3a5d4f86d84396940ff1f, type: 2}
   audioSource: {fileID: 1721705000}
   preset: 1
@@ -2274,7 +2275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks.AIBlocks::Meta.XR.BuildingBlocks.AIBlocks.LlmAgent
   providerAsset: {fileID: 11400000, guid: 3141d9255bc3a5d4f86d84396940ff1f, type: 2}
   systemPrompt: 
-  textToSpeechAgent: {fileID: 0}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -2284,6 +2284,21 @@ MonoBehaviour:
   onImageCaptured:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1721705006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721704999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370adaa9b034082a58e75a8f85f02dd, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::HPIS.LLM.HpisTtsAudioSaver
+  textToSpeechAgent: {fileID: 1721705001}
+  saveAutomatically: 1
+  outputRelativePath: Assets/Audios/llm_paso_actual.wav
 --- !u!1 &1773857605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   audioRepeatDelay: 10
+  llmSavedAudioRelativePath: Assets/Audios/llm_paso_actual.wav
   animationContainer: {fileID: 1220107625}
   showDebugMessages: 0
 --- !u!1 &1956258516
