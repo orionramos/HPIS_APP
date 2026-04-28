@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using System.Collections.Generic;
 using HPIS.LLM;
 
@@ -39,10 +40,20 @@ public class DataManager : MonoBehaviour
     [Header("Progress Bar Colors")]
     [Tooltip("Color de la parte rellena de la barra cuando hay progreso válido")]
     public Color progressColor = Color.green;
+
     [Tooltip("Color de la parte rellena de la barra cuando no existe actividad")]
     public Color missingColor = Color.gray;
 
     private string lastParticipantName = "";
+
+    private int frasesSinNombre = 0;
+    [Header("Ritmo cardíaco")]
+    [SerializeField] private int umbralRitmoAlto;
+
+    private int limiteFrasesSinNombreActual = 3;
+
+    private const int limiteMinimoSinNombre = 2;
+    private const int limiteMaximoSinNombreExclusivo = 4; // Random.Range int: (4-1)
 
     private string last_frase = "";
 
@@ -51,11 +62,41 @@ public class DataManager : MonoBehaviour
     public void SetLastFraseLlm(string frase)
     {
         last_frase_llm = frase ?? string.Empty;
+        UpdateFrasesSinNombre();
     }
 
     public string GetLastFraseLlm()
     {
         return last_frase_llm;
+    }
+
+    private void UpdateFrasesSinNombre()
+    {
+        if (string.IsNullOrWhiteSpace(last_frase_llm) || string.IsNullOrWhiteSpace(lastParticipantName))
+        {
+            frasesSinNombre = 0;
+            limiteFrasesSinNombreActual = SortearLimiteFrasesSinNombre();
+            return;
+        }
+
+        bool fraseTieneNombre = last_frase_llm.IndexOf(lastParticipantName, StringComparison.OrdinalIgnoreCase) >= 0;
+
+        if (fraseTieneNombre)
+        {
+            frasesSinNombre = 0;
+
+            // Sorteia o próximo intervalo apenas depois que o nome foi usado
+            limiteFrasesSinNombreActual = SortearLimiteFrasesSinNombre();
+        }
+        else
+        {
+            frasesSinNombre++;
+        }
+    }
+
+    private int SortearLimiteFrasesSinNombre()
+    {
+        return UnityEngine.Random.Range(limiteMinimoSinNombre, limiteMaximoSinNombreExclusivo);
     }
 
     private Dictionary<int, string> actividadDict = new Dictionary<int, string>()
@@ -105,6 +146,7 @@ public class DataManager : MonoBehaviour
             if (jsonData.actividad == 0 || jsonData.paso_actividad == 0)
             {
                 Debug.Log("[DataManager] Señal de fin del cliente recibida. Limpiando feedback...");
+
                 if (feedbackManager != null)
                 {
                     feedbackManager.ClearAllFeedback();
@@ -115,45 +157,103 @@ public class DataManager : MonoBehaviour
                 {
                     llmAgent.StopSpeaking();
                 }
-                last_frase = ""; // Resetear para que el próximo prompt se envíe correctamente
+
+                last_frase = "";
+                last_frase_llm = "";
+                lastParticipantName = "";
+                frasesSinNombre = 0;
+                limiteFrasesSinNombreActual = SortearLimiteFrasesSinNombre();
 
                 ResetUI(jsonData.Heart_Rate);
                 return;
             }
 
-            string actividadNombre = actividadDict.ContainsKey(jsonData.actividad) ? actividadDict[jsonData.actividad] : "Desconocida";
-            string hriNombre = hriStrategyDict.ContainsKey(jsonData.HRI_strategy) ? hriStrategyDict[jsonData.HRI_strategy] : "Desconocida";
+            string actividadNombre = actividadDict.ContainsKey(jsonData.actividad)
+                ? actividadDict[jsonData.actividad]
+                : "Desconocida";
+
+            string hriNombre = hriStrategyDict.ContainsKey(jsonData.HRI_strategy)
+                ? hriStrategyDict[jsonData.HRI_strategy]
+                : "Desconocida";
+
             string nombreUsuario = string.IsNullOrWhiteSpace(jsonData.nombre_participante)
                 ? "el usuario"
                 : jsonData.nombre_participante;
+
             bool shouldUseLlm = jsonData.HRI_strategy == 3;
 
-            if (shouldUseLlm && llmAgent != null)
+            if (shouldUseLlm && nombreUsuario != lastParticipantName)
             {
-                // Debug.Log("llmAgent atual: " + llmAgent);
+                last_frase = "";
+                last_frase_llm = "";
+                lastParticipantName = "";
+                frasesSinNombre = 0;
+                limiteFrasesSinNombreActual = SortearLimiteFrasesSinNombre();
+            }
 
-                // Dentro de UpdateJSONText, onde você define o SystemPrompt:
+            if (shouldUseLlm && llmAgent != null && llmAgentHelper != null)
+            {
+                bool primeraFrase = string.IsNullOrWhiteSpace(last_frase_llm);
 
-                llmAgent.SystemPrompt = $@"Eres un asistente de rehabilitación que guía a {nombreUsuario}. 
-                Tu objetivo es dar instrucciones breves, claras y directas en español.
+                bool ultimaTieneNombre = !string.IsNullOrWhiteSpace(last_frase_llm) &&
+                    last_frase_llm.IndexOf(nombreUsuario, StringComparison.OrdinalIgnoreCase) >= 0;
 
-                REGLA DE ORO SOBRE EL NOMBRE:
-                1. Revisa la sección 'ÚLTIMA FRASE' abajo.
-                2. SI la última frase ya contiene el nombre '{nombreUsuario}', está PROHIBIDO usarlo en tu respuesta actual. En su lugar, usa verbos directos (ej: 'Toma el vaso') o el pronombre 'tú'.
-                3. SI la última frase NO contiene el nombre, ENTONCES puedes usarlo para mantener la cercanía, pero solo una vez.
+                bool debeUsarNombre = !ultimaTieneNombre &&
+                    (primeraFrase || frasesSinNombre >= limiteFrasesSinNombreActual);
 
-                ÚLTIMA FRASE ENVIADA:
-                '{last_frase_llm}'
+                bool ritmoAlto = jsonData.Heart_Rate >= umbralRitmoAlto;
 
-                INSTRUCCIÓN TÉCNICA:
+                llmAgent.SystemPrompt = $@"
+                Eres un asistente de rehabilitación que guía a {nombreUsuario}.
+                Tu objetivo es transformar el prompt recibido en una instrucción breve, 
+                clara, directa, motivadora y profesional en español.
+
+                DATOS DEL USUARIO:
+                - Nombre del usuario: {nombreUsuario}
+                - Última frase enviada: ""{last_frase_llm}""
+                - Frases consecutivas sin usar el nombre: {frasesSinNombre}
+                - Límite actual de frases sin nombre: {limiteFrasesSinNombreActual}
+                - Ritmo cardíaco alto: {(ritmoAlto ? "SÍ" : "NO")}
+                - Debe usar el nombre ahora: {(debeUsarNombre ? "SÍ" : "NO")}
+
+                REGLAS SOBRE EL USO DEL NOMBRE:
+                1. Si la última frase ya contiene el nombre ""{nombreUsuario}"", 
+                está PROHIBIDO usar el nombre en la respuesta actual.
+                2. Si ""Debe usar el nombre ahora"" es SÍ, debes usar ""{nombreUsuario}"" 
+                exactamente una vez, de forma natural.
+                3. Si ""Debe usar el nombre ahora"" es NO, puedes no usar el nombre.
+                4. Nunca repitas el nombre más de una vez en la misma respuesta.
+                5. No uses el nombre en todas las frases. El uso debe sonar natural.
+
+                REGLAS SOBRE EL RITMO CARDÍACO:
+                1. Si el ritmo cardíaco alto es SÍ, adapta la instrucción para pedir calma, 
+                menor velocidad o una pausa breve.
+                2. En ese caso, usa frases como:
+                - ""hazlo con calma""
+                - ""respira y continúa despacio""
+                - ""no te apresures""
+                - ""reduce un poco el ritmo""
+                3. No asustes al usuario.
+                4. No menciones números de ritmo cardíaco en ningún caso.
+                5. No hagas diagnóstico médico.
+
+                ESTILO DE RESPUESTA:
                 - No saludes.
                 - No confirmes.
-                - Convierte el prompt que recibirás en una instrucción motivadora y profesional.";
+                - No hagas preguntas.
+                - No expliques el proceso.
+                - No digas que estás siguiendo reglas.
+                - Responde con una sola instrucción.
+                - Mantén la respuesta corta, con máximo 2 frases.
+                - Usa tono profesional, motivador y directo.
 
-                // Debug.Log("SystemPrompt actual: \n" + llmAgent.SystemPrompt);
+                EJEMPLOS DE RESPUESTA:
+                - ""Toma el vaso con calma y mantén el movimiento controlado.""
+                - ""{nombreUsuario}, levanta el brazo despacio y mantén la postura.""
+                - ""Respira, reduce un poco el ritmo y continúa el movimiento con cuidado.""
+                - ""Acerca la mano al objeto sin apresurarte.""";
 
                 string frase = BuildLlmUserInput(jsonData, nombreUsuario, actividadNombre);
-                // Debug.Log("[FRASE PASO] | " + frase);
                 llmAgentHelper.userInput = frase;
                 lastParticipantName = nombreUsuario;
 
@@ -162,6 +262,10 @@ public class DataManager : MonoBehaviour
                     last_frase = frase;
                     llmAgentHelper.SendPrompt();
                 }
+            }
+            else if (shouldUseLlm)
+            {
+                Debug.LogWarning("[DataManager] LLM strategy selected, but LLM references are not assigned.");
             }
 
             uiHolder.activityText.text = $"Act: {actividadNombre}";
@@ -173,11 +277,11 @@ public class DataManager : MonoBehaviour
             uiHolder.emgCounterAText.text = $"Open: {jsonData.EMGA_counter}";
             uiHolder.emgCounterBText.text = $"Close: {jsonData.EMGB_counter}";
 
-
-            // Convertir el tiempo (en segundos) a minutos y segundos con formato "mm:ss s"
+            // Convertir el tiempo en segundos a formato mm:ss
             int totalSeconds = jsonData.tiempo;
             int minutes = totalSeconds / 60;
             int seconds = totalSeconds % 60;
+
             uiHolder.UserTime.text = string.Format("{0:00}:{1:00} s", minutes, seconds);
             uiHolder.User_Time.text = string.Format("Time: {0:00}:{1:00} s", minutes, seconds);
             uiHolder.emgCounterTText.text = $"EMG Total: {jsonData.EMGA_counter + jsonData.EMGB_counter}";
@@ -186,7 +290,7 @@ public class DataManager : MonoBehaviour
 
             if (uiHolder.gripStatus != null)
             {
-                uiHolder.gripStatus.UpdateGripStatus(jsonData.EMGA_counter, jsonData.EMGB_counter, jsonData.GT,jsonData.GM);
+                uiHolder.gripStatus.UpdateGripStatus(jsonData.EMGA_counter, jsonData.EMGB_counter, jsonData.GT, jsonData.GM);
             }
             else
             {
@@ -198,10 +302,9 @@ public class DataManager : MonoBehaviour
                 Debug.LogError("Error: FeedbackManager no está asignado en el Inspector de DataManager.");
                 return;
             }
+
             feedbackManager.ShowFeedback(jsonData.actividad, jsonData.HRI_strategy, jsonData.paso_actividad);
-
             UpdateProgressBar(jsonData.actividad, jsonData.paso_actividad);
-
         }
         catch (System.Exception e)
         {
@@ -247,17 +350,17 @@ public class DataManager : MonoBehaviour
         uiHolder.emgCounterTText.text = "EMG Total: 0";
 
         // HR: Mostrar el valor real del sensor para indicar que sigue conectado
-        uiHolder.heartRateText.text   = $"HR: {heartRate}";
-        uiHolder.UserHR.text          = $"{heartRate}";
+        uiHolder.heartRateText.text = $"HR: {heartRate}";
+        uiHolder.UserHR.text = $"{heartRate}";
 
         // Tiempo
-        uiHolder.UserTime.text  = "00:00 s";
+        uiHolder.UserTime.text = "00:00 s";
         uiHolder.User_Time.text = "Time: 00:00 s";
 
         // Barra de progreso a cero
         uiHolder.progressBar.maxValue = 1;
-        uiHolder.progressBar.value    = 0;
-        uiHolder.progressFill.color   = missingColor;
+        uiHolder.progressBar.value = 0;
+        uiHolder.progressFill.color = missingColor;
 
         if (uiHolder.gripStatus != null)
         {
@@ -268,8 +371,8 @@ public class DataManager : MonoBehaviour
     private string BuildLlmUserInput(HPISData jsonData, string nombreUsuario, string actividadNombre)
     {
         string visualText = feedbackManager != null
-             ? feedbackManager.FindVisualText(jsonData.actividad, jsonData.paso_actividad)
-             : null;
+            ? feedbackManager.FindVisualText(jsonData.actividad, jsonData.paso_actividad)
+            : null;
 
         string fraseBase = !string.IsNullOrWhiteSpace(visualText)
             ? visualText
@@ -279,11 +382,10 @@ public class DataManager : MonoBehaviour
         {
             fraseBase = $"Actividad: {actividadNombre}. Paso: {jsonData.paso_actividad}.";
         }
-        // string fraseBase = $"Actividad: {actividadNombre}. Paso: {jsonData.paso_actividad}.";
+
         return fraseBase
             .Replace("{nombre_usuario}", nombreUsuario)
             .Replace("{actividad}", actividadNombre)
             .Replace("{paso}", jsonData.paso_actividad.ToString());
     }
-
 }
