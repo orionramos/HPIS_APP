@@ -2214,8 +2214,8 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_1"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_1"
             },
             {
               "id": 2,
