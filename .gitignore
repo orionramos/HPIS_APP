@@ -55,6 +55,13 @@ ExportedObj/
 .DS_Store
 Thumbs.db
 
+# ===============
+# ELIMINAR .vscode
+# ===============
 .vscode
+
+# ===============
+# ELIMINAR EL AUDIO
+# ===============
 Assets/Audios/llm_paso_actual.wav
 Assets/Audios/llm_paso_actual.wav.meta
