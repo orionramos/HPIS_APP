@@ -1002,7 +1002,7 @@ MonoBehaviour:
   uiHolder: {fileID: 1073013973383638720, guid: 79f4ba1dfee295649a2fc13b52ef95ed, type: 3}
   uiManager: {fileID: 834588632}
   dataManager: {fileID: 1956258518}
-  serverIp: 172.20.25.152
+  serverIp: 172.20.24.247
   serverPort: 7890
   retryInterval: 5
 --- !u!1 &834588630
@@ -1131,15 +1131,15 @@ MonoBehaviour:
   controllerTransform: {fileID: 1569088692}
   canvasPositionOffset: {x: 0, y: 0.1, z: 0.5}
   canvasRotationOffset: {x: 15, y: 0, z: 0}
-  scaleSpeed: 0.05
-  depthSpeed: 0.05
+  scaleSpeed: 0.1
+  depthSpeed: 0.1
   animationAnchorContainer: {fileID: 0}
   animationAnchorVisualPrefab: {fileID: 8693752549712103973, guid: 39fe4bdc50ad9d0449b563f2ce62f130, type: 3}
   useMesaAsVisualizer: 1
   mesaModel: {fileID: 4400891415418764063, guid: 981a826fee066fd4380ad2651e205bb3, type: 3}
   rotationSpeed: 100
   minAnimationScale: 0.01
-  initialAnimationScale: 0.1
+  initialAnimationScale: 0.5
   moveSpeed: 0.3
 --- !u!1 &1076249470
 GameObject:
@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks.AIBlocks::Meta.XR.BuildingBlocks.AIBlocks.LlmAgent
   providerAsset: {fileID: 11400000, guid: 3141d9255bc3a5d4f86d84396940ff1f, type: 2}
   systemPrompt: 
+  textToSpeechAgent: {fileID: 0}
   onPromptSent:
     m_PersistentCalls:
       m_Calls: []
@@ -2447,6 +2448,8 @@ MonoBehaviour:
   audioRepeatDelay: 10
   animationContainer: {fileID: 1220107625}
   showDebugMessages: 0
+  alphaVideoWidth: 1920
+  alphaVideoHeight: 2160
 --- !u!1 &1956258516
 GameObject:
   m_ObjectHideFlags: 0

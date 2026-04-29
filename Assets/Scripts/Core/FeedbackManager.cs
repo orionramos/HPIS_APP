@@ -76,6 +76,8 @@ public class FeedbackManager : MonoBehaviour
     // NUEVO: Rastrea qué Master Prefab está cargado actualmente
     private string _loadedMasterPrefabName = string.Empty;
 
+
+
     private Dictionary<string, (Vector3 position, Quaternion rotation)> savedObjectStates = new Dictionary<string, (Vector3, Quaternion)>();
 
     void Start()
@@ -121,6 +123,7 @@ public class FeedbackManager : MonoBehaviour
 
         uiHolder.feedbackImage.gameObject.SetActive(false);
         uiHolder.videoDisplay?.gameObject.SetActive(false);
+        uiHolder.videoAlphaDisplay?.gameObject.SetActive(false);
 
         // Solo destruye si NO debemos conservarlo
         if (!keepAnimationPrefab && currentAnimationPrefab != null)
@@ -150,6 +153,7 @@ public class FeedbackManager : MonoBehaviour
         StopMedia(false); // Detiene y destruye todo
         uiHolder?.feedbackText.gameObject.SetActive(false);
         uiHolder?.videoDisplay?.gameObject.SetActive(false);
+        uiHolder?.videoAlphaDisplay?.gameObject.SetActive(false);
         uiHolder?.feedbackImage.gameObject.SetActive(false);
         uiHolder?.notificationPanel?.SetActive(false);
         _lastContentKey = string.Empty;
@@ -322,6 +326,9 @@ public class FeedbackManager : MonoBehaviour
                 break;
             case "video":
                 _mediaCoroutine = StartCoroutine(LoadAndPlayVideo(step.contentValue));
+                break;
+            case "videoalpha":
+                _mediaCoroutine = StartCoroutine(LoadAndPlayVideoAlpha(step.contentValue));
                 break;
             case "animation_prefab":
                 _mediaCoroutine = StartCoroutine(ProcessAnimationPrefab(step.contentValue));
@@ -722,9 +729,34 @@ public class FeedbackManager : MonoBehaviour
         string uri = Path.Combine(Application.streamingAssetsPath, "Videos", name + ".mp4");
         uiHolder.feedbackVideoPlayer.url = uri;
         uiHolder.feedbackVideoPlayer.isLooping = true;
+        
+        // Manejador temporal de errores
+        bool hasError = false;
+        string errorMsg = "";
+        UnityEngine.Video.VideoPlayer.ErrorEventHandler errorHandler = (vp, msg) => {
+            hasError = true;
+            errorMsg = msg;
+        };
+        uiHolder.feedbackVideoPlayer.errorReceived += errorHandler;
+
         uiHolder.feedbackVideoPlayer.Prepare();
 
-        yield return new WaitUntil(() => uiHolder.feedbackVideoPlayer.isPrepared);
+        float timer = 0;
+        while (!uiHolder.feedbackVideoPlayer.isPrepared && timer < 5.0f && !hasError)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        uiHolder.feedbackVideoPlayer.errorReceived -= errorHandler;
+
+        if (hasError || !uiHolder.feedbackVideoPlayer.isPrepared)
+        {
+            Debug.LogError($"[FeedbackManager] Error cargando video {name}.mp4: {errorMsg}");
+            uiHolder.feedbackText.text = $"Video not loaded: {name}.mp4 | Err: {errorMsg}";
+            uiHolder.feedbackText.gameObject.SetActive(true);
+            yield break;
+        }
 
         uiHolder.feedbackVideoPlayer.Play();
         uiHolder.videoDisplay.texture = uiHolder.feedbackVideoPlayer.texture;
@@ -732,6 +764,59 @@ public class FeedbackManager : MonoBehaviour
         if (showDebugMessages)
         {
             uiHolder.feedbackText.text = $"Playing video: {name}.mp4";
+        }
+    }
+
+    // Corrutina para reproducir video con transparencia split-alpha (.webm VP8)
+    IEnumerator LoadAndPlayVideoAlpha(string name)
+    {
+        if (uiHolder == null || uiHolder.feedbackVideoPlayer == null) yield break;
+
+        if (uiHolder.videoAlphaDisplay == null)
+        {
+            Debug.LogError("[FeedbackManager] videoAlphaDisplay no está asignado en UIReferenceHolder.");
+            yield break;
+        }
+
+        string uri = Path.Combine(Application.streamingAssetsPath, "Videos", name + ".mp4");
+        uiHolder.feedbackVideoPlayer.url = uri;
+        uiHolder.feedbackVideoPlayer.isLooping = true;
+
+        // Manejador temporal de errores
+        bool hasError = false;
+        string errorMsg = "";
+        UnityEngine.Video.VideoPlayer.ErrorEventHandler errorHandler = (vp, msg) => {
+            hasError = true;
+            errorMsg = msg;
+        };
+        uiHolder.feedbackVideoPlayer.errorReceived += errorHandler;
+
+        uiHolder.feedbackVideoPlayer.Prepare();
+
+        float timer = 0;
+        while (!uiHolder.feedbackVideoPlayer.isPrepared && timer < 5.0f && !hasError)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        uiHolder.feedbackVideoPlayer.errorReceived -= errorHandler;
+
+        if (hasError || !uiHolder.feedbackVideoPlayer.isPrepared)
+        {
+            Debug.LogError($"[FeedbackManager] Error cargando video alfa {name}.mp4: {errorMsg}");
+            uiHolder.feedbackText.text = $"Video not loaded: {name}.mp4 | Err: {errorMsg}";
+            uiHolder.feedbackText.gameObject.SetActive(true);
+            yield break;
+        }
+
+        uiHolder.feedbackVideoPlayer.Play();
+        uiHolder.videoAlphaDisplay.texture = uiHolder.feedbackVideoPlayer.texture;
+        uiHolder.videoAlphaDisplay.gameObject.SetActive(true);
+
+        if (showDebugMessages)
+        {
+            uiHolder.feedbackText.text = $"Playing alpha video: {name}.mp4";
         }
     }
 
@@ -862,3 +947,4 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 }
+
