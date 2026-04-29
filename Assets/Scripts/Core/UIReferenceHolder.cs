@@ -44,4 +44,8 @@ public class UIReferenceHolder : MonoBehaviour
     public AudioSource audioSource;
     public VideoPlayer feedbackVideoPlayer;
     public RawImage videoDisplay;
+
+    [Header("Alpha Video Display")]
+    [Tooltip("RawImage con Material de shader transparente (ej. UI/Unlit/Transparent) para reproducir videos .webm con canal alfa.")]
+    public RawImage videoAlphaDisplay;
 }
