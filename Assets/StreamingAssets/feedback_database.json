@@ -2219,43 +2219,43 @@
             },
             {
               "id": 2,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_2"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_2"
             },
             {
               "id": 3,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_3"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_3"
             },
             {
               "id": 4,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_4"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_4"
             },
             {
               "id": 5,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_5"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_5"
             },
             {
               "id": 6,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_6"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_6"
             },
             {
               "id": 7,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_7"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_7"
             },
             {
               "id": 8,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_8"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_8"
             },
             {
               "id": 9,
-              "contentType": "animation_prefab",
-              "contentValue": "example_algorithm_5_6_9"
+              "contentType": "videoAlpha",
+              "contentValue": "VideoAlpha_5_6_9"
             }
           ]
         },
