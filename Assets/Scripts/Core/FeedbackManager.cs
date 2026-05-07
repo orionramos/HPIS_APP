@@ -382,6 +382,16 @@ public class FeedbackManager : MonoBehaviour
                     _mediaCoroutine = StartCoroutine(ProcessAnimationState(animStep));
                 }
                 break;
+            case "multimodal3-alpha":
+                // Combine audio (strategy 1) with transparent alpha video (strategy 6 variant)
+                // contentValue format: "audio_name-VideoAlpha_name"
+                parts = step.contentValue.Split('-');
+                if (parts.Length == 2)
+                {
+                    StartCoroutine(LoadAndPlayAudio(parts[0]));
+                    _mediaCoroutine = StartCoroutine(LoadAndPlayVideoAlpha(parts[1]));
+                }
+                break;
             case "generic_text":
                 _mediaCoroutine = StartCoroutine(ProcessCountdown(step.contentValue, 60));
                 break;
