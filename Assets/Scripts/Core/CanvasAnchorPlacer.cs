@@ -1,6 +1,3 @@
-// Copyright (c) Gemini. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEngine.InputSystem;
@@ -34,9 +31,9 @@ namespace HPIS.Anchors
 
         [Header("Ajustes en Tiempo Real")]
         [Tooltip("Velocidad con la que cambia la escala con el joystick.")]
-        [SerializeField] private float scaleSpeed = 0.5f;
+        [SerializeField] private float scaleSpeed = 0.6f;
         [Tooltip("Velocidad con la que cambia la profundidad (eje Z) con el joystick.")]
-        [SerializeField] private float depthSpeed = 0.5f;
+        [SerializeField] private float depthSpeed = 0.6f;
 
         [Header("Animation Anchor")]
         [Tooltip("El transform que contendrá el anchor para las animaciones")]
@@ -57,14 +54,14 @@ namespace HPIS.Anchors
         
         [Header("Animation Anchor Scale")]
         [Tooltip("Escala mínima para el visualizador del anchor de animaciones.")]
-        [SerializeField] private float minAnimationScale = 0.01f;
+        [SerializeField] private float minAnimationScale = 0.001f;
         [Tooltip("Escala inicial para el visualizador del anchor de animaciones. Es un multiplicador, 1 es el tamaño normal.")]
-        [SerializeField] private float initialAnimationScale = 0.1f;
+        [SerializeField] private float initialAnimationScale = 0.01f;
 
         // Variables para el movimiento del anchor de animaciones
         [Header("Animation Anchor Movement")]
         [Tooltip("Velocidad de movimiento del anchor de animaciones con el joystick derecho.")]
-        [SerializeField] private float moveSpeed = 0.3f;
+        [SerializeField] private float moveSpeed = 0.5f;
 
         private GameObject _canvasInstance;
         private bool _isAnchored = false;
