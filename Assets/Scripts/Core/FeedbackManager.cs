@@ -17,7 +17,7 @@ public class FeedbackStep
     public int id;
     public string contentType;
     public string contentValue;
-    public string pip_camera;
+    public string anchor_rotation;
 }
 
 [System.Serializable]
@@ -371,13 +371,13 @@ public class FeedbackManager : MonoBehaviour
                 {
                     StartCoroutine(LoadAndPlayAudio(parts[0]));
 
-                    // Crear un FeedbackStep sintético para ProcessAnimationState
+                   // Crear un FeedbackStep sintético para ProcessAnimationState
                     FeedbackStep animStep = new FeedbackStep
                     {
                         id = step.id,
                         contentType = "animation_state",
                         contentValue = parts[1],     // "Prefab_Master_Actividad1|Act1_1"
-                        pip_camera = step.pip_camera  // heredar pip_camera del paso Multimodal3
+                        anchor_rotation = step.anchor_rotation  // Heredar rotación del ancla
                     };
                     _mediaCoroutine = StartCoroutine(ProcessAnimationState(animStep));
                 }
@@ -506,12 +506,12 @@ public class FeedbackManager : MonoBehaviour
         }
     }
 
-    // NUEVA CORRUTINA: Arquitectura Master Prefab (Máquina de Estados)
-    IEnumerator ProcessAnimationState(FeedbackStep step)
+   // NUEVA CORRUTINA: Arquitectura Master Prefab (Máquina de Estados)
+    private IEnumerator ProcessAnimationState(FeedbackStep step)
     {
         string startKey = _lastContentKey;
         string contentValue = step.contentValue;
-        string pipCameraName = step.pip_camera;
+        string rotationData = step.anchor_rotation; // Leemos la nueva variable
 
         string[] parts = contentValue.Split('|');
         if (parts.Length != 2)
@@ -564,7 +564,7 @@ public class FeedbackManager : MonoBehaviour
 
         yield return null; // Esperar un frame a que Unity despierte componentes
 
-        // 2. Obtener el Animator (buscando en hijos por si está en 'Act1')
+        // 2. Obtener el Animator
         Animator rootAnimator = currentAnimationPrefab.GetComponentInChildren<Animator>();
         if (rootAnimator == null)
         {
@@ -572,14 +572,8 @@ public class FeedbackManager : MonoBehaviour
             yield break;
         }
 
-        // 3. Sistema PiP Dinámico Multicámara
-        // Buscamos el componente en el prefab instanciado
-        var pipController = currentAnimationPrefab.GetComponentInChildren<HPIS.Core.Visuals.PiPDisplayController>();
-        if (pipController != null)
-        {
-            // Activamos la cámara específica indicada en el JSON para este paso
-            pipController.ActivatePiP(pipCameraName);
-        }
+        // 3. Aplicar rotación dinámica al AnimationAnchor_HPIS
+        ApplyAnchorRotation(rotationData);
 
         // 4. Calcular duración exacta del clip actual
         float clipLength = 1f;
@@ -612,6 +606,41 @@ public class FeedbackManager : MonoBehaviour
 
             // Espera de cortesía antes de repetir el bucle
             yield return new WaitForSeconds(3f);
+        }
+    }
+
+    private void ApplyAnchorRotation(string rotationData)
+    {
+        if (animationAnchor == null)
+        {
+            return;
+        }
+
+        // Si viene vacío o "none", puedes decidir si volverlo a 0 o dejarlo como el usuario lo calibró.
+        // En este caso lo reseteamos a 0 asumiendo el origen por defecto.
+        if (string.IsNullOrEmpty(rotationData) || rotationData.ToLower() == "none")
+        {
+            animationAnchor.localEulerAngles = Vector3.zero;
+            return;
+        }
+
+        string[] axes = rotationData.Split(',');
+        if (axes.Length == 3)
+        {
+            if (float.TryParse(axes[0], out float x) &&
+                float.TryParse(axes[1], out float y) &&
+                float.TryParse(axes[2], out float z))
+            {
+                animationAnchor.localEulerAngles = new Vector3(x, y, z);
+            }
+            else
+            {
+                Debug.LogWarning($"[FeedbackManager] No se pudo parsear la rotación del ancla. Valores no numéricos: {rotationData}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"[FeedbackManager] Formato de rotación del ancla inválido. Se espera 'X,Y,Z', se recibió: {rotationData}");
         }
     }
 
