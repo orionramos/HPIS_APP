@@ -192,37 +192,37 @@
               "id": 1,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_1",
-              "pip_camera": "Camara_Protesis"
+              "anchor_rotation": "-60,0,0"
             },
             {
               "id": 2,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_2",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 3,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_3",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 4,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_4",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 5,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_5",
-              "pip_camera": ""
+              "anchor_rotation": "0,90,0"
             },
             {
               "id": 6,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad1|Act1_6",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             }
           ]
         },
@@ -306,37 +306,37 @@
               "id": 1,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_1-Prefab_Master_Actividad1|Act1_1",
-              "pip_camera": "Camara_Protesis"
+              "anchor_rotation": "-60,0,0"
             },
             {
               "id": 2,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_2-Prefab_Master_Actividad1|Act1_2",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 3,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_3-Prefab_Master_Actividad1|Act1_3",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 4,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_4-Prefab_Master_Actividad1|Act1_4",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 5,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_5-Prefab_Master_Actividad1|Act1_5",
-              "pip_camera": ""
+              "anchor_rotation": "0,90,0"
             },
             {
               "id": 6,
               "contentType": "Multimodal3",
               "contentValue": "example_audio_1_3_6-Prefab_Master_Actividad1|Act1_6",
-              "pip_camera": "Camara_ManoSana"
+              "anchor_rotation": "10,180,0"
             }
           ]
         }
@@ -1309,79 +1309,79 @@
               "id": 1,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_1",
-              "pip_camera": ""
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 2,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_2",
-              "pip_camera": ""
+              "anchor_rotation": "0,90,-15"
             },
             {
               "id": 3,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_3",
-              "pip_camera": ""
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 4,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_4",
-              "pip_camera": ""
+              "anchor_rotation": "20,180,0"
             },
             {
               "id": 5,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_5",
-              "pip_camera": ""
+              "anchor_rotation": "20,180,0"
             },
             {
               "id": 6,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_6",
-              "pip_camera": ""
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 7,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_7",
-              "pip_camera": ""
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 8,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_8",
-              "pip_camera": ""
+              "anchor_rotation": "5,180,0"
             },
             {
               "id": 9,
               "contentType": "generic_text",
               "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada.",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 10,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_10",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 11,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_11",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 12,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_12",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             },
             {
               "id": 13,
               "contentType": "animation_state",
               "contentValue": "Prefab_Master_Actividad3|Act3_13",
-              "pip_camera": ""
+              "anchor_rotation": "10,180,0"
             }
           ]
         },
