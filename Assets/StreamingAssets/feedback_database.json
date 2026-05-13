@@ -232,33 +232,33 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_1-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_1-example_image_1_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_2-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_2-example_image_1_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_3-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_3-example_image_1_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_4-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_4-example_image_1_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_5-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_5-example_image_1_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_1_1_6-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_1_1_6-example_image_1_5_6"
             }
           ]
         },
@@ -268,33 +268,33 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_1-example_image_1_5_1"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_1-example_image_1_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_2-example_image_1_5_2"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_2-example_image_1_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_3-example_image_1_5_3"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_3-example_image_1_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_4-example_image_1_5_4"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_4-example_image_1_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_5-example_image_1_5_5"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_5-example_image_1_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_1_2_6-example_image_1_5_6"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_1_3_6-example_image_1_5_6"
             }
           ]
         },
@@ -304,38 +304,38 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_1-Prefab_Master_Actividad1|Act1_1",
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_1_1_1-Prefab_Master_Actividad1|Act1_1",
               "anchor_rotation": "-60,0,0"
             },
             {
               "id": 2,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_2-Prefab_Master_Actividad1|Act1_2",
+              "contentType": "multimodal1-6", 
+              "contentValue": "example_audio_1_1_2-Prefab_Master_Actividad1|Act1_2",
               "anchor_rotation": "10,180,0"
             },
             {
               "id": 3,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_3-Prefab_Master_Actividad1|Act1_3",
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_1_1_3-Prefab_Master_Actividad1|Act1_3",
               "anchor_rotation": "10,180,0"
             },
             {
               "id": 4,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_4-Prefab_Master_Actividad1|Act1_4",
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_1_1_4-Prefab_Master_Actividad1|Act1_4",
               "anchor_rotation": "10,180,0"
             },
             {
               "id": 5,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_5-Prefab_Master_Actividad1|Act1_5",
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_1_1_5-Prefab_Master_Actividad1|Act1_5",
               "anchor_rotation": "0,90,0"
             },
             {
               "id": 6,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_1_3_6-Prefab_Master_Actividad1|Act1_6",
+              "contentType": "multimodal1-6", 
+              "contentValue": "example_audio_1_1_6-Prefab_Master_Actividad1|Act1_6",
               "anchor_rotation": "10,180,0"
             }
           ]
@@ -1391,43 +1391,43 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_1-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_1-example_image_3_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_2-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_2-example_image_3_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_3-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_3-example_image_3_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_4-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_4-example_image_3_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_5-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_5-example_image_3_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_6-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_6-example_image_3_5_6"
             },
             {
               "id": 7,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_7-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_7-example_image_3_5_7"
             },
             {
               "id": 8,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_8-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_8-example_image_3_5_8"
             },
             {
               "id": 9,
@@ -1436,23 +1436,23 @@
             },
             {
               "id": 10,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_9-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_9-example_image_3_5_9"
             },
             {
               "id": 11,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_10-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_10-example_image_3_5_10"
             },
             {
               "id": 12,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_11-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_11-example_image_3_5_11"
             },
             {
               "id": 13,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_3_1_12-text"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_3_1_12-example_image_3_5_12"
             }
           ]
         },
@@ -1462,43 +1462,43 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_1-example_image_3_5_1"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_1-example_image_3_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_2-example_image_3_5_2"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_2-example_image_3_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_3-example_image_3_5_3"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_3-example_image_3_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_4-example_image_3_5_4"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_4-example_image_3_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_5-example_image_3_5_5"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_5-example_image_3_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_6-example_image_3_5_6"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_6-example_image_3_5_6"
             },
             {
               "id": 7,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_7-example_image_3_5_7"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_7-example_image_3_5_7"
             },
             {
               "id": 8,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_8-example_image_3_5_8"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_8-example_image_3_5_8"
             },
             {
               "id": 9,
@@ -1507,23 +1507,23 @@
             },
             {
               "id": 10,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_9-example_image_3_5_9"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_9-example_image_3_5_9"
             },
             {
               "id": 11,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_10-example_image_3_5_10"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_10-example_image_3_5_10"
             },
             {
               "id": 12,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_11-example_image_3_5_11"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_11-example_image_3_5_11"
             },
             {
               "id": 13,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_3_2_12-example_image_3_5_12"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_3_3_12-example_image_3_5_12"
             }
           ]
         },
@@ -1533,81 +1533,81 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_1-Prefab_Master_Actividad3|Act3_1",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_1-Prefab_Master_Actividad3|Act3_1",
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 2,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_2-Prefab_Master_Actividad3|Act3_2",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_2-Prefab_Master_Actividad3|Act3_2",
+              "anchor_rotation": "0,90,-15"
             },
             {
               "id": 3,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_3-Prefab_Master_Actividad3|Act3_3",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_3-Prefab_Master_Actividad3|Act3_3",
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 4,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_4-Prefab_Master_Actividad3|Act3_4",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_4-Prefab_Master_Actividad3|Act3_4",
+              "anchor_rotation": "20,180,0"
             },
             {
               "id": 5,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_5-Prefab_Master_Actividad3|Act3_5",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_5-Prefab_Master_Actividad3|Act3_5",
+              "anchor_rotation": "20,180,0"
             },
             {
               "id": 6,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_6-Prefab_Master_Actividad3|Act3_6",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_6-Prefab_Master_Actividad3|Act3_6",
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 7,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_7-Prefab_Master_Actividad3|Act3_7",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_7-Prefab_Master_Actividad3|Act3_7",
+              "anchor_rotation": "-75,0,0"
             },
             {
               "id": 8,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_8-Prefab_Master_Actividad3|Act3_8",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_8-Prefab_Master_Actividad3|Act3_8",
+              "anchor_rotation":"5,180,0"
             },
             {
               "id": 9,
               "contentType": "generic_text",
               "contentValue": "Por favor, espera 60 segundos para que se enfríe la tostada.",
-              "pip_camera": ""
+              "anchor_rotation":"10,180,0"
             },
             {
               "id": 10,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_9-Prefab_Master_Actividad3|Act3_10",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_9-Prefab_Master_Actividad3|Act3_10",
+              "anchor_rotation":"10,180,0"
             },
             {
               "id": 11,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_10-Prefab_Master_Actividad3|Act3_11",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_10-Prefab_Master_Actividad3|Act3_11",
+              "anchor_rotation":"10,180,0"
             },
             {
               "id": 12,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_11-Prefab_Master_Actividad3|Act3_12",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_11-Prefab_Master_Actividad3|Act3_12",
+              "anchor_rotation":"10,180,0"
             },
             {
               "id": 13,
-              "contentType": "Multimodal3",
-              "contentValue": "example_audio_3_3_12-Prefab_Master_Actividad3|Act3_13",
-              "pip_camera": ""
+              "contentType": "multimodal1-6",
+              "contentValue": "example_audio_3_1_12-Prefab_Master_Actividad3|Act3_13",
+              "anchor_rotation":"10,180,0"
             }
           ]
         }
@@ -1839,33 +1839,33 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_1-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_1-example_image_4_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_2-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_2-example_image_4_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_3-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_3-example_image_4_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_4-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_4-example_image_4_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_5-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_5-example_image_4_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_4_1_6-example_image_4_4_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_4_1_6-example_image_4_5_6"
             }
           ]
         },
@@ -1875,33 +1875,33 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_1-example_image_4_5_1"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_1-example_image_4_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_2-example_image_4_5_2"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_2-example_image_4_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_3-example_image_4_5_3"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_3-example_image_4_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_4-example_image_4_5_4"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_4-example_image_4_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_5-example_image_4_5_5"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_5-example_image_4_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_4_2_6-example_image_4_5_6"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_4_3_6-example_image_4_5_6"
             }
           ]
         },
@@ -2265,48 +2265,48 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_1-example_image_5_7_1"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_1-example_image_5_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_2-example_image_5_7_2"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_2-example_image_5_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_3-example_image_5_7_3"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_3-example_image_5_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_4-example_image_5_7_4"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_4-example_image_5_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_5-example_image_5_7_5"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_5-example_image_5_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_6-example_image_5_7_6"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_6-example_image_5_5_6"
             },
             {
               "id": 7,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_7-example_image_5_7_7"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_7-example_image_5_5_7"
             },
             {
               "id": 8,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_8-example_image_5_7_8"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_8-example_image_5_5_8"
             },
             {
               "id": 9,
-              "contentType": "Multimodal1",
-              "contentValue": "example_audio_5_1_9-example_image_5_7_9"
+              "contentType": "multimodal1-5",
+              "contentValue": "example_audio_5_1_9-example_image_5_5_9"
             }
           ]
         },
@@ -2316,48 +2316,48 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_1-example_image_5_5_1"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_1-example_image_5_5_1"
             },
             {
               "id": 2,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_2-example_image_5_5_2"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_2-example_image_5_5_2"
             },
             {
               "id": 3,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_3-example_image_5_5_3"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_3-example_image_5_5_3"
             },
             {
               "id": 4,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_4-example_image_5_5_4"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_4-example_image_5_5_4"
             },
             {
               "id": 5,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_5-example_image_5_5_5"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_5-example_image_5_5_5"
             },
             {
               "id": 6,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_6-example_image_5_5_6"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_6-example_image_5_5_6"
             },
             {
               "id": 7,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_7-example_image_5_5_7"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_7-example_image_5_5_7"
             },
             {
               "id": 8,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_8-example_image_5_5_8"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_8-example_image_5_5_8"
             },
             {
               "id": 9,
-              "contentType": "Multimodal2",
-              "contentValue": "example_audio_5_2_9-example_image_5_5_9"
+              "contentType": "multimodal3-5",
+              "contentValue": "example_audio_5_3_9-example_image_5_5_9"
             }
           ]
         },
@@ -2367,56 +2367,56 @@
           "steps": [
             {
               "id": 1,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_1-VideoAlpha_5_6_1",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_1-VideoAlpha_5_6_1",
               "pip_camera": ""
             },
             {
               "id": 2,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_2-VideoAlpha_5_6_2",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_2-VideoAlpha_5_6_2",
               "pip_camera": ""
             },
             {
               "id": 3,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_3-VideoAlpha_5_6_3",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_3-VideoAlpha_5_6_3",
               "pip_camera": ""
             },
             {
               "id": 4,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_4-VideoAlpha_5_6_4",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_4-VideoAlpha_5_6_4",
               "pip_camera": ""
             },
             {
               "id": 5,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_5-VideoAlpha_5_6_5",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_5-VideoAlpha_5_6_5",
               "pip_camera": ""
             },
             {
               "id": 6,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_6-VideoAlpha_5_6_6",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_6-VideoAlpha_5_6_6",
               "pip_camera": ""
             },
             {
               "id": 7,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_7-VideoAlpha_5_6_7",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_7-VideoAlpha_5_6_7",
               "pip_camera": ""
             },
             {
               "id": 8,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_8-VideoAlpha_5_6_8",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_8-VideoAlpha_5_6_8",
               "pip_camera": ""
             },
             {
               "id": 9,
-              "contentType": "Multimodal3-alpha",
-              "contentValue": "example_audio_5_3_9-VideoAlpha_5_6_9",
+              "contentType": "multimodal1-6-alpha",
+              "contentValue": "example_audio_5_1_9-VideoAlpha_5_6_9",
               "pip_camera": ""
             }
           ]
