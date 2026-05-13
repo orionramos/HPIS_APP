@@ -923,6 +923,7 @@ public class FeedbackManager : MonoBehaviour
             ? DefaultLlmSavedAudioRelativePath
             : relativePath.Trim().Replace('\\', '/');
 
+#if UNITY_EDITOR
         if (!safeRelativePath.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase))
         {
             safeRelativePath = $"Assets/{safeRelativePath}";
@@ -935,6 +936,10 @@ public class FeedbackManager : MonoBehaviour
         }
 
         return Path.GetFullPath(Path.Combine(projectRoot, safeRelativePath));
+#else
+        string fileName = Path.GetFileName(safeRelativePath);
+        return Path.Combine(Application.persistentDataPath, fileName);
+#endif
     }
 
     private static bool IsGeneratedAudioReady(string path, DateTime requestedAtUtc)

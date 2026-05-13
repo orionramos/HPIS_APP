@@ -92,6 +92,8 @@ namespace HPIS.LLM
                 : outputRelativePath.Trim();
 
             relativePath = relativePath.Replace('\\', '/');
+            
+#if UNITY_EDITOR
             if (!relativePath.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase))
             {
                 relativePath = $"Assets/{relativePath}";
@@ -119,6 +121,14 @@ namespace HPIS.LLM
             }
 
             return fullPath;
+#else
+            string fileName = Path.GetFileName(relativePath);
+            if (!string.Equals(Path.GetExtension(fileName), ".wav", StringComparison.OrdinalIgnoreCase))
+            {
+                fileName = $"{fileName}.wav";
+            }
+            return Path.Combine(Application.persistentDataPath, fileName);
+#endif
         }
 
         private static void WriteWav(string path, AudioClip clip)
