@@ -139,6 +139,7 @@ namespace HPIS.LLM
                 catch (Exception ex)
                 {
                     Debug.LogError($"[TTS] Synthesis failed: {ex}");
+                    ShowErrorOnUI($"[TTS Error]: {ex.Message}");
                     yield break;
                 }
 
@@ -149,6 +150,7 @@ namespace HPIS.LLM
             if (!clip)
             {
                 Debug.LogError("[TTS] No AudioClip returned.");
+                ShowErrorOnUI("[TTS Error]: No AudioClip returned from provider. API Key/CORS?");
                 yield break;
             }
 
@@ -167,6 +169,17 @@ namespace HPIS.LLM
         {
             get => text;
             set => text = value;
+        }
+
+        private void ShowErrorOnUI(string errorMsg)
+        {
+            var uiHolder = FindFirstObjectByType<UIReferenceHolder>();
+            if (uiHolder != null && uiHolder.notificationPanel != null && uiHolder.notificationText != null)
+            {
+                uiHolder.notificationPanel.SetActive(true);
+                uiHolder.notificationText.text = $"<color=red>{errorMsg}</color>";
+                if (uiHolder.feedbackText != null) uiHolder.feedbackText.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -153,6 +153,7 @@ namespace HPIS.LLM
                 if (_chatTask == null)
                 {
                     HandleError("No IChatTask assigned.");
+                    ShowErrorOnUI("[LLM Error]: No IChatTask assigned.");
                     return;
                 }
 
@@ -165,6 +166,18 @@ namespace HPIS.LLM
             {
                 Debug.LogError($"HpisLlmAgent request failed: {ex}");
                 HandleError("(error)");
+                ShowErrorOnUI($"[LLM Error]: {ex.Message}");
+            }
+        }
+
+        private void ShowErrorOnUI(string errorMsg)
+        {
+            var uiHolder = FindFirstObjectByType<UIReferenceHolder>();
+            if (uiHolder != null && uiHolder.notificationPanel != null && uiHolder.notificationText != null)
+            {
+                uiHolder.notificationPanel.SetActive(true);
+                uiHolder.notificationText.text = $"<color=red>{errorMsg}</color>";
+                if (uiHolder.feedbackText != null) uiHolder.feedbackText.gameObject.SetActive(false);
             }
         }
 

@@ -336,7 +336,7 @@ public class FeedbackManager : MonoBehaviour
             case "animation_state": // NUEVO CASO PARA MASTER PREFAB
                 _mediaCoroutine = StartCoroutine(ProcessAnimationState(step));
                 break;
-            case "multimodal1":
+            case "multimodal2":
                 // Combine auditory strategy 1 with visual strategy 4 (text notification)
                 string[] parts = step.contentValue.Split('-');
                 if (parts.Length == 2)
@@ -355,7 +355,7 @@ public class FeedbackManager : MonoBehaviour
                     }
                 }
                 break;
-            case "multimodal2":
+            case "multimodal1-5":
                 // Combine auditory strategy 1 with visual strategy 5 (video)
                 parts = step.contentValue.Split('-');
                 if (parts.Length == 2)
@@ -364,7 +364,17 @@ public class FeedbackManager : MonoBehaviour
                     _mediaCoroutine = StartCoroutine(LoadAndPlayVideo(parts[1]));
                 }
                 break;
-            case "multimodal3":
+            case "multimodal3-5":
+                // Combine auditory strategy 3 (LLM audio) with visual strategy 5 (video)
+                // contentValue format: "dummy_ref-video_name"
+                parts = step.contentValue.Split('-');
+                if (parts.Length == 2)
+                {
+                    StartCoroutine(LoadAndPlayAudioLLM(parts[0]));
+                    _mediaCoroutine = StartCoroutine(LoadAndPlayVideo(parts[1]));
+                }
+                break;
+            case "multimodal1-6":
                 // Combine auditory strategy 3 (audio_llm) with visual strategy 6 (animation_state)
                 parts = step.contentValue.Split('-');
                 if (parts.Length == 2)
@@ -382,7 +392,7 @@ public class FeedbackManager : MonoBehaviour
                     _mediaCoroutine = StartCoroutine(ProcessAnimationState(animStep));
                 }
                 break;
-            case "multimodal3-alpha":
+            case "multimodal1-6-alpha":
                 // Combine audio (strategy 1) with transparent alpha video (strategy 6 variant)
                 // contentValue format: "audio_name-VideoAlpha_name"
                 parts = step.contentValue.Split('-');
@@ -913,6 +923,7 @@ public class FeedbackManager : MonoBehaviour
             ? DefaultLlmSavedAudioRelativePath
             : relativePath.Trim().Replace('\\', '/');
 
+#if UNITY_EDITOR
         if (!safeRelativePath.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase))
         {
             safeRelativePath = $"Assets/{safeRelativePath}";
@@ -925,6 +936,10 @@ public class FeedbackManager : MonoBehaviour
         }
 
         return Path.GetFullPath(Path.Combine(projectRoot, safeRelativePath));
+#else
+        string fileName = Path.GetFileName(safeRelativePath);
+        return Path.Combine(Application.persistentDataPath, fileName);
+#endif
     }
 
     private static bool IsGeneratedAudioReady(string path, DateTime requestedAtUtc)

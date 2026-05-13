@@ -407,8 +407,12 @@ namespace HPIS.Anchors
             _isAnimationAnchored = true;
             Debug.Log("[CanvasAnchorPlacer] Posición del anchor de animaciones fijada.");
 
-            var anchor = _animationAnchorObject.AddComponent<OVRSpatialAnchor>();
-            _animationAnchorObject.name = "AnimationAnchor_HPIS";
+            // Se elimina AddComponent<OVRSpatialAnchor>() para que sea una posición "muerta" y no herede del tracking de Quest
+            // var anchor = _animationAnchorObject.AddComponent<OVRSpatialAnchor>();
+            _animationAnchorObject.name = "AnimationStaticRoot";
+
+            // Se desacopla de la jerarquía (root) para que no herede rotaciones no deseadas del mando ni del Canvas
+            _animationAnchorObject.transform.SetParent(null, true);
 
             // Destruir el visualizador
             if (_animationAnchorVisualInstance != null)

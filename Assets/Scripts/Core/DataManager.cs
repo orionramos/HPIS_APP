@@ -180,7 +180,7 @@ public class DataManager : MonoBehaviour
                 ? "el usuario"
                 : jsonData.nombre_participante;
 
-            bool shouldUseLlm = jsonData.HRI_strategy == 3;
+            bool shouldUseLlm = jsonData.HRI_strategy == 3 || jsonData.HRI_strategy == 8;
 
             if (shouldUseLlm && nombreUsuario != lastParticipantName)
             {
