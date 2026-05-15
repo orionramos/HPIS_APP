@@ -12,6 +12,8 @@ public class ConnectionConfig
 {
     public string serverIp;
     public int serverPort;
+    public string groqApiKey;
+    public string elevenLabsApiKey;
 }
 
 public class WebSocketClient : MonoBehaviour
@@ -27,6 +29,13 @@ public class WebSocketClient : MonoBehaviour
     public string serverIp = "192.168.4.2";
     public int serverPort = 7890;
     public float retryInterval = 5f;
+
+    [Header("LLM API Keys")]
+    [Tooltip("Llave de API para Groq (LlamaApiProvider). Se persiste en ConnectionConfig.json.")]
+    public string groqApiKey = "";
+
+    [Tooltip("Llave de API para ElevenLabs TTS. Se persiste en ConnectionConfig.json.")]
+    public string elevenLabsApiKey = "";
 
     private WebSocket websocket;
     private Queue<Action> mainThreadActions = new Queue<Action>();
@@ -47,8 +56,11 @@ public class WebSocketClient : MonoBehaviour
         // EN EL EDITOR: Ignora el archivo y usa el Inspector (y actualiza el archivo)
         #if UNITY_EDITOR
         SaveDefaultConfig();
+        InjectApiKeysToLlm();
         return;
         #endif
+
+        Debug.Log($"[WebSocketClient] LoadConfig - ruta: {configPath}");
 
         // EN QUEST / BUILD: Prioriza el archivo JSON sobre el Inspector
         if (File.Exists(configPath))
@@ -56,33 +68,75 @@ public class WebSocketClient : MonoBehaviour
             try
             {
                 string json = File.ReadAllText(configPath);
+                Debug.Log($"[WebSocketClient] JSON encontrado: {json}");
+
                 ConnectionConfig config = JsonUtility.FromJson<ConnectionConfig>(json);
-                if(config != null && !string.IsNullOrEmpty(config.serverIp))
+
+                if (config != null && !string.IsNullOrEmpty(config.serverIp))
                 {
                     serverIp = config.serverIp;
                     serverPort = config.serverPort;
+
+                    // MERGE: JSON gana si tiene valor. Inspector gana si el JSON
+                    // no tenia ese campo (JSON viejo sin groqApiKey/elevenLabsApiKey).
+                    // Esto evita pisar los valores del Inspector con string.Empty.
+                    if (!string.IsNullOrEmpty(config.groqApiKey))
+                    {
+                        groqApiKey = config.groqApiKey;
+                    }
+
+                    if (!string.IsNullOrEmpty(config.elevenLabsApiKey))
+                    {
+                        elevenLabsApiKey = config.elevenLabsApiKey;
+                    }
+
+                    // Re-guardar para que el JSON quede completo con todos los campos.
+                    SaveDefaultConfig();
+
+                    Debug.Log($"[WebSocketClient] Config cargada - IP: {serverIp}:{serverPort}");
+                    Debug.Log($"[WebSocketClient] groqApiKey presente: {!string.IsNullOrEmpty(groqApiKey)}");
+                    Debug.Log($"[WebSocketClient] elevenLabsApiKey presente: {!string.IsNullOrEmpty(elevenLabsApiKey)}");
+                }
+                else
+                {
+                    Debug.LogWarning("[WebSocketClient] JSON invalido o serverIp vacio. Usando defaults.");
+                    SaveDefaultConfig();
                 }
             }
             catch (Exception e)
             {
-                Debug.LogError($"Error JSON: {e.Message}");
+                Debug.LogError($"[WebSocketClient] Error leyendo JSON: {e.Message}");
                 SaveDefaultConfig();
             }
         }
         else
         {
+            Debug.Log("[WebSocketClient] JSON no encontrado. Creando con valores del Inspector.");
             SaveDefaultConfig();
         }
+
+        InjectApiKeysToLlm();
     }
 
     private void SaveDefaultConfig()
     {
         try
         {
-            ConnectionConfig config = new ConnectionConfig { serverIp = serverIp, serverPort = serverPort };
-            File.WriteAllText(configPath, JsonUtility.ToJson(config, true));
+            ConnectionConfig config = new ConnectionConfig
+            {
+                serverIp = serverIp,
+                serverPort = serverPort,
+                groqApiKey = groqApiKey,
+                elevenLabsApiKey = elevenLabsApiKey
+            };
+            string json = JsonUtility.ToJson(config, true);
+            File.WriteAllText(configPath, json);
+            Debug.Log($"[WebSocketClient] Config guardada en: {configPath}");
         }
-        catch (Exception e) { Debug.LogError("Error guardando config: " + e.Message); }
+        catch (Exception e)
+        {
+            Debug.LogError("[WebSocketClient] Error guardando config: " + e.Message);
+        }
     }
 
     private void Update()
@@ -197,6 +251,30 @@ public class WebSocketClient : MonoBehaviour
     private void EnqueueMainThreadAction(Action action)
     {
         lock (mainThreadActions) mainThreadActions.Enqueue(action);
+    }
+
+    /// <summary>
+    /// Inyecta las llaves de API cargadas desde ConnectionConfig.json
+    /// directamente en los providerAsset del SDK (LlamaApiProvider y ElevenLabsProvider),
+    /// desacoplando la capa de red de la capa de IA.
+    /// </summary>
+    private void InjectApiKeysToLlm()
+    {
+        if (dataManager == null)
+        {
+            Debug.LogWarning("[WebSocketClient] InjectApiKeysToLlm: dataManager no está asignado.");
+            return;
+        }
+
+        if (dataManager.llmAgent == null)
+        {
+            Debug.LogWarning("[WebSocketClient] InjectApiKeysToLlm: dataManager.llmAgent no está asignado.");
+            return;
+        }
+
+        dataManager.llmAgent.InjectApiKeys(groqApiKey, elevenLabsApiKey);
+
+        Debug.Log("[WebSocketClient] API keys inyectadas correctamente desde ConnectionConfig.json.");
     }
 
     /// <summary>

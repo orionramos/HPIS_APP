@@ -20,6 +20,7 @@
 
 using UnityEngine.Events;
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
 using System;
 using Meta.XR.BuildingBlocks.AIBlocks;
@@ -87,6 +88,47 @@ namespace HPIS.LLM
         {
             preset = p;
             text = GetPresetText(p);
+        }
+
+        /// <summary>
+        /// Inyecta la API key directamente en el providerAsset (ElevenLabsProvider).
+        /// Usa reflexion para acceder al campo 'internal' del SDK desde este assembly.
+        /// Activa OverrideApiKey via IUsesCredential para que el SDK use esta key
+        /// en lugar del CredentialStorage centralizado.
+        /// Llamado por HpisLlmAgent.InjectApiKeys() tras leer ConnectionConfig.json.
+        /// </summary>
+        public void InjectApiKey(string key)
+        {
+            Debug.Log($"[HpisTextToSpeechAgent] InjectApiKey llamado. providerAsset tipo: {(providerAsset != null ? providerAsset.GetType().Name : "NULL")}");
+
+            if (providerAsset != null)
+            {
+                // Intentar inyectar apiKey via reflexion (campo 'internal' en el SDK)
+                FieldInfo apiKeyField = providerAsset.GetType().GetField(
+                    "apiKey",
+                    BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+
+                if (apiKeyField != null)
+                {
+                    apiKeyField.SetValue(providerAsset, key);
+                    Debug.Log($"[HpisTextToSpeechAgent] OK - apiKey seteada en {providerAsset.GetType().Name} via reflexion.");
+                }
+                else
+                {
+                    Debug.LogWarning($"[HpisTextToSpeechAgent] Campo 'apiKey' no encontrado en {providerAsset.GetType().Name}. Ignorando inyeccion.");
+                }
+
+                // OverrideApiKey es propiedad de interfaz publica: accesible sin reflexion.
+                if (providerAsset is IUsesCredential credential)
+                {
+                    credential.OverrideApiKey = true;
+                    Debug.Log($"[HpisTextToSpeechAgent] OK - OverrideApiKey=true en {providerAsset.GetType().Name}.");
+                }
+            }
+            else
+            {
+                Debug.LogError("[HpisTextToSpeechAgent] FALLO - providerAsset es NULL.");
+            }
         }
 
         /// Public entry so other systems (e.g., LLM) can trigger TTS.
