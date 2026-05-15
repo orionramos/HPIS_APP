@@ -9,6 +9,7 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Reflection;
 using UnityEngine.Events;
 using UnityEngine;
 using System;
@@ -44,6 +45,67 @@ namespace HPIS.LLM
         {
             get => systemPrompt;
             set => systemPrompt = value;
+        }
+
+        /// <summary>
+        /// Inyecta las claves de API directamente en los providerAsset del SDK.
+        /// - groqApiKey  → LlamaApiProvider (LLM Groq)
+        /// - elevenLabsApiKey → ElevenLabsProvider (TTS)
+        /// Activa overrideApiKey en cada provider para que el SDK use estas keys
+        /// en lugar del CredentialStorage centralizado.
+        /// Llamado por WebSocketClient tras leer ConnectionConfig.json.
+        /// </summary>
+        public void InjectApiKeys(string groqApiKey, string elevenLabsApiKey)
+        {
+            // Diagnostico: confirmar que el providerAsset es del tipo esperado
+            Debug.Log($"[HpisLlmAgent] InjectApiKeys llamado. providerAsset tipo: {(providerAsset != null ? providerAsset.GetType().Name : "NULL")}");
+            Debug.Log($"[HpisLlmAgent] groqApiKey tiene valor: {!string.IsNullOrEmpty(groqApiKey)} | elevenLabsApiKey tiene valor: {!string.IsNullOrEmpty(elevenLabsApiKey)}");
+
+            // --- LLM: Groq / LlamaApiProvider ---
+            // apiKey es 'internal' en la DLL del SDK: se accede via reflexion.
+            // OverrideApiKey se activa via IUsesCredential (interfaz publica del SDK).
+            // Si GetField retorna null en el Quest, agregar Assets/link.xml fue insuficiente
+            // y se necesita un nuevo build con el link.xml incluido.
+            // --- LLM Injection (Generic for any Provider) ---
+            if (providerAsset != null)
+            {
+                // Intentar inyectar apiKey via reflexion (campo 'internal' en el SDK)
+                FieldInfo apiKeyField = providerAsset.GetType().GetField(
+                    "apiKey",
+                    BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+
+                if (apiKeyField != null)
+                {
+                    apiKeyField.SetValue(providerAsset, groqApiKey);
+                    Debug.Log($"[HpisLlmAgent] OK - apiKey seteada en {providerAsset.GetType().Name} via reflexion.");
+                }
+                else
+                {
+                    Debug.LogWarning($"[HpisLlmAgent] Campo 'apiKey' no encontrado en {providerAsset.GetType().Name}. Ignorando inyeccion de string.");
+                }
+
+                // Habilitar el override para que el SDK ignore el CredentialStorage
+                if (providerAsset is IUsesCredential credential)
+                {
+                    credential.OverrideApiKey = true;
+                    Debug.Log($"[HpisLlmAgent] OK - OverrideApiKey=true en {providerAsset.GetType().Name}.");
+                }
+            }
+            else
+            {
+                Debug.LogError("[HpisLlmAgent] FALLO - providerAsset es NULL. No se puede inyectar la key.");
+            }
+
+            // --- TTS: ElevenLabs ---
+            if (textToSpeechAgent != null)
+            {
+                textToSpeechAgent.InjectApiKey(elevenLabsApiKey);
+            }
+            else
+            {
+                Debug.LogError("[HpisLlmAgent] FALLO - textToSpeechAgent es null. " +
+                               "Verifica la asignacion en el Inspector de HpisLlmAgent.");
+            }
         }
 
         private IChatTask _chatTask;

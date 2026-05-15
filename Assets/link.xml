@@ -1,0 +1,33 @@
+<!--
+    link.xml - IL2CPP Code Stripping Preservation Rules
+    =====================================================
+    Preserva los campos 'internal' de los providers del Meta XR SDK que son
+    accedidos via reflexion en HpisLlmAgent e HpisTextToSpeechAgent para
+    inyectar las API keys cargadas desde ConnectionConfig.json en runtime.
+
+    Sin este archivo, IL2CPP puede eliminar esos campos en el build de Android/Quest,
+    haciendo que GetField() retorne null y la inyeccion falle silenciosamente.
+
+    Assembly verificado en:
+    Scripts/BuildingBlocks/AIBlocks/Meta.XR.BuildingBlocks.AIBlocks.asmdef
+-->
+<linker>
+    <!-- Preservar la clase de configuracion persistente del WebSocketClient -->
+    <assembly fullname="Assembly-CSharp">
+        <type fullname="ConnectionConfig" preserve="all"/>
+        <type fullname="WebSocketClient" preserve="all"/>
+    </assembly>
+
+    <!--
+        Preservar los campos internos del assembly del Meta XR SDK AI Blocks.
+        Esto asegura que 'apiKey' (internal) y 'overrideApiKey' (internal) en
+        LlamaApiProvider y ElevenLabsProvider NO sean eliminados por IL2CPP
+        cuando son accedidos via System.Reflection desde Assembly-CSharp.
+    -->
+    <assembly fullname="Meta.XR.BuildingBlocks.AIBlocks">
+        <type fullname="Meta.XR.BuildingBlocks.AIBlocks.LlamaApiProvider" preserve="all"/>
+        <type fullname="Meta.XR.BuildingBlocks.AIBlocks.ElevenLabsProvider" preserve="all"/>
+        <type fullname="Meta.XR.BuildingBlocks.AIBlocks.IUsesCredential" preserve="all"/>
+        <type fullname="Meta.XR.BuildingBlocks.AIBlocks.AIProviderBase" preserve="all"/>
+    </assembly>
+</linker>
