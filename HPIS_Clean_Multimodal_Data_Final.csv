@@ -1,0 +1,332 @@
+Instruction_Time,Tipo,actividad,HRI_strategy,paso_actividad
+9.408,audio,1,1,1
+9.912,audio,1,1,2
+7.32,audio,1,1,3
+8.856,audio,1,1,4
+6.96,audio,1,1,5
+7.44,audio,1,1,6
+4.608,audio,1,2,1
+5.472,audio,1,2,2
+4.8,audio,1,2,3
+4.824,audio,1,2,4
+4.872,audio,1,2,5
+6.192,audio,1,2,6
+13.512,audio,1,3,1
+15.6,audio,1,3,2
+12.336,audio,1,3,3
+14.088,audio,1,3,4
+12.84,audio,1,3,5
+16.68,audio,1,3,6
+4.843,image,1,5,1
+2.134,image,1,5,2
+3.35,image,1,5,3
+5.547,image,1,5,4
+11.478,image,1,5,5
+5.056,image,1,5,6
+5.792,3d,1,6,1
+6.625,3d,1,6,2
+5.042,3d,1,6,3
+12.708,3d,1,6,4
+9.167,3d,1,6,5
+13.333,3d,1,6,6
+9.408,combinacion 1-5,1,7,1
+9.912,combinacion 1-5,1,7,2
+7.32,combinacion 1-5,1,7,3
+8.856,combinacion 1-5,1,7,4
+11.478,combinacion 1-5,1,7,5
+7.44,combinacion 1-5,1,7,6
+13.512,combinacion 3-5,1,8,1
+15.6,combinacion 3-5,1,8,2
+12.336,combinacion 3-5,1,8,3
+14.088,combinacion 3-5,1,8,4
+12.84,combinacion 3-5,1,8,5
+16.68,combinacion 3-5,1,8,6
+9.408,combinacion 1-6,1,9,1
+9.912,combinacion 1-6,1,9,2
+7.32,combinacion 1-6,1,9,3
+12.708,combinacion 1-6,1,9,4
+9.167,combinacion 1-6,1,9,5
+13.333,combinacion 1-6,1,9,6
+4.776,audio,2,1,1
+8.76,audio,2,1,2
+3.48,audio,2,1,3
+12.48,audio,2,1,4
+9.144,audio,2,1,5
+4.296,audio,2,1,6
+4.992,audio,2,1,7
+5.112,audio,2,1,8
+2.856,audio,2,1,9
+4.128,audio,2,1,10
+4.872,audio,2,1,11
+2.904,audio,2,2,1
+2.328,audio,2,2,2
+2.544,audio,2,2,3
+2.544,audio,2,2,4
+5.208,audio,2,2,5
+2.664,audio,2,2,6
+2.664,audio,2,2,7
+2.448,audio,2,2,8
+2.928,audio,2,2,9
+2.64,audio,2,2,10
+2.856,audio,2,2,11
+4.728,audio,2,3,1
+6.6,audio,2,3,2
+3.456,audio,2,3,3
+6.864,audio,2,3,4
+5.832,audio,2,3,5
+4.392,audio,2,3,6
+4.896,audio,2,3,7
+3.816,audio,2,3,8
+2.712,audio,2,3,9
+3.624,audio,2,3,10
+4.416,audio,2,3,11
+0,combinacion 1-5,2,7,1
+0,combinacion 1-5,2,7,2
+0,combinacion 1-5,2,7,3
+0,combinacion 1-5,2,7,4
+0,combinacion 1-5,2,7,5
+0,combinacion 1-5,2,7,6
+0,combinacion 1-5,2,7,7
+0,combinacion 1-5,2,7,8
+0,combinacion 1-5,2,7,9
+0,combinacion 1-5,2,7,10
+0,combinacion 1-5,2,7,11
+0,combinacion 1-5,2,7,12
+0,combinacion 3-5,2,8,1
+0,combinacion 3-5,2,8,2
+0,combinacion 3-5,2,8,3
+0,combinacion 3-5,2,8,4
+0,combinacion 3-5,2,8,5
+0,combinacion 3-5,2,8,6
+0,combinacion 3-5,2,8,7
+0,combinacion 3-5,2,8,8
+0,combinacion 3-5,2,8,9
+0,combinacion 3-5,2,8,10
+0,combinacion 3-5,2,8,11
+0,combinacion 3-5,2,8,12
+0,combinacion 1-6,2,9,1
+0,combinacion 1-6,2,9,2
+0,combinacion 1-6,2,9,3
+0,combinacion 1-6,2,9,4
+0,combinacion 1-6,2,9,5
+0,combinacion 1-6,2,9,6
+0,combinacion 1-6,2,9,7
+0,combinacion 1-6,2,9,8
+0,combinacion 1-6,2,9,9
+0,combinacion 1-6,2,9,10
+0,combinacion 1-6,2,9,11
+0,combinacion 1-6,2,9,12
+7.104,audio,3,1,1
+7.032,audio,3,1,2
+9.6,audio,3,1,3
+8.424,audio,3,1,4
+9.216,audio,3,1,5
+10.824,audio,3,1,6
+7.464,audio,3,1,7
+6.288,audio,3,1,8
+7.752,audio,3,1,9
+9.552,audio,3,1,10
+6.576,audio,3,1,11
+11.784,audio,3,1,12
+3.744,audio,3,2,1
+3.672,audio,3,2,2
+6.72,audio,3,2,3
+4.152,audio,3,2,4
+6.624,audio,3,2,5
+6.528,audio,3,2,6
+5.856,audio,3,2,7
+2.784,audio,3,2,8
+5.976,audio,3,2,9
+5.928,audio,3,2,10
+4.056,audio,3,2,11
+2.496,audio,3,2,12
+11.904,audio,3,3,1
+9.192,audio,3,3,2
+15.96,audio,3,3,3
+12.96,audio,3,3,4
+14.664,audio,3,3,5
+14.712,audio,3,3,6
+11.112,audio,3,3,7
+13.2,audio,3,3,8
+12.888,audio,3,3,9
+14.256,audio,3,3,10
+10.344,audio,3,3,11
+17.832,audio,3,3,12
+2.048,image,3,5,1
+4.8,image,3,5,2
+8.171,image,3,5,3
+11.926,image,3,5,4
+7.936,image,3,5,5
+4.182,image,3,5,6
+5.184,image,3,5,7
+3.35,image,3,5,8
+11.094,image,3,5,9
+11.712,image,3,5,10
+3.627,image,3,5,11
+11.926,image,3,5,12
+5.0,3d,3,6,1
+3.333,3d,3,6,2
+5.417,3d,3,6,3
+3.333,3d,3,6,4
+10.0,3d,3,6,5
+9.167,3d,3,6,6
+11.25,3d,3,6,7
+4.167,3d,3,6,8
+1.042,3d,3,6,9
+36.458,3d,3,6,10
+12.917,3d,3,6,11
+8.958,3d,3,6,12
+15.0,3d,3,6,13
+7.104,combinacion 1-5,3,7,1
+7.032,combinacion 1-5,3,7,2
+9.6,combinacion 1-5,3,7,3
+11.926,combinacion 1-5,3,7,4
+9.216,combinacion 1-5,3,7,5
+10.824,combinacion 1-5,3,7,6
+7.464,combinacion 1-5,3,7,7
+6.288,combinacion 1-5,3,7,8
+0,combinacion 1-5,3,7,9
+11.094,combinacion 1-5,3,7,10
+11.712,combinacion 1-5,3,7,11
+6.576,combinacion 1-5,3,7,12
+11.926,combinacion 1-5,3,7,13
+11.904,combinacion 3-5,3,8,1
+9.192,combinacion 3-5,3,8,2
+15.96,combinacion 3-5,3,8,3
+12.96,combinacion 3-5,3,8,4
+14.664,combinacion 3-5,3,8,5
+14.712,combinacion 3-5,3,8,6
+11.112,combinacion 3-5,3,8,7
+13.2,combinacion 3-5,3,8,8
+0,combinacion 3-5,3,8,9
+12.888,combinacion 3-5,3,8,10
+14.256,combinacion 3-5,3,8,11
+10.344,combinacion 3-5,3,8,12
+17.832,combinacion 3-5,3,8,13
+7.104,combinacion 1-6,3,9,1
+7.032,combinacion 1-6,3,9,2
+9.6,combinacion 1-6,3,9,3
+8.424,combinacion 1-6,3,9,4
+10.0,combinacion 1-6,3,9,5
+10.824,combinacion 1-6,3,9,6
+11.25,combinacion 1-6,3,9,7
+6.288,combinacion 1-6,3,9,8
+0,combinacion 1-6,3,9,9
+36.458,combinacion 1-6,3,9,10
+12.917,combinacion 1-6,3,9,11
+8.958,combinacion 1-6,3,9,12
+15.0,combinacion 1-6,3,9,13
+8.736,audio,4,1,1
+11.304,audio,4,1,2
+10.008,audio,4,1,3
+9.816,audio,4,1,4
+10.176,audio,4,1,5
+9.936,audio,4,1,6
+4.608,audio,4,2,1
+7.32,audio,4,2,2
+5.568,audio,4,2,3
+7.656,audio,4,2,4
+4.536,audio,4,2,5
+5.52,audio,4,2,6
+15.048,audio,4,3,1
+20.496,audio,4,3,2
+20.448,audio,4,3,3
+17.232,audio,4,3,4
+16.944,audio,4,3,5
+16.488,audio,4,3,6
+5.056,image,4,5,1
+6.102,image,4,5,2
+10.646,image,4,5,3
+8.171,image,4,5,4
+7.467,image,4,5,5
+13.142,image,4,5,6
+8.736,combinacion 1-5,4,7,1
+11.304,combinacion 1-5,4,7,2
+10.646,combinacion 1-5,4,7,3
+9.816,combinacion 1-5,4,7,4
+10.176,combinacion 1-5,4,7,5
+13.142,combinacion 1-5,4,7,6
+15.048,combinacion 3-5,4,8,1
+20.496,combinacion 3-5,4,8,2
+20.448,combinacion 3-5,4,8,3
+17.232,combinacion 3-5,4,8,4
+16.944,combinacion 3-5,4,8,5
+16.488,combinacion 3-5,4,8,6
+15.048,combinacion 1-6,4,9,1
+20.496,combinacion 1-6,4,9,2
+20.448,combinacion 1-6,4,9,3
+17.232,combinacion 1-6,4,9,4
+16.944,combinacion 1-6,4,9,5
+16.488,combinacion 1-6,4,9,6
+7.968,audio,5,1,1
+10.464,audio,5,1,2
+9.624,audio,5,1,3
+7.416,audio,5,1,4
+8.688,audio,5,1,5
+10.584,audio,5,1,6
+6.144,audio,5,1,7
+11.304,audio,5,1,8
+8.76,audio,5,1,9
+3.168,audio,5,2,1
+6.36,audio,5,2,2
+7.08,audio,5,2,3
+5.904,audio,5,2,4
+4.776,audio,5,2,5
+8.904,audio,5,2,6
+6.6,audio,5,2,7
+5.784,audio,5,2,8
+3.528,audio,5,2,9
+16.224,audio,5,3,1
+16.152,audio,5,3,2
+14.808,audio,5,3,3
+11.664,audio,5,3,4
+14.064,audio,5,3,5
+18.48,audio,5,3,6
+11.04,audio,5,3,7
+19.32,audio,5,3,8
+12.192,audio,5,3,9
+3.627,image,5,5,1
+8.96,image,5,5,2
+8.086,image,5,5,3
+4.31,image,5,5,4
+3.968,image,5,5,5
+16.896,image,5,5,6
+20.438,image,5,5,7
+37.718,image,5,5,8
+6.806,image,5,5,9
+3.584,3d,5,6,1
+3.0,3d,5,6,2
+2.542,3d,5,6,3
+2.292,3d,5,6,4
+2.959,3d,5,6,5
+3.875,3d,5,6,6
+2.542,3d,5,6,7
+8.167,3d,5,6,8
+2.25,3d,5,6,9
+7.968,combinacion 1-5,5,7,1
+10.464,combinacion 1-5,5,7,2
+9.624,combinacion 1-5,5,7,3
+7.416,combinacion 1-5,5,7,4
+8.688,combinacion 1-5,5,7,5
+16.896,combinacion 1-5,5,7,6
+20.438,combinacion 1-5,5,7,7
+37.718,combinacion 1-5,5,7,8
+8.76,combinacion 1-5,5,7,9
+16.224,combinacion 3-5,5,8,1
+16.152,combinacion 3-5,5,8,2
+14.808,combinacion 3-5,5,8,3
+11.664,combinacion 3-5,5,8,4
+14.064,combinacion 3-5,5,8,5
+18.48,combinacion 3-5,5,8,6
+20.438,combinacion 3-5,5,8,7
+37.718,combinacion 3-5,5,8,8
+12.192,combinacion 3-5,5,8,9
+7.968,combinacion 1-6,5,9,1
+10.464,combinacion 1-6,5,9,2
+9.624,combinacion 1-6,5,9,3
+7.416,combinacion 1-6,5,9,4
+8.688,combinacion 1-6,5,9,5
+10.584,combinacion 1-6,5,9,6
+6.144,combinacion 1-6,5,9,7
+11.304,combinacion 1-6,5,9,8
+8.76,combinacion 1-6,5,9,9
